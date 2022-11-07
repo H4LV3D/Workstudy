@@ -39,7 +39,7 @@ $added = false;
 
 <?php
     // database connection
-    include('config.php');
+    // include('config.php');
 
     $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
     $result = mysqli_query($con,$sql);
@@ -165,14 +165,18 @@ $added = false;
             <td class='text-center'>Total Time:</td>
             <td class='text-center'>
               <?php
-                require('config.php');
+                // require('config.php');
 
                 $table_sum="SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
 
                 $sum_table = mysqli_query($con,$table_sum);
                 while ($row = mysqli_fetch_assoc($sum_table))
                 { 
-                  echo round($row['total'], 2);
+                  if ($row['total'] != null) {
+                    echo round($row['total'], 2);
+                  } else {
+                    echo "No record found";
+                  }
                 }
 
                 mysqli_close($con);

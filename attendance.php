@@ -113,18 +113,25 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
         $student_name = $row['Last_Name']. " ".$row['Other_Name'];
         
         $timein = date("H:i", strtotime("+1 HOURS"));
+        $timeout = '';
+        $total_time = '0';
+        $last_id = mysqli_insert_id($con);
         // $timein = time.now();
         $date = date("Y-m-d", strtotime("+1 HOURS"));
         $sessid = $_SESSION['id'];
 
         $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
         $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
-        $whour = $pullwh['total_time'];
+        if ($pullwh != null){
+          $whour = $pullwh['total_time'];
+        } else {
+          $whour = 0;
+        }
 
         if($whour<=0){
           echo "<p class = 'para'>" . "You have already signed in</p>";
         } else {
-          $con->query("INSERT INTO `time_table` VALUES('', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+          $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
           echo "<p class = 'para'>"."Signed in "." <label class = ''>at  ".date("h:i a", strtotime($timein))."</label></p>"; 
         }
       }
