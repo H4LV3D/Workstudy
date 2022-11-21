@@ -104,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Admin Login | Coding Cush</title>
+    <title>Admin | WorkStudy</title>
 </head>
 
 <body>
@@ -124,8 +124,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </nav>
 
     <div class="container my-4">
-
-        <div class="card mx-auto" style="width: 20rem;"><br>
+        <div class="card mx-auto" style="width: 24rem;"><br>
             <img class="card-img-top mx-auto"
                 src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg" style="width: 60%; "
                 alt="Card image cap">
@@ -143,19 +142,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <span class="help-block"><?php echo $password_err; ?></span>
                     </div>
 
-                    <button type="submit" class="btn btn-warning"><i class="fa fa-lock">&nbsp;</i> Login</button> &nbsp;
-                    &nbsp;
-                    <button type="reset" class="btn btn-danger "><i class="fa fa-repeat">&nbsp;</i> Reset</button>
+                    <button type="submit" class="col-12 btn btn-warning mb-3"><i class="fa fa-lock">&nbsp;</i>
+                        Login</button>
+                    <br>
+                    <button type="reset" class="col-12 btn btn-danger mb-2"><i class="fa fa-repeat">&nbsp;</i>
+                        Reset</button>
+                    <a href="#">Forget Password </a>
                 </form>
             </div>
-            <div class="card-footer"><a href="#">Forget Password </a></div>
         </div>
     </div>
 
-    <!--footer section-->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
