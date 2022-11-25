@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
   <meta charset="utf-8">
   <title>Work Study Portal</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -148,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       
       <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
         <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-          <img src="logo.png" class="image" alt="logo">
+          <img src="/assets/images/logo.png" class="image" alt="logo">
           <br>
           <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Work Study Portal</a></h1>
         </div>
