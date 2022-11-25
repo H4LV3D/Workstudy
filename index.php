@@ -55,10 +55,6 @@ $added = false;
 
 ?>
 
-
-
-
-
         <a href="logout.php" class="btn btn-success"><i class="fa fa-lock"></i> Logout</a>
         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">
             <!-- <a href="addstudent.php" class="fa fa-plus"></a> Add New Student -->
@@ -117,9 +113,6 @@ $added = false;
             <input type="submit" name="export" class="btn btn-success" value="Export Data" />
         </form>
     </div>
-
-
-
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
