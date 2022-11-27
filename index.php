@@ -38,8 +38,8 @@ $added = false;
 <body>
 
     <div class="container">
-        <a href="https://lexacademy.in" target="_blank"><img
-                src="https://lexacademy.in/wp-content/uploads/2021/07/lex-academy-online-learning-platform-1.png" alt=""
+        <a href="x" target="_blank"><img
+                src="x" alt=""
                 width="350px"></a><br>
         <hr>
 
@@ -61,7 +61,7 @@ $added = false;
             <a href="addstudent.php" class="fa fa-plus">Add New Student</a>
 
         </button>
-        <a href="export.php" class="btn btn-success pull-right"><i class="fa fa-download"></i> Export Data</a>
+
         <hr>
         <table class="table table-bordered table-striped table-hover" id="myTable">
             <thead>

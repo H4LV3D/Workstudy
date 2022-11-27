@@ -28,7 +28,7 @@ if(isset($_POST["export"]))
    $output .= '
     <tr>  
                          <td > '.$sl.' </td> 
-                         <td>'.$row["Other_Name"]  .$row["U_Last_name"].'</td>  
+                         <td>'.$row["Other_Name"] .' '. $row["Last_Name"].'</td>  
                          <td>'.$row["Matric_No"].'</td>  
                          <td>'.$row["Email"].'</td>  
                          <td>'.$row["Program"].'</td>  
