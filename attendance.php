@@ -146,7 +146,6 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
           echo "<p class = 'para'>"."Signed in "." <label class = ''>at  ".date("h:i a", strtotime($timein))."</label></p>"; 
         }
       }
-
         ?>
 
                     <?php
@@ -189,12 +188,7 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
 
             </div>
         </div>
-
     </section>
-    <script>
-    let placed = '<?php echo $place; ?>';
-    console.log(placed);
-    </script>
 </body>
 
 </html>
