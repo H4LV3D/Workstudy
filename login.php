@@ -9,7 +9,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
  
 // Include config file
-require_once "config.php";
+// require_once "config.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -103,95 +103,98 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Work Study Portal</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>Work Study Portal</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 
 <body>
-  <div class="login-root">
-    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
-      <div class="loginbackground box-background--white padding-top--64">
-        <div class="loginbackground-gridContainer">
-          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
-            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
-            </div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
-            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
-            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
-            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
-            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
-            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
-            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
-            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
-            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
-          </div>
-        </div>
-      </div>
- 
-      
-      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
-        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-          <img src="logo.png" class="image" alt="logo">
-          <br>
-          <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Work Study Portal</a></h1>
-        </div>
-        <div class="formbg-outer">
-          <div class="formbg">
-            <div class="formbg-inner padding-horizontal--48">
-              <span class="padding-bottom--15">Sign in to your account</span>
-              <!-- <form id="stripe-login"> -->
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  id="stripe-login" method="post">
-                <div class="field padding-bottom--24 form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                  <label for="email">Username</label>
-                  <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                  <span class="help-block"><?php echo $username_err; ?></span>
-                </div>
-                <div class="field padding-bottom--24 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                  <div class="grid--50-50">
-                    <label for="password">Password</label>
-                    <div class="reset-pass">
-                      <a href="reset-password.php">Forgot your password?</a>
+    <div class="login-root">
+        <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+            <div class="loginbackground box-background--white padding-top--64">
+                <div class="loginbackground-gridContainer">
+                    <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                        <div class="box-root"
+                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                        </div>
                     </div>
-                  </div>
-                  <!-- <input type="password" name="password"> -->
-                  <input type="password" name="password" class="form-control">
-                  <span class="help-block"><?php echo $password_err; ?></span>
-                </div>  
-                <div class="field padding-bottom--24">
-                  <input type="submit" name="submit" value="Continue" class="btn btn-warning"><i class="fa fa-lock">&nbsp;</i>
-                  <!-- <button type="submit" class="btn btn-warning"><i class="fa fa-lock">&nbsp;</i> Login</button> &nbsp; &nbsp;  -->
+                    <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                        <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                        <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                        <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                        <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                        <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                        <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                        <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                        <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
                 </div>
-              </form>
             </div>
-          </div>
-          <div class="footer-link padding-top--24">
-            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-              <span><a href="#">©workstudy</a></span>
-              <span><a href="mailto:seald@covenantuniversity.edu.ng">Contact</a></span>
-              <span><a href="#">Privacy & terms</a></span>
+
+
+            <img src="/assets/images/logo.png" class="image" alt="logo">
+            <div class="box-root flex-flex flex-direction--column center-center" style="flex-grow: 1; z-index: 9;">
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <div class="formbg-inner padding-horizontal--48">
+                            <h2 class="padding-bottom--8">Work Study Portal</h2>
+                            <p class="padding-bottom--24">Sign in to your account</p>
+                            <!-- <form id="stripe-login"> -->
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login"
+                                method="post">
+                                <div class="field form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                    <label for="email">Matric No.</label>
+                                    <input type="text" name="username" class="form-control"
+                                        value="<?php echo $username; ?>">
+                                    <span class="help-block"><?php echo $username_err; ?></span>
+                                </div>
+                                <div
+                                    class="field padding-bottom--48 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control">
+                                    <!-- <span class="help-block"><?php echo $password_err; ?></span> -->
+                                    <p>
+                                        <a href="reset-password.php" class="reset">Forgot your password?</a>
+                                    </p>
+                                </div>
+                                <div class="field padding-bottom--15">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-warning"><i
+                                        class="fa fa-lock">&nbsp;</i>
+                                </div>
+                            </form>
+                            <div class="listing reset-pass padding-top--15 flex-flex center-center">
+                                <p><a href="https://portal.workstudy.edu.ng">©workstudy</a></p>
+                                <p><a href="https://workstudy.cu.edu.ng">Home</a></p>
+                                <p><a href="mailto:seald@covenantuniversity.edu.ng">Contact</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </body>
 
 </html>

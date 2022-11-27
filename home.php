@@ -61,7 +61,7 @@ $added = false;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="side.css">
+    <link rel="stylesheet" href="/assets/css/side.css">
 </head>
 
 <body>
@@ -102,7 +102,7 @@ $added = false;
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="profile.jpg">
+                    <img src="/assets/images/profile.jpg">
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
                         <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
@@ -121,7 +121,7 @@ $added = false;
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="me.png" alt="Admin" class="rounded-circle" width="150">
+                                    <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150">
                                     <div class="mt-3">
                                         <h4><?php echo  $row['Last_Name'] . " " . $row['Other_Name']; ?> </h4>
                                         <p class="text-secondary mb-1">Eletrical Electronics</p>
@@ -252,11 +252,6 @@ $added = false;
     let searchBtn = document.querySelector(".bx-search");
 
     closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
-    });
-
-    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search icon
         sidebar.classList.toggle("open");
         menuBtnChange(); //calling the function(optional)
     });
