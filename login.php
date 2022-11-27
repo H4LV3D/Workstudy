@@ -159,19 +159,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="formbg">
                         <div class="formbg-inner padding-horizontal--48">
                             <h2 class="padding-bottom--8">Work Study Portal</h2>
-                            <p class="padding-bottom--15">Sign in to your account</p>
+                            <p class="padding-bottom--24">Sign in to your account</p>
                             <!-- <form id="stripe-login"> -->
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login"
                                 method="post">
-                                <div
-                                    class="field padding-bottom--24 form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                    <label for="email">Username</label>
+                                <div class="field form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                    <label for="email">Matric No.</label>
                                     <input type="text" name="username" class="form-control"
                                         value="<?php echo $username; ?>">
                                     <span class="help-block"><?php echo $username_err; ?></span>
                                 </div>
                                 <div
-                                    class="field padding-bottom--24 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                    class="field padding-bottom--48 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
 
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
@@ -186,9 +185,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 </div>
                             </form>
                             <div class="listing reset-pass padding-top--15 flex-flex center-center">
-                                <p><a href="#">©workstudy</a></p>
+                                <p><a href="https://portal.workstudy.edu.ng">©workstudy</a></p>
+                                <p><a href="https://workstudy.cu.edu.ng">Home</a></p>
                                 <p><a href="mailto:seald@covenantuniversity.edu.ng">Contact</a></p>
-                                <p><a href="#">Privacy & terms</a></p>
                             </div>
                         </div>
                     </div>

@@ -106,6 +106,9 @@ a {
 .padding-bottom--24 {
   padding-bottom: 24px;
 }
+.padding-bottom--48 {
+  padding-bottom: 48px;
+}
 .padding-horizontal--48 {
   padding: 48px;
 }
@@ -145,7 +148,8 @@ span {
   font-size: 12px;
 }
 label {
-  margin-bottom: 10px;
+  margin-bottom: 0.2rem;
+  color: #797979 !important;
 }
 .reset-pass a,
 label {
