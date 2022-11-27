@@ -23,9 +23,6 @@ body {
   width: 70px;
   z-index: 2;
 }
-h1 {
-  letter-spacing: -1px;
-}
 a {
   color: #996399;
   text-decoration: unset;
@@ -67,10 +64,7 @@ a {
 .loginbackground-gridContainer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: [start] 1fr [left-gutter] (86.6px) [16] [left-gutter] 1fr
-    [end];
   grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
-  -ms-grid-rows: [top] 1fr [top-gutter] (64px) [8] [bottom-gutter] 1fr [bottom];
   grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
   justify-content: center;
   margin: 0 -2%;
@@ -126,12 +120,26 @@ a {
 
 .formbg {
   margin: auto auto;
-  width: 100%;
-  width: 410px;
+  width: 25em;
   background: white;
   border-radius: 4px;
   box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
     rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+@media only screen and (max-width: 600px) {
+  .formbg {
+    max-width: 20em;
+    margin: 25px 0px !important;
+  }
+
+  .image {
+    position: absolute;
+    top: 13%;
+    left: 38%;
+    height: 70px;
+    width: 70px;
+    z-index: 2;
+  }
 }
 span {
   display: block;
