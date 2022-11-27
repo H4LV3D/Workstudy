@@ -1,6 +1,7 @@
 <?php
 // Initialize the session
 session_start();
+require_once "config.php";
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -107,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="utf-8">
     <title>Work Study Portal</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 </head>
 
 <body>
@@ -160,7 +161,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="formbg-inner padding-horizontal--48">
                             <h2 class="padding-bottom--8">Work Study Portal</h2>
                             <p class="padding-bottom--24">Sign in to your account</p>
-                            <!-- <form id="stripe-login"> -->
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login"
                                 method="post">
                                 <div class="field form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -174,11 +174,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
-                                    <!-- <span class="help-block"><?php echo $password_err; ?></span> -->
                                     <p>
                                         <a href="reset-password.php" class="reset">Forgot your password?</a>
                                     </p>
                                 </div>
+                                <span class="help-block"><?php echo $password_err; ?></span>
                                 <div class="field padding-bottom--15">
                                     <input type="submit" name="submit" value="Login" class="btn btn-warning"><i
                                         class="fa fa-lock">&nbsp;</i>

@@ -176,11 +176,9 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  /* font-family: "Sacramento", cursive; */
   color: #fff;
   background: #333;
   background-color: #996399;
-  /* background-image: radial-gradient(ellipse at bottom left, #00a3cb 40%, rgba(0, 163, 203, 0) 40%), radial-gradient(ellipse at top right, #00a3cb 30%, rgba(0, 163, 203, 0) 30%), linear-gradient(to right, #625793 0%, #625793 33%, #d55d64 33%, #d55d64 66%, #e49129 66%); */
   background-size: 50% 100%;
 }
 body .message {
