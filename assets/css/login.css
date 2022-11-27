@@ -97,6 +97,9 @@ a {
 .padding-top--48 {
   padding-top: 48px;
 }
+.padding-top--8 {
+  padding-top: 8px;
+}
 .padding-bottom--24 {
   padding-bottom: 24px;
 }
@@ -154,6 +157,10 @@ span {
 }
 .reset {
   font-size: 12px;
+}
+.text-red {
+  color: red;
+  font-size: 13px;
 }
 label {
   margin-bottom: 0.2rem;

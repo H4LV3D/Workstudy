@@ -79,12 +79,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: home.php");
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
+                            $password_err = "Invalid Username or password";
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                    $username_err = "Invalid Matric No.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -167,18 +167,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     <label for="email">Matric No.</label>
                                     <input type="text" name="username" class="form-control"
                                         value="<?php echo $username; ?>">
-                                    <span class="help-block"><?php echo $username_err; ?></span>
+                                    <p class="padding-bottom--15 padding-top--8 flex-flex center-center text-red">
+                                        <?php echo $username_err; ?>
+                                    </p>
                                 </div>
                                 <div
-                                    class="field padding-bottom--48 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-
+                                    class="field padding-bottom--24  form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
                                     <p>
                                         <a href="reset-password.php" class="reset">Forgot your password?</a>
                                     </p>
                                 </div>
-                                <span class="help-block"><?php echo $password_err; ?></span>
+                                <p class="padding-bottom--15 flex-flex center-center text-red">
+                                    <?php echo $password_err; ?>
+                                </p>
                                 <div class="field padding-bottom--15">
                                     <input type="submit" name="submit" value="Login" class="btn btn-warning"><i
                                         class="fa fa-lock">&nbsp;</i>
