@@ -153,12 +153,16 @@ $row = mysqli_fetch_array($result);
                         $whour = 0;
                     }
 
-                    if ($whour <= 0) {
+                    if ($pullwh == null) {
+                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+                        echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
+                    } elseif ($whour <= 0) {
                         echo "<p class = 'para'>" . "You have already signed in</p>";
                     } else {
                         $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
                         echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
                     }
+
                 }
                 ?>
 
