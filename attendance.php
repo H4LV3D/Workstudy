@@ -103,18 +103,22 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
         </ul>
     </div>
 
-    <section>
-        <div class="cards" style="width: 18rem;">
+    <section class="d-flex align-items-center justify-content-center vh-100">
+        <div class="cards p-5 mx-auto shadow rounded" style="width: 24rem;">
             <div class="cards-body">
-                <h3 class="card-title">Attendance Card</h3>
-                <p class="card-text">Please make sure to sign in and sign out properly. Any issues should be reported to
+                <h3 class="card-title text-center">Attendance Card</h3>
+                <p class="text-center">Please make sure to sign in and sign out properly. Any issues should be
+                    reported to
                     Seald Office</p>
 
-                <form action="attendance.php" id="loginFrm" method="POST">
+                <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">
 
-                    <button class="bite bit" type="submit" role="button" name="signinbutton" type="submit">SIGN
+                    <button class="px-5 py-3 border-0 bg-primary w-100 rounded mb-3" type="submit" role="button"
+                        name="signinbutton" type="submit">SIGN
                         IN</button>
-                    <button class="bite " type="submit" role="button" name="signoutbutton" type="submit">SIGN
+                    <br>
+                    <button class="px-5 py-3 border-0 bg-primary w-100 rounded" type="submit" role="button"
+                        name="signoutbutton" type="submit">SIGN
                         OUT</button>
                 </form>
                 <?php $place = $row['Placement']; ?>
