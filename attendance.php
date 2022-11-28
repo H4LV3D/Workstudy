@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
@@ -11,11 +11,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //
 $now = time(); // Checking the time now when home page starts.
 
-  if ($now > $_SESSION['expire']) {
-      session_destroy();
-      header("location: login.php");
-  }
-  else { }//Starting this else one [else1]
+if ($now > $_SESSION['expire']) {
+    session_destroy();
+    header("location: login.php");
+} else {
+} //Starting this else one [else1]
 
 // database connection
 include('config.php');
@@ -24,8 +24,8 @@ $added = false;
 
 // select user details
 $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($con,$sql);
-    $row = mysqli_fetch_array($result);
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 
 
 ?>
@@ -95,8 +95,12 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
                 <div class="profile-details">
                     <img src="./assets/images/profile.jpg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $row['Other_Name']; ?> </div>
-                        <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
+                        <div class="name">
+                            <?php echo $row['Other_Name']; ?>
+                        </div>
+                        <div class="job">
+                            <?php echo $row['Level'] . " " . "Level"; ?>
+                        </div>
                     </div>
                 </div>
                 <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
@@ -123,73 +127,77 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
                         OUT</button>
                 </form>
                 <?php $place = $row['Placement']; ?>
-                <?php
-        if (isset($_POST['signinbutton'])){    
-        $student = $_SESSION['id'];
-        $student_name = $row['Last_Name']. " ".$row['Other_Name'];
-        
-        $timein = date("H:i", strtotime("+1 HOURS"));
-        $timeout = '';
-        $total_time = '0';
-        $last_id = mysqli_insert_id($con);
-        // $timein = time.now();
-        $date = date("Y-m-d", strtotime("+1 HOURS"));
-        $sessid = $_SESSION['id'];
-
-        $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
-        $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
-        if ($pullwh != null){
-          $whour = $pullwh['total_time'];
-        } else {
-          $whour = 0;
-        }
-
-        if($whour<=0){
-          echo "<p class = 'para'>" . "You have already signed in</p>";
-        } else {
-          $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
-          echo "<p class = 'para'>"."Signed in "." <label class = ''>at  ".date("h:i a", strtotime($timein))."</label></p>"; 
-        }
-      }
-        ?>
 
                 <?php
-    if (isset($_POST['signoutbutton'])){    
-        $student = $_SESSION['id'];
-        $timeout = date("H:i", strtotime("+1 HOURS"));
-        // $timeout = time();
+                if (isset($_POST['signinbutton'])) {
+                    $student = $_SESSION['id'];
+                    $student_name = $row['Last_Name'] . " " . $row['Other_Name'];
 
-        $date = date("Y-m-d", strtotime("+1 HOURS"));
-        $student_name = $row['Last_Name']. " ".$row['Other_Name'];
+                    $timein = date("H:i", strtotime("+1 HOURS"));
+                    $timeout = '';
+                    $total_time = '0';
+                    $last_id = mysqli_insert_id($con);
+                    // $timein = time.now();
+                    $date = date("Y-m-d", strtotime("+1 HOURS"));
+                    $sessid = $_SESSION['id'];
 
-        $last = "SELECT MAX(time_id) AS last_id FROM time_table WHERE student_no = '" . $_SESSION['id'] . "'";
-        $result = mysqli_query($con, $last);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $last_id = $row['last_id'];
+                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
+                    if ($pullwh != null) {
+                        $whour = $pullwh['total_time'];
+                    } else {
+                        $whour = 0;
+                    }
 
-        $sessid = $_SESSION['id'];
+                    if ($whour <= 0) {
+                        echo "<p class = 'para'>" . "You have already signed in</p>";
+                    } else {
+                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+                        echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
+                    }
+                }
+                ?>
 
-        $keep = $con->query("SELECT `timein` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
-        $pull = mysqli_fetch_array($keep, MYSQLI_ASSOC);
-        $timein = strtotime($pull['timein']);
-        $calctimeout = strtotime($timeout);
+                <?php
+                if (isset($_POST['signoutbutton'])) {
+                    $student = $_SESSION['id'];
+                    $timeout = date("H:i", strtotime("+1 HOURS"));
+                    // $timeout = time();
+                
+                    $date = date("Y-m-d", strtotime("+1 HOURS"));
+                    $student_name = $row['Last_Name'] . " " . $row['Other_Name'];
 
-        $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
-        $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
-        $whour = $pullwh['total_time'];
+                    $last = "SELECT MAX(time_id) AS last_id FROM time_table WHERE student_no = '" . $_SESSION['id'] . "'";
+                    $result = mysqli_query($con, $last);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    $last_id = $row['last_id'];
 
-        if($whour>0){
-          echo "<p class = 'para'>" . "You have already signed out</p>";
-        } else {
-          $workingHours = ($calctimeout-$timein)/3600;
-          $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error());
-          $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error());
+                    $sessid = $_SESSION['id'];
 
-          echo "<p class = 'para'>"."Signed out "." <label class = ''>at  ".date("h:i a", strtotime($timeout))."</label></p>"; 
-        }
+                    $keep = $con->query("SELECT `timein` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $pull = mysqli_fetch_array($keep, MYSQLI_ASSOC);
+                    $timein = strtotime($pull['timein']);
+                    $calctimeout = strtotime($timeout);
 
-      }
-?>
+                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
+                    $whour = $pullwh['total_time'];
+
+                    if ($whour > 0) {
+                        echo "<p class = 'para'>" . "You have already signed out</p>";
+                    } else {
+                        $workingHours = ($calctimeout - $timein) / 3600;
+                        if ($workingHours > 6) {
+                            $workingHours = 6;
+                        }
+                        $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error());
+                        $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error());
+
+                        echo "<p class = 'para'>" . "Signed out " . " <label class = ''>at  " . date("h:i a", strtotime($timeout)) . "</label></p>";
+                    }
+
+                }
+                ?>
 
             </div>
         </div>
