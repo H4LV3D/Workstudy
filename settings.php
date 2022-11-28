@@ -143,7 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="profile.jpg">
+                    <img src="./assets/images/profile.jpg">
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
                         <div class="job"><?php echo $row['Level']." "."Level"; ?></div>

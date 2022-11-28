@@ -342,3 +342,8 @@ h2 {
   left: 20px;
   font-family: "Roboto Slab", serif;
 }
+
+label {
+  margin-bottom: 0.2rem;
+  color: #797979 !important;
+}
