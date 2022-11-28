@@ -50,6 +50,7 @@ $row = mysqli_fetch_array($result);
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
 
     <script src="attendance.js"></script>
 </head>
@@ -92,7 +93,7 @@ $row = mysqli_fetch_array($result);
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="profile.jpg">
+                    <img src="./assets/images/profile.jpg">
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
@@ -126,6 +127,7 @@ $row = mysqli_fetch_array($result);
                         OUT</button>
                 </form>
                 <?php $place = $row['Placement']; ?>
+
                 <?php
                 if (isset($_POST['signinbutton'])) {
                     $student = $_SESSION['id'];
@@ -147,12 +149,16 @@ $row = mysqli_fetch_array($result);
                         $whour = 0;
                     }
 
-                    if ($whour <= 0) {
+                    if ($pullwh == null) {
+                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+                        echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
+                    } elseif ($whour <= 0) {
                         echo "<p class = 'para'>" . "You have already signed in</p>";
                     } else {
                         $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
                         echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
                     }
+
                 }
                 ?>
 
@@ -185,6 +191,9 @@ $row = mysqli_fetch_array($result);
                         echo "<p class = 'para'>" . "You have already signed out</p>";
                     } else {
                         $workingHours = ($calctimeout - $timein) / 3600;
+                        if ($workingHours > 6) {
+                            $workingHours = 6;
+                        }
                         $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error());
                         $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error());
 
