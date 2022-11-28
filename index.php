@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
@@ -38,22 +38,20 @@ $added = false;
 <body>
 
     <div class="container">
-        <a href="x" target="_blank"><img
-                src="x" alt=""
-                width="350px"></a><br>
+        <a href="x" target="_blank"><img src="x" alt="" width="350px"></a><br>
         <hr>
 
         <!-- adding alert notification  -->
         <?php
-	if($added){
-		echo "
+        if ($added) {
+            echo "
 			<div class='btn-success' style='padding: 15px; text-align:center;'>
 				Your Student Data has been Successfully Added.
 			</div><br>
 		";
-	}
+        }
 
-?>
+        ?>
 
         <a href="logout.php" class="btn btn-success"><i class="fa fa-lock"></i> Logout</a>
         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">
@@ -77,21 +75,20 @@ $added = false;
             </thead>
             <?php
 
-        	$get_data = "SELECT * FROM student_data order by 1 desc";
-        	$run_data = mysqli_query($con,$get_data);
-			$i = 0;
-        	while($row = mysqli_fetch_array($run_data))
-        	{
-				$id = $row['id'];
-				$Last_Name = $row['Last_Name'];
-				$Other_Name = $row['Other_Name'];
-				$Matric_No = $row['Matric_No'];
-				$Email = $row['Email'];
-				$Program = $row['Program'];
-				$Placement = $row['Placement'];
-				$Level = $row['Level'];
+            $get_data = "SELECT * FROM student_data order by 1 desc";
+            $run_data = mysqli_query($con, $get_data);
+            $i = 0;
+            while ($row = mysqli_fetch_array($run_data)) {
+                $id = $row['id'];
+                $Last_Name = $row['Last_Name'];
+                $Other_Name = $row['Other_Name'];
+                $Matric_No = $row['Matric_No'];
+                $Email = $row['Email'];
+                $Program = $row['Program'];
+                $Placement = $row['Placement'];
+                $Level = $row['Level'];
 
-        		echo "
+                echo "
 				<tr>
 					<td class='text-center'>$id</td>
 					<td class='text-left'>$Last_Name   $Other_Name</td>
@@ -102,9 +99,9 @@ $added = false;
 					<td class='text-center'>$Placement</td>
 				</tr>
         		";
-        	}
+            }
 
-        	?>
+            ?>
 
 
 
@@ -116,10 +113,10 @@ $added = false;
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
+        $(document).ready(function () {
+            $('#myTable').DataTable();
 
-    });
+        });
     </script>
 
 </body>
