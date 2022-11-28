@@ -126,6 +126,7 @@ $row = mysqli_fetch_array($result);
                         OUT</button>
                 </form>
                 <?php $place = $row['Placement']; ?>
+
                 <?php
                 if (isset($_POST['signinbutton'])) {
                     $student = $_SESSION['id'];
