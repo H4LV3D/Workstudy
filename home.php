@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
@@ -11,11 +11,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //
 $now = time(); // Checking the time now when home page starts.
 
-  if ($now > $_SESSION['expire']) {
-      session_destroy();
-      header("location: login.php");
-  }
-  else { }//Starting this else one [else1]
+if ($now > $_SESSION['expire']) {
+    session_destroy();
+    header("location: login.php");
+} else {
+} //Starting this else one [else1]
 
 // database connection
 include('config.php');
@@ -24,18 +24,18 @@ $added = false;
 ?>
 
 <!-- Session variables -->
-<?php  if (isset($_SESSION['username'])) : ?>
+<?php if (isset($_SESSION['username'])): ?>
 <?php endif ?>
-<?php  if (isset($_SESSION['id'])) : ?>
+<?php if (isset($_SESSION['id'])): ?>
 <?php endif ?>
 <!--  -->
 <!-- User Details -->
 <?php
-    $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($con,$sql);
-    $row = mysqli_fetch_array($result);
+$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 
-    // echo "Hello, " . $row['Last_Name'] . " " . $row['Email'] . " ";
+// echo "Hello, " . $row['Last_Name'] . " " . $row['Email'] . " ";
 
 ?>
 <!--  -->
@@ -104,8 +104,12 @@ $added = false;
                 <div class="profile-details">
                     <img src="/assets/images/profile.jpg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $row['Other_Name']; ?> </div>
-                        <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
+                        <div class="name">
+                            <?php echo $row['Other_Name']; ?>
+                        </div>
+                        <div class="job">
+                            <?php echo $row['Level'] . " " . "Level"; ?>
+                        </div>
                     </div>
                 </div>
                 <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
@@ -123,9 +127,13 @@ $added = false;
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4><?php echo  $row['Last_Name'] . " " . $row['Other_Name']; ?> </h4>
+                                        <h4>
+                                            <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
+                                        </h4>
                                         <p class="text-secondary mb-1">Eletrical Electronics</p>
-                                        <p class="text-muted font-size-sm"><?php echo  $row['Email']; ?></p>
+                                        <p class="text-muted font-size-sm">
+                                            <?php echo $row['Email']; ?>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +191,7 @@ $added = false;
                                         <h6 class="mb-0">Full Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo  $row['Last_Name'] . " " . $row['Other_Name']; ?>
+                                        <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -192,7 +200,7 @@ $added = false;
                                         <h6 class="mb-0">Matric No.</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo  $row['Matric_No']; ?>
+                                        <?php echo $row['Matric_No']; ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -201,7 +209,7 @@ $added = false;
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo  $row['Email']; ?>
+                                        <?php echo $row['Email']; ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -234,10 +242,6 @@ $added = false;
 
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
 
@@ -253,17 +257,7 @@ $added = false;
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
     });
-
-    // following are the code to change sidebar button(optional)
-    function menuBtnChange() {
-        if (sidebar.classList.contains("open")) {
-            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the icons class
-        } else {
-            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the icons class
-        }
-    }
     </script>
 </body>
 

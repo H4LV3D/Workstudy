@@ -3,12 +3,11 @@
 session_start();
  
 // Check if the user is logged in, otherwise redirect to login page
-// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-//     header("location: login.php");
-//     exit;
-// }
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
  
-// Include config file
 require_once "config.php";
  
 // Define variables and initialize with empty values
@@ -69,46 +68,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($con);
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+    body {
+        font: 14px sans-serif;
+    }
+
+    .wrapper {
+        width: 350px;
+        padding: 20px;
+    }
     </style>
 </head>
+
 <body>
 
-<!-- navigation menu start  -->
-
-<!-- navigation menu end  -->
-
-<div class="container my-4">
-<div class="card mx-auto" style="width: 20rem;"><br>
-<div class="card-body">
-<h2 style="text-align:center">Reset Password</h2>
-<hr>
-        <p>Please fill out this form to reset your password.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-            <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
-                <label>New Password</label>
-                <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
-                <span class="help-block"><?php echo $new_password_err; ?></span>
+    <div class="container my-4">
+        <div class="card mx-auto p-4" style="width: 24rem;"><br>
+            <div class="card-body">
+                <h2 style="text-align:center">Reset Password</h2>
+                <hr>
+                <p>Please fill out this form to reset your password.</p>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+                        <label>New Password</label>
+                        <input type="password" name="new_password" class="form-control"
+                            value="<?php echo $new_password; ?>">
+                        <span class="help-block"><?php echo $new_password_err; ?></span>
+                    </div>
+                    <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                        <label>Confirm Password</label>
+                        <input type="password" name="confirm_password" class="form-control">
+                        <span class="help-block"><?php echo $confirm_password_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary w-100 mb-3" value="Submit">
+                        <br>
+                        <a class="btn btn-danger w-100" href="home.php">Cancel</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link" href="home.php">Cancel</a>
-            </div>
-        </form>
-    </div>    
 </body>
+
 </html>
