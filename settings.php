@@ -46,7 +46,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 
 <body>
-    <!-- Side Nav menu -->
+
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -107,10 +107,54 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </h1>
             </div>
             <hr>
-            <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+            <button type="button" class="btn btn-warning shadow-none" data-toggle="modal" data-target="#exampleModal">
+                Reset Your Password
+            </button>
         </div>
         </p>
     </section>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog border-0" role="document" style="width: 25rem;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="card mx-auto p-4 shadow-none" style="width: 24rem;"><br>
+                    <div class="card-body shadow-none">
+                        <p>Please fill out this form to reset your password.</p>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+                                <label>New Password</label>
+                                <input type="password" name="new_password" class="form-control"
+                                    value="<?php echo $new_password; ?>">
+                                <span class="help-block"><?php echo $new_password_err; ?></span>
+                            </div>
+                            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                                <label>Confirm Password</label>
+                                <input type="password" name="confirm_password" class="form-control">
+                                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary w-100 mb-3" value="Submit"
+                                    data-dismiss="modal">
+                                <br>
+                                <a class="btn btn-danger w-100" href="home.php" data-dismiss="modal">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script>
