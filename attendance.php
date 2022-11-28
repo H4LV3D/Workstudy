@@ -50,6 +50,7 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
 
     <script src="attendance.js"></script>
 </head>
@@ -92,7 +93,7 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="profile.jpg">
+                    <img src="./assets/images/profile.jpg">
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
                         <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
