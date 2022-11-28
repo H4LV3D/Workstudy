@@ -8,10 +8,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("location: home.php");
   exit;
 }
- 
-// Include config file
-// require_once "config.php";
- 
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -107,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <head>
     <meta charset="utf-8">
-    <title>Work Study Portal</title>
+    <title>Workstudy - work and earn as students</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 </head>
 
