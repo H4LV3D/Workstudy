@@ -1,31 +1,22 @@
 <?php
-// Initialize the session
-session_start();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-?>
-
-<?php
+    // Initialize the session
+    session_start();
+    
+    // Check if the user is logged in, if not then redirect him to login page
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
     // database connection
-    include('config.php');
-
-    $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($con,$sql);
-    $row = mysqli_fetch_array($result);
-
-    // echo "Hello, " . $row['Last_Name'] . " " . $row['Email'] . " ";
-
+    require_once "config.php";
+    
     // Define variables and initialize with empty values
-$new_password = $confirm_password = "";
-$new_password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+    $new_password = $confirm_password = "";
+    $new_password_err = $confirm_password_err = "";
+    
+    // Processing form data when form is submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
     // Validate new password
     if(empty(trim($_POST["new_password"]))){
         $new_password_err = "Please enter the new password.";     
@@ -44,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
-        
+    
     // Check input errors before updating the database
     if(empty($new_password_err) && empty($confirm_password_err)){
         // Prepare an update statement
@@ -76,7 +67,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($con);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +75,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title> Work study Portal</title>
-
-
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -104,7 +92,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
-
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -154,7 +141,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </ul>
     </div>
 
-
     <section class="main-body">
         <div class="container">
             <div class="page-header">
@@ -165,7 +151,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </h1>
             </div>
             <hr>
-            <button type="button" class="btn btn-warning shadow-none" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-warning shadow-none border-0" style="background-color: #996399;"
+                data-toggle="modal" data-target="#exampleModal">
                 Reset Your Password
             </button>
         </div>
@@ -198,8 +185,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary w-100 mt-4 mb-2" value="Submit"
-                                    data-dismiss="modal">
+                                <input type="submit" class="btn btn-primary w-100 mt-4 mb-2" value="Submit">
                                 <br>
                                 <a class="btn btn-danger w-100" href="home.php" data-dismiss="modal">Cancel</a>
                             </div>
