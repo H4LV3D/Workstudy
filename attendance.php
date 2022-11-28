@@ -186,6 +186,9 @@ $row = mysqli_fetch_array($result);
                         echo "<p class = 'para'>" . "You have already signed out</p>";
                     } else {
                         $workingHours = ($calctimeout - $timein) / 3600;
+                        if ($workingHours > 6) {
+                            $workingHours = 6;
+                        }
                         $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error());
                         $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error());
 
