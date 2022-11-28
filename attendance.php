@@ -50,7 +50,7 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
-    <link rel="stylesheet" href="./assets/css/button.css">
+
     <script src="attendance.js"></script>
 </head>
 
@@ -116,9 +116,9 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
                         IN</button>
                     <button class="bite " type="submit" role="button" name="signoutbutton" type="submit">SIGN
                         OUT</button>
-
-                    <?php $place = $row['Placement']; ?>
-                    <?php
+                </form>
+                <?php $place = $row['Placement']; ?>
+                <?php
         if (isset($_POST['signinbutton'])){    
         $student = $_SESSION['id'];
         $student_name = $row['Last_Name']. " ".$row['Other_Name'];
@@ -148,7 +148,7 @@ $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] .
       }
         ?>
 
-                    <?php
+                <?php
     if (isset($_POST['signoutbutton'])){    
         $student = $_SESSION['id'];
         $timeout = date("H:i", strtotime("+1 HOURS"));
