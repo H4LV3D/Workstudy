@@ -2,14 +2,13 @@
 // Initialize the session
 session_start();
 
+require_once "config.php";
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: home.php");
     exit;
 }
-
-// Include config file
-// require_once "config.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -78,12 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             header("location: home.php");
                         } else {
                             // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
+                            $password_err = "Invalid Username or password";
                         }
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                    $username_err = "Invalid Matric No.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -106,8 +105,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8">
-    <title>Work Study Portal</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <title>Workstudy - work and earn as students</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 </head>
 
 <body>
@@ -160,27 +159,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="formbg-inner padding-horizontal--48">
                             <h2 class="padding-bottom--8">Work Study Portal</h2>
                             <p class="padding-bottom--24">Sign in to your account</p>
-                            <!-- <form id="stripe-login"> -->
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login"
                                 method="post">
                                 <div class="field form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                                     <label for="email">Matric No.</label>
                                     <input type="text" name="username" class="form-control"
                                         value="<?php echo $username; ?>">
-                                    <span class="help-block">
+                                    <p class="padding-bottom--15 padding-top--8 flex-flex center-center text-red">
                                         <?php echo $username_err; ?>
-                                    </span>
+                                    </p>
                                 </div>
                                 <div
-                                    class="field padding-bottom--48 form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-
+                                    class="field padding-bottom--24  form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
-                                    <!-- <span class="help-block"><?php echo $password_err; ?></span> -->
                                     <p>
                                         <a href="reset-password.php" class="reset">Forgot your password?</a>
                                     </p>
                                 </div>
+                                <p class="padding-bottom--15 flex-flex center-center text-red">
+                                    <?php echo $password_err; ?>
+                                </p>
                                 <div class="field padding-bottom--15">
                                     <input type="submit" name="submit" value="Login" class="btn btn-warning"><i
                                         class="fa fa-lock">&nbsp;</i>

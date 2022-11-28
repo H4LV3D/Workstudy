@@ -33,97 +33,97 @@ $row = mysqli_fetch_array($result);
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <title> Work study Portal</title>
+  <meta charset="UTF-8">
+  <title> Work study Portal</title>
 
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="side.css">
-    <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="side.css">
+  <link rel="stylesheet" href="button.css">
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="logo-details">
-            <i class='bx bxl-c-plus-plus icon'></i>
-            <div class="logo_name">Work Study</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <a href="home.php">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Dashboard</span>
-                </a>
-                <span class="tooltip">Dashboard</span>
-            </li>
-            <li>
-                <a href="activity.php">
-                    <i class='bx bxs-calendar'></i>
-                    <span class="links_name">Activity</span>
-                </a>
-                <span class="tooltip">Activity</span>
-            </li>
-            <li>
-                <a href="attendance.php">
-                    <i class='bx bx-pencil'></i>
-                    <span class="links_name">Attendance</span>
-                </a>
-                <span class="tooltip">Attendance</span>
-            </li>
-            <li>
-                <a href="settings.php">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
-                </a>
-                <span class="tooltip">Setting</span>
-            </li>
-            <li class="profile">
-                <div class="profile-details">
-                    <img src="profile.jpg">
-                    <div class="name_job">
-                        <div class="name">
-                            <?php echo $row['Other_Name']; ?>
-                        </div>
-                        <div class="job">
-                            <?php echo $row['Level'] . " " . "Level"; ?>
-                        </div>
-                    </div>
-                </div>
-                <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
-            </li>
-        </ul>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">Work Study</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
+    <ul class="nav-list">
+      <li>
+        <a href="home.php">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="activity.php">
+          <i class='bx bxs-calendar'></i>
+          <span class="links_name">Activity</span>
+        </a>
+        <span class="tooltip">Activity</span>
+      </li>
+      <li>
+        <a href="attendance.php">
+          <i class='bx bx-pencil'></i>
+          <span class="links_name">Attendance</span>
+        </a>
+        <span class="tooltip">Attendance</span>
+      </li>
+      <li>
+        <a href="settings.php">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="profile.jpg">
+          <div class="name_job">
+            <div class="name">
+              <?php echo $row['Other_Name']; ?>
+            </div>
+            <div class="job">
+              <?php echo $row['Level'] . " " . "Level"; ?>
+            </div>
+          </div>
+        </div>
+        <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
+      </li>
+    </ul>
+  </div>
 
-    <section>
+  <section>
 
-        <div class="cards" style="width: 18rem;">
-            <div class="cards-body">
-                <h3 class="card-title">Attendance Card</h3>
-                <p class="card-text">Please make sure to sign in and sign out properly. Any issues should be reported to
-                    Seald
-                    Office</p>
+    <div class="cards" style="width: 18rem;">
+      <div class="cards-body">
+        <h3 class="card-title">Attendance Card</h3>
+        <p class="card-text">Please make sure to sign in and sign out properly. Any issues should be reported to
+          Seald
+          Office</p>
 
-                <form action="attendance.php" id="loginFrm" method="POST">
+        <form action="attendance.php" id="loginFrm" method="POST">
 
-                    <button class="bite " type="submit" role="button" name="signinbutton" type="submit">SIGN IN</button>
-                    <button class="bite " type="submit" role="button" name="signoutbutton" type="submit">SIGN
-                        OUT</button>
+          <button class="bite " type="submit" role="button" name="signinbutton" type="submit">SIGN IN</button>
+          <button class="bite " type="submit" role="button" name="signoutbutton" type="submit">SIGN
+            OUT</button>
 
 
 
-                    <?php
+          <?php
                     if (isset($_POST['signinbutton'])) {
                       $student = $_SESSION['id'];
                       $student_name = $row['Last_Name'] . " " . $row['Other_Name'];
@@ -136,7 +136,7 @@ $row = mysqli_fetch_array($result);
                       echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
                     }
                     ?>
-                    <?php
+          <?php
                     if (isset($_POST['signoutbutton'])) {
                       $student = $_SESSION['id'];
                       $timeout = date("H:i", strtotime("+1 HOURS"));
@@ -168,60 +168,60 @@ $row = mysqli_fetch_array($result);
                     ?>
 
 
-            </div>
+      </div>
+    </div>
+    <div class="main">
+
+      <div class="loader">
+        <div class="check">
+          <span class="check-one"></span>
+          <span class="check-two"></span>
         </div>
-        <div class="main">
+      </div>
 
-            <div class="loader">
-                <div class="check">
-                    <span class="check-one"></span>
-                    <span class="check-two"></span>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    </div>
+  </section>
 
 
 
-    <script>
+  <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
 
     closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
     });
 
     searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search icon
-        sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
     });
 
     // following are the code to change sidebar button(optional)
     function menuBtnChange() {
-        if (sidebar.classList.contains("open")) {
-            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the icons class
-        } else {
-            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the icons class
-        }
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the icons class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the icons class
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var btn = document.querySelector('.bite'),
-            loader = document.querySelector('.loader'),
-            check = document.querySelector('.check');
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.querySelector('.bite'),
+        loader = document.querySelector('.loader'),
+        check = document.querySelector('.check');
 
-        btn.addEventListener('click', function() {
-            loader.classList.add('active');
-        });
+      btn.addEventListener('click', function () {
+        loader.classList.add('active');
+      });
 
-        loader.addEventListener('animationend', function() {
-            check.classList.add('active');
-        });
+      loader.addEventListener('animationend', function () {
+        check.classList.add('active');
+      });
     });
-    </script>
+  </script>
 </body>
 
 </html>
