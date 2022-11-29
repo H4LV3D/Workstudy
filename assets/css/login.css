@@ -188,7 +188,7 @@ label {
   -webkit-appearance: none;
 }
 
-input[type="submit"] {
+#submit {
   font-size: 16px;
   line-height: 28px;
   padding: 8px 16px;
