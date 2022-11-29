@@ -105,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <title>Workstudy - work and earn as students</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
@@ -182,8 +183,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php echo $password_err; ?>
                                 </p>
                                 <div class="field padding-bottom--15">
-                                    <input type="submit" name="submit" value="Login" class="btn btn-warning"><i
-                                        class="fa fa-lock">&nbsp;</i>
+                                    <button type="submit" name="submit" id="submit" class="btn">
+
+                                        Login</button>
                                 </div>
                             </form>
                             <div class="listing reset-pass padding-top--15 flex-flex center-center">
@@ -198,5 +200,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </body>
-</html>
 
+</html>
