@@ -34,13 +34,7 @@ $added = false;
 $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($result);
-
-// echo "Hello, " . $row['Last_Name'] . " " . $row['Email'] . " ";
-
 ?>
-<!--  -->
-
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -52,16 +46,15 @@ $row = mysqli_fetch_array($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/assets/css/side.css">
+    <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -205,71 +198,86 @@ $row = mysqli_fetch_array($result);
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">More Info</h6>
+                                <div class="dropdown show">
+                                    <div class="text-secondary" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">More Info</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                Click here to view
+                                            </div>
+                                        </div>
+                                        <hr>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        Click here to view
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Bank</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        Gt Bank
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Bank Account No.</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        0492416623
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Bank Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        Akinkunmi Toluwalope
+
+                                    <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">Bank Name</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    Undefined
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">Account No.</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    Undefined
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">Account Name</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    Undefined
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="col-12">
                                 <h3>Contact</h3>
                                 <p>For complains or enquiries, please reach out to us.</p>
                                 <div class="row">
                                     <div class="col-3 text-center">
-                                        <a href="https://www.instagram.com/studentcouncil_cu/"
-                                            class="btn btn-primary btn-block"><i
+                                        <a href="https://www.instagram.com/studentcouncil_cu/" class="btn btn-block"><i
                                                 class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
                                     </div>
                                     <div class="col-3 text-center">
-                                        <a href="change-password.php" class="btn btn-primary btn-block">
+                                        <a href="change-password.php" class="btn btn-block">
                                             <i class="fab fa-instagram fa-lg fa-fw"></i>
                                             Instagram
                                         </a>
                                     </div>
                                     <div class="col-3 text-center">
-                                        <a href="change-password.php" class="btn btn-primary btn-block">
-                                            Insta
+                                        <a href="change-password.php" class="btn  btn-block">
+                                            <i class="fas fa-globe fa-lg fa-fw"></i>
+                                            Website
                                         </a>
                                     </div>
                                     <div class="col-3 text-center">
-                                        <a href="change-password.php" class="btn btn-primary btn-block border-0"
-                                            style="background-color: #996399;">
-                                            Change
-                                            Password</a>
+                                        <a href="mailt0:seald@covenantuniversity.edu.ng"
+                                            class="btn  btn-block border-0">
+                                            <i class="fas fa-envelope fa-lg fa-fw"></i>
+                                            Mail</a>
                                     </div>
                                 </div>
-
                             </div>
 
                     </div>
@@ -287,6 +295,10 @@ $row = mysqli_fetch_array($result);
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
     });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
     </script>
 </body>
 
