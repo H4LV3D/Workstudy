@@ -170,7 +170,7 @@ $row = mysqli_fetch_array($result);
                                         <?php echo $row['Level']; ?>
                                     </div>
                                 </div>
-                                <hr>
+                                <!-- <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Telegram No.</h6>
@@ -187,7 +187,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="col-sm-9 text-secondary">
                                         Daniel Hall B204
                                     </div>
-                                </div>
+                                </div> -->
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
