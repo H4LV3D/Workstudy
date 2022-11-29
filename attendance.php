@@ -118,13 +118,17 @@ $row = mysqli_fetch_array($result);
 
                 <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">
 
-                    <button class="px-5 py-3 border-0 bg-primary w-100 rounded mb-3" type="submit" role="button"
-                        name="signinbutton" type="submit">SIGN
-                        IN</button>
+                    <button class="px-5 py-3 border-0 w-100 rounded mb-3" type="submit" role="button"
+                        name="signinbutton" type="submit" style="background-color: #996399;">
+                        SIGN
+                        IN
+                    </button>
                     <br>
-                    <button class="px-5 py-3 border-0 bg-primary w-100 rounded" type="submit" role="button"
-                        name="signoutbutton" type="submit">SIGN
-                        OUT</button>
+                    <button class="px-5 py-3 border-0  w-100 rounded" type="submit" role="button" name="signoutbutton"
+                        type="submit" style="background-color: #996399;">
+                        SIGN
+                        OUT
+                    </button>
                 </form>
                 <?php $place = $row['Placement']; ?>
 
