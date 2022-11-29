@@ -176,7 +176,7 @@ label {
   padding: 8px 16px;
   width: 100%;
   min-height: 44px;
-  border: unset;
+  border: 1px solid #e3e8ee;
   border-radius: 4px;
   outline-color: rgb(84 105 212 / 0.5);
   background-color: rgb(255, 255, 255);
@@ -187,6 +187,7 @@ label {
 }
 
 input[type="submit"] {
+  border: none;
   background-color: rgb(153, 99, 153);
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(153, 99, 153) 0px 0px 0px 1px,
