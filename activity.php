@@ -83,7 +83,7 @@ $added = false;
         </div>
         <ul class="nav-list">
             <li>
-                <a href="home.php">
+                <a href="index.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>

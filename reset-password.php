@@ -112,7 +112,7 @@ require_once "config.php";
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary w-100 mb-3" value="Submit">
                         <br>
-                        <a class="btn btn-danger w-100" href="home.php">Cancel</a>
+                        <a class="btn btn-danger w-100" href="index.php">Cancel</a>
                     </div>
                 </form>
             </div>
