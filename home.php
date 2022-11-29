@@ -134,7 +134,7 @@ $row = mysqli_fetch_array($result);
                                 </div>
                             </div>
                             <div class="col-12 my-5 px-5">
-                                <hr>
+                                <!-- <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Reg No.</h6>
@@ -151,7 +151,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="col-sm-9 text-secondary">
                                         <?php echo $row['Email']; ?>
                                     </div>
-                                </div>
+                                </div> -->
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
