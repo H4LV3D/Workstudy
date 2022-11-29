@@ -111,17 +111,16 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <section class="home-section">
-        <div class="container min-vh-100 pt-5">
+        <div class="container-md min-vh-100 pt-5">
             <div class="mains-body">
                 <div class="row mx-3">
                     <div class="col-12 bg-white shadow rounded p-5">
                         <h2>Profile Info</h1>
-                            <div class="col-12 d-flex flex-row justify-content-center mt-3">
+                            <div class="col-12 d-flex flex-md-row flex-column justify-content-center mt-3">
                                 <div class="col-3 my-auto">
                                     <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150">
-
                                 </div>
-                                <div class="col-9 my-auto">
+                                <div class="col-9 my-3 my-md-auto">
                                     <h4>
                                         <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
                                     </h4>
@@ -133,7 +132,7 @@ $row = mysqli_fetch_array($result);
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-12 my-5 px-5">
+                            <div class="col-12 my-5 px-md-5">
                                 <!-- <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
@@ -154,46 +153,46 @@ $row = mysqli_fetch_array($result);
                                 </div> -->
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Course / Program</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                         <?php echo $row['Program']; ?>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Level</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                         <?php echo $row['Level']; ?>
                                     </div>
                                 </div>
                                 <!-- <hr>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Telegram No.</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                         07034567890
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Hall / Room</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                         Daniel Hall B204
                                     </div>
                                 </div> -->
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Total Hours Worked</h6>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                         0
                                     </div>
                                 </div>
@@ -202,10 +201,10 @@ $row = mysqli_fetch_array($result);
                                     <div class="text-secondary" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                                 <h6 class="mb-0">More Info</h6>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                                 Click here to view
                                             </div>
                                         </div>
@@ -215,10 +214,10 @@ $row = mysqli_fetch_array($result);
                                     <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
                                         <div class="dropdown-item" href="#">
                                             <div class="row">
-                                                <div class="col-sm-3">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                                     <h6 class="mb-0">Bank Name</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                                     Undefined
                                                 </div>
                                             </div>
@@ -226,10 +225,10 @@ $row = mysqli_fetch_array($result);
                                         </div>
                                         <a class="dropdown-item" href="#">
                                             <div class="row">
-                                                <div class="col-sm-3">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                                     <h6 class="mb-0">Account No.</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                                     Undefined
                                                 </div>
                                             </div>
@@ -237,10 +236,10 @@ $row = mysqli_fetch_array($result);
                                         </a>
                                         <a class="dropdown-item" href="#">
                                             <div class="row">
-                                                <div class="col-sm-3">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                                     <h6 class="mb-0">Account Name</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
                                                     Undefined
                                                 </div>
                                             </div>
@@ -255,25 +254,24 @@ $row = mysqli_fetch_array($result);
                                 <h3>Contact</h3>
                                 <p>For complains or enquiries, please reach out to us.</p>
                                 <div class="row">
-                                    <div class="col-3 text-center">
-                                        <a href="https://www.instagram.com/studentcouncil_cu/" class="btn btn-block"><i
+                                    <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                        <a href="https://www.instagram.com/studentcouncil_cu/" class="btn"><i
                                                 class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
                                     </div>
-                                    <div class="col-3 text-center">
-                                        <a href="change-password.php" class="btn btn-block">
+                                    <div class="col-12 col-sm-6 col-md-3  text-md-center">
+                                        <a href="change-password.php" class="btn">
                                             <i class="fab fa-instagram fa-lg fa-fw"></i>
                                             Instagram
                                         </a>
                                     </div>
-                                    <div class="col-3 text-center">
-                                        <a href="change-password.php" class="btn  btn-block">
+                                    <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                        <a href="change-password.php" class="btn ">
                                             <i class="fas fa-globe fa-lg fa-fw"></i>
                                             Website
                                         </a>
                                     </div>
-                                    <div class="col-3 text-center">
-                                        <a href="mailt0:seald@covenantuniversity.edu.ng"
-                                            class="btn  btn-block border-0">
+                                    <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                        <a href="mailt0:seald@covenantuniversity.edu.ng" class="btn  border-0">
                                             <i class="fas fa-envelope fa-lg fa-fw"></i>
                                             Mail</a>
                                     </div>
