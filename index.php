@@ -95,7 +95,8 @@ $row = mysqli_fetch_array($result);
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="/assets/images/profile.jpg">
+                    <!-- <img src="/assets/images/profile.jpg"> -->
+                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
@@ -111,14 +112,15 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <section class="home-section">
-        <div class="container-md min-vh-100 pt-5">
+        <div class="container min-vh-100 pt-5">
             <div class="mains-body">
                 <div class="row mx-3">
                     <div class="col-12 bg-white shadow rounded p-5">
                         <h2>Profile Info</h1>
                             <div class="col-12 d-flex flex-md-row flex-column justify-content-center mt-3">
                                 <div class="col-3 my-auto">
-                                    <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150">
+                                    <!-- <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150"> -->
+                                    <i class="fas fa-user-circle fa-7x fa-fw"></i>
                                 </div>
                                 <div class="col-9 my-3 my-md-auto">
                                     <h4>
