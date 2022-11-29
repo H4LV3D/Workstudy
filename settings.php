@@ -101,7 +101,7 @@
         <hr>
         <ul class="nav-list">
             <li>
-                <a href="home.php">
+                <a href="index.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -187,7 +187,7 @@
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary w-100 mt-4 mb-2" value="Submit">
                                 <br>
-                                <a class="btn btn-danger w-100" href="home.php" data-dismiss="modal">Cancel</a>
+                                <a class="btn btn-danger w-100" href="index.php" data-dismiss="modal">Cancel</a>
                             </div>
                         </form>
                     </div>
