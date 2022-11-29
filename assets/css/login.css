@@ -178,12 +178,14 @@ label {
   min-height: 44px;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
-  /* outline-color: rgb(84 105 212 / 0.5); */
+  outline-color: rgb(84 105 212 / 0.5);
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px,
     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type="submit"] {
@@ -195,13 +197,11 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   background-color: rgb(153, 99, 153);
-  /* box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(153, 99, 153) 0px 0px 0px 1px,
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(60, 66, 87, 0.08) 0px 2px 5px 0px; */
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 .footer-link span {
   font-size: 14px;
