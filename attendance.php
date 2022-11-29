@@ -93,7 +93,8 @@ $row = mysqli_fetch_array($result);
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="./assets/images/profile.jpg">
+                    <!-- <img src="./assets/images/profile.jpg"> -->
+                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
