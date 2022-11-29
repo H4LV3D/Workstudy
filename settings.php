@@ -17,23 +17,22 @@
     // Processing form data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        // Validate new password
-        if(empty(trim($_POST["new_password"]))){
-            $new_password_err = "Please enter the new password.";     
-        } elseif(strlen(trim($_POST["new_password"])) < 6){
-            $new_password_err = "Password must have at least 6 characters.";
-        } else{
-            $new_password = trim($_POST["new_password"]);
-        }
-        
-        // Validate confirm password
-        if(empty(trim($_POST["confirm_password"]))){
-            $confirm_password_err = "Please confirm the password.";
-        } else {
-            $confirm_password = trim($_POST["confirm_password"]);
-            if(empty($new_password_err) && ($new_password != $confirm_password)){
-                $confirm_password_err = "Password did not match.";
-            }
+    // Validate new password
+    if(empty(trim($_POST["new_password"]))){
+        $new_password_err = "Please enter the new password.";     
+    } elseif(strlen(trim($_POST["new_password"])) < 6){
+        $new_password_err = "Password must have at least 6 characters.";
+    } else{
+        $new_password = trim($_POST["new_password"]);
+    }
+    
+    // Validate confirm password
+    if(empty(trim($_POST["confirm_password"]))){
+        $confirm_password_err = "Please confirm the password.";
+    } else{
+        $confirm_password = trim($_POST["confirm_password"]);
+        if(empty($new_password_err) && ($new_password != $confirm_password)){
+            $confirm_password_err = "Password did not match.";
         }
     }
     
@@ -67,6 +66,7 @@
     
     // Close connection
     mysqli_close($con);
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +92,7 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="d-none d-md-block sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name">Work Study</div>
@@ -142,7 +142,29 @@
         </ul>
     </div>
 
-    <section class="main-body">
+    <div class="d-md-none fixed-bottom">
+        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
+            <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+                <a href="index.php" class="text-decoration-none text-light">
+                    <i class='bx bx-grid-alt'></i>
+                </a>
+                <a href="activity.php" class="text-decoration-none text-light">
+                    <i class='bx bxs-calendar'></i>
+                </a>
+                <a href="attendance.php" class="text-decoration-none text-light">
+                    <i class='bx bx-pencil'></i>
+                </a>
+                <a href="settings.php" class="text-decoration-none text-light">
+                    <i class='bx bx-cog'></i>
+                </a>
+                <a href="logout.php" class="text-decoration-none text-light">
+                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <section class="main-body mb-5 mb-md-0">
         <div class="container">
             <div class="page-header">
                 <h1>Hi
