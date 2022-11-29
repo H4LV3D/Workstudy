@@ -6,7 +6,7 @@ require_once "config.php";
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: home.php");
+    header("location: index.php");
     exit;
 }
 
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // $_SESSION["username"] = $Placement;                            
 
                             // Redirect user to welcome page
-                            header("location: home.php");
+                            header("location: index.php");
                         } else {
                             // Display an error message if password is not valid
                             $password_err = "Invalid Username or password";
