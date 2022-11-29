@@ -12,7 +12,7 @@ deployment:
     - /bin/cp delete.php $DEPLOYPATH
     - /bin/cp edit.php $DEPLOYPATH
     - /bin/cp export.php $DEPLOYPATH
-    - /bin/cp home.php $DEPLOYPATH
+    - /bin/cp index.php $DEPLOYPATH
     - /bin/cp index.php $DEPLOYPATH
     - /bin/cp login.php $DEPLOYPATH
     - /bin/cp logout.php $DEPLOYPATH
