@@ -134,8 +134,7 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <section class="home-section mb-5 mb-md-0">
-        <div class="container min-vh-100 py-5">
-
+        <div class="min-vh-100 py-5 mx-auto col-md-12 col-12">
             <div class="row mx-3">
                 <div class="col-12 bg-white shadow rounded p-4 p-md-5">
                     <h2 class="text-center">Profile Info</h1>
