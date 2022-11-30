@@ -174,8 +174,8 @@
                 </h1>
             </div>
             <hr>
-            <button type="button" class="btn btn-warning shadow-none border-0" style="background-color: #996399;"
-                data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-warning shadow-none border-0 text-white"
+                style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
                 Reset Your Password
             </button>
         </div>
