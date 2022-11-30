@@ -56,7 +56,7 @@ $row = mysqli_fetch_array($result);
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="d-none d-md-block sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name">Work Study</div>
@@ -93,7 +93,8 @@ $row = mysqli_fetch_array($result);
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="./assets/images/profile.jpg">
+                    <!-- <img src="./assets/images/profile.jpg"> -->
+                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
@@ -108,7 +109,29 @@ $row = mysqli_fetch_array($result);
         </ul>
     </div>
 
-    <section class="d-flex align-items-center justify-content-center vh-100">
+    <div class="d-md-none fixed-bottom">
+        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
+            <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+                <a href="index.php" class="text-decoration-none text-light">
+                    <i class='bx bx-grid-alt'></i>
+                </a>
+                <a href="activity.php" class="text-decoration-none text-light">
+                    <i class='bx bxs-calendar'></i>
+                </a>
+                <a href="attendance.php" class="text-decoration-none text-light">
+                    <i class='bx bx-pencil'></i>
+                </a>
+                <a href="settings.php" class="text-decoration-none text-light">
+                    <i class='bx bx-cog'></i>
+                </a>
+                <a href="logout.php" class="text-decoration-none text-light">
+                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <section class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0">
         <div class="cards p-5 mx-auto shadow rounded" style="width: 24rem;">
             <div class="cards-body">
                 <h3 class="card-title text-center">Attendance Card</h3>
@@ -118,14 +141,14 @@ $row = mysqli_fetch_array($result);
 
                 <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">
 
-                    <button class="px-5 py-3 border-0 w-100 rounded mb-3" type="submit" role="button"
+                    <button class="px-5 py-3 border-0 w-100 rounded mb-3 text-white" type="submit" role="button"
                         name="signinbutton" type="submit" style="background-color: #996399;">
                         SIGN
                         IN
                     </button>
                     <br>
-                    <button class="px-5 py-3 border-0  w-100 rounded" type="submit" role="button" name="signoutbutton"
-                        type="submit" style="background-color: #996399;">
+                    <button class="px-5 py-3 border-0  w-100 rounded text-white" type="submit" role="button"
+                        name="signoutbutton" type="submit" style="background-color: #996399;">
                         SIGN
                         OUT
                     </button>

@@ -92,7 +92,7 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="d-none d-md-block sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name">Work Study</div>
@@ -130,7 +130,8 @@
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="./assets/images/profile.jpg">
+                    <!-- <img src="./assets/images/profile.jpg"> -->
+                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
                         <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
@@ -141,7 +142,29 @@
         </ul>
     </div>
 
-    <section class="main-body">
+    <div class="d-md-none fixed-bottom">
+        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
+            <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+                <a href="index.php" class="text-decoration-none text-light">
+                    <i class='bx bx-grid-alt'></i>
+                </a>
+                <a href="activity.php" class="text-decoration-none text-light">
+                    <i class='bx bxs-calendar'></i>
+                </a>
+                <a href="attendance.php" class="text-decoration-none text-light">
+                    <i class='bx bx-pencil'></i>
+                </a>
+                <a href="settings.php" class="text-decoration-none text-light">
+                    <i class='bx bx-cog'></i>
+                </a>
+                <a href="logout.php" class="text-decoration-none text-light">
+                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <section class="main-body mb-5 mb-md-0">
         <div class="container">
             <div class="page-header">
                 <h1>Hi
