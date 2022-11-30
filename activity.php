@@ -147,18 +147,18 @@ $added = false;
     </div>
 
 
-    <section class="main-body container my-5 mb-md-0">
-        <div class="col-12 min-vh-100 mx-auto">
+    <section class="main-body my-5 mb-md-0 mx-auto">
+        <div class="col-12 min-vh-100 px-4 mx-md-auto">
             <div class="pb-4">
                 <h2>Activity Board</h2>
                 <h4>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h4>
                 <h6>Work study Attendance sheet</h6>
             </div>
-            <div class="w-50 w-sm-100 pb-4">
+            <div class="w-50 pb-4">
                 <table class="table table-bordered table-striped table-hover" id="myTable">
                     <tbody>
-                        <td>No. of Weeks</td>
-                        <td>6 weeks</td>
+                        <td>No. of Week(s)</td>
+                        <td>1 week(s)</td>
                     </tbody>
                     <tbody>
                         <td>Current Week</td>
