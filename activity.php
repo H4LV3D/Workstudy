@@ -147,27 +147,42 @@ $added = false;
     </div>
 
 
-    <section class="main-body mb-5 mb-md-0">
-        <div class="headers">
-            <h2>Activity Board</h2>
-            <h3>Hi, <?php echo " " . strtolower($row['Other_Name']); ?></h3>
-            <h3>Work study Attendance sheet</h3>
-            <br>
-            <br>
-        </div>
-        <table class="table table-bordered table-striped table-hover" id="myTable">
-            <thead>
-                <tr>
-                    <th class="text-center" scope="col">s/n</th>
-                    <!-- <th class="text-center" scope="col">id</th> -->
-                    <th class="text-center" scope="col">Date</th>
-                    <th class="text-center" scope="col">Time In</th>
-                    <th class="text-center" scope="col">Time Out</th>
-                    <th class="text-center" scope="col">No. of hours</th>
-                </tr>
-            </thead>
+    <section class="main-body my-5 mb-md-0 mx-auto">
+        <div class="col-12 min-vh-100 px-4 mx-md-auto">
+            <div class="pb-4">
+                <h2>Activity Board</h2>
+                <h4>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h4>
+                <h6>Work study Attendance sheet</h6>
+            </div>
+            <div class="w-50 pb-4">
+                <table class="table table-bordered table-striped table-hover" id="myTable">
+                    <tbody>
+                        <td>No. of Week(s)</td>
+                        <td>1 week(s)</td>
+                    </tbody>
+                    <tbody>
+                        <td>Current Week</td>
+                        <td>1</td>
+                    </tbody>
+                    <tbody>
+                        <td>Weekly Hours</td>
+                        <td>4.15</td>
+                    </tbody>
+                </table>
+            </div>
+            <table class="table table-bordered table-striped table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">s/n</th>
+                        <!-- <th class="text-center" scope="col">id</th> -->
+                        <th class="text-center" scope="col">Date</th>
+                        <th class="text-center" scope="col">Time In</th>
+                        <th class="text-center" scope="col">Time Out</th>
+                        <th class="text-center" scope="col">No. of hours</th>
+                    </tr>
+                </thead>
 
-            <?php
+                <?php
               // include ('config.php');
               // $get_data = "SELECT * FROM 'time_table' WHERE student_no = '" . $_SESSION['id'] . "'";
               // $run_data = mysqli_query($con,$get_data);
@@ -192,10 +207,10 @@ $added = false;
                 ";
               }
         	  ?>
-            <td class='text-center'></td>
-            <td class='text-center'>Total Time:</td>
-            <td class='text-center'>
-                <?php
+                <td class='text-center'></td>
+                <td class='text-center'>Total Time:</td>
+                <td class='text-center'>
+                    <?php
                 // require('config.php');
 
                 $table_sum="SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
@@ -212,15 +227,11 @@ $added = false;
 
                 mysqli_close($con);
               ?>
-            </td>
-            <td class='text-center'></td>
-            <td class='text-center'></td>
-
-
-
-        </table>
-
-
+                </td>
+                <td class='text-center'></td>
+                <td class='text-center'></td>
+            </table>
+        </div>
     </section>
 
 

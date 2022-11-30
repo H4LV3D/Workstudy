@@ -164,22 +164,23 @@
         </div>
     </div>
 
-    <section class="main-body mb-5 mb-md-0">
-        <div class="container">
-            <div class="page-header">
-                <h1>Hi
-                    <b>
-                        <?php echo htmlspecialchars($_SESSION["username"]); ?>,
-                    </b>
-                </h1>
+    <section class="main-body container my-5 mb-md-0">
+        <div class="col-12 min-vh-100 mx-auto">
+            <div class="container">
+                <div class="page-header">
+                    <h3>Hi
+                        <b>
+                            <?php echo htmlspecialchars($_SESSION["username"]); ?>,
+                        </b>
+                    </h3>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-warning shadow-none border-0 text-white"
+                    style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
+                    Reset Your Password
+                </button>
             </div>
-            <hr>
-            <button type="button" class="btn btn-warning shadow-none border-0" style="background-color: #996399;"
-                data-toggle="modal" data-target="#exampleModal">
-                Reset Your Password
-            </button>
         </div>
-        </p>
     </section>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
