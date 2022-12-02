@@ -112,8 +112,10 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <div class="d-md-none fixed-bottom">
-        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
+        <div class="row d-flex justify-content-center items-align-center py-4 px-5">
+            
             <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+                <hr>
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt'></i>
                 </a>
@@ -127,7 +129,7 @@ $row = mysqli_fetch_array($result);
                     <i class='bx bx-cog'></i>
                 </a>
                 <a href="logout.php" class="text-decoration-none text-light">
-                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                    <i class="fas fa-user fa-xl fa-fw"></i>
                 </a>
             </ul>
         </div>
