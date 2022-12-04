@@ -125,34 +125,32 @@ $added = false;
     </div>
 
     <div class="d-md-none fixed-bottom">
-        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
-            <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+        <div class="row d-flex justify-content-center items-align-center">
+            <ul
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-pill shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
                 <a href="activity.php" class="text-decoration-none text-light">
-                    <i class='bx bxs-calendar'></i>
+                    <i class='bx bxs-calendar' style="color:#996399;"></i>
                 </a>
                 <a href="attendance.php" class="text-decoration-none text-light">
-                    <i class='bx bx-pencil'></i>
+                    <i class='bx bx-pencil' style="color:#000;"></i>
                 </a>
                 <a href="settings.php" class="text-decoration-none text-light">
-                    <i class='bx bx-cog'></i>
-                </a>
-                <a href="logout.php" class="text-decoration-none text-light">
-                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                    <i class='bx bx-cog' style="color:#000;"></i>
                 </a>
             </ul>
         </div>
     </div>
 
 
-    <section class="main-body my-5 mb-md-0 mx-auto">
-        <div class="col-12 min-vh-100 px-4 mx-md-auto">
-            <div class="pb-4">
+    <section class="main-body ">
+        <div class="col-12 min-vh-100 p-4 mx-md-auto">
+            <div class="w-100 pb-4">
                 <h2>Activity Board</h2>
                 <h4>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h4>
-                <h6>Work study Attendance sheet</h6>
+                <p>Work study Attendance sheet.</p>
             </div>
             <div class="w-50 pb-4">
                 <table class="table table-bordered table-striped table-hover" id="myTable">
