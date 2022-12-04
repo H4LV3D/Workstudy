@@ -249,13 +249,25 @@
   font-weight: 500;
   margin: 18px;
 }
+.main-body {
+  background: #fff;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 160px) !important;
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.rounded-15 {
+  border-radius: 12px !important;
+}
 @media (max-width: 766px) {
   .sidebar {
     width: 0px !important;
   }
   .home-section {
     left: 0px !important;
-    width: 100%;
+    width: 100% !important;
   }
   .main-body {
     left: 0px !important;
@@ -273,28 +285,15 @@
   .home-section > div {
     width: 956px;
   }
-  .main-body {
-    width: 956px;
-  }
   .w-50 {
     width: 35% !important;
   }
 }
 
-h2 {
+/* h2 {
   font-family: "Roboto Slab", serif;
   font-weight: 800;
-}
-
-.main-body {
-  background: #fff;
-  min-height: 100vh;
-  top: 0;
-  left: 78px;
-  width: calc(100% - 160px) !important;
-  transition: all 0.5s ease;
-  z-index: 2;
-}
+} */
 
 .card {
   position: relative;
