@@ -142,23 +142,21 @@
         </ul>
     </div>
 
-    <div class="d-md-none fixed-bottom">
-        <div class="row bg-dark d-flex justify-content-center items-align-center py-4 px-5">
-            <ul class="col-10 d-flex flex-row justify-content-between my-auto">
+    <div class="d-md-none fixed-bottom mb-2">
+        <div class="row d-flex justify-content-center items-align-center">
+            <ul
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
                 <a href="activity.php" class="text-decoration-none text-light">
-                    <i class='bx bxs-calendar'></i>
+                    <i class='bx bxs-calendar' style="color:#000;"></i>
                 </a>
                 <a href="attendance.php" class="text-decoration-none text-light">
-                    <i class='bx bx-pencil'></i>
+                    <i class='bx bx-pencil' style="color:#333;"></i>
                 </a>
                 <a href="settings.php" class="text-decoration-none text-light">
-                    <i class='bx bx-cog'></i>
-                </a>
-                <a href="logout.php" class="text-decoration-none text-light">
-                    <i class="fas fa-user-circle fa-xl fa-fw"></i>
+                    <i class='bx bx-cog' style="color:#996399;"></i>
                 </a>
             </ul>
         </div>
@@ -168,6 +166,7 @@
         <div class="col-12 min-vh-100 mx-auto">
             <div class="container">
                 <div class="page-header">
+                <small style="color: #996399;" class="text-center">Work-study Portal</small>
                     <h3>Hi
                         <b>
                             <?php echo htmlspecialchars($_SESSION["username"]); ?>,
@@ -175,7 +174,7 @@
                     </h3>
                 </div>
                 <hr>
-                <button type="button" class="btn btn-warning shadow-none border-0 text-white"
+                <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
                     style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
                     Reset Your Password
                 </button>

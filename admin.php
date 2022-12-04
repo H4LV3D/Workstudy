@@ -9,16 +9,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 // database connection
 include('config.php');
-
 $added = false;
 
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -57,7 +50,6 @@ $added = false;
         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">
             <!-- <a href="addstudent.php" class="fa fa-plus"></a> Add New Student -->
             <a href="addstudent.php" class="fa fa-plus">Add New Student</a>
-
         </button>
 
         <hr>
@@ -113,10 +105,10 @@ $added = false;
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
+    $(document).ready(function() {
+        $('#myTable').DataTable();
 
-        });
+    });
     </script>
 
 </body>
