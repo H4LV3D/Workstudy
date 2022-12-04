@@ -109,10 +109,10 @@ $row = mysqli_fetch_array($result);
         </ul>
     </div>
 
-    <div class="d-md-none fixed-bottom">
+    <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
             <ul
-                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-pill shadow bg-white">
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
@@ -130,25 +130,22 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <section class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0">
-        <div class="cards p-5 mx-auto shadow rounded" style="width: 24rem;">
+        <div class="cards p-5 mx-auto shadow rounded-15 text-center" style="width: 24rem;">
             <div class="cards-body">
+                <small style="color: #996399;" class="text-center">Work-study Portal</small>
                 <h3 class="card-title text-center">Attendance Card</h3>
-                <p class="text-center">Please make sure to sign in and sign out properly. Any issues should be
-                    reported to
-                    Seald Office</p>
-
+                <p class="text-center font-weight-light">Please make sure to sign in and sign out properly. Any issues
+                    should be
+                    reported to seald Office</p>
                 <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">
-
                     <button class="px-5 py-3 border-0 w-100 rounded mb-3 text-white" type="submit" role="button"
                         name="signinbutton" type="submit" style="background-color: #996399;">
-                        SIGN
-                        IN
+                        SIGN IN
                     </button>
                     <br>
                     <button class="px-5 py-3 border-0  w-100 rounded text-white" type="submit" role="button"
                         name="signoutbutton" type="submit" style="background-color: #996399;">
-                        SIGN
-                        OUT
+                        SIGN OUT
                     </button>
                 </form>
                 <?php $place = $row['Placement']; ?>

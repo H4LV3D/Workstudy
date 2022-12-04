@@ -111,10 +111,10 @@ $row = mysqli_fetch_array($result);
         </ul>
     </div>
 
-    <div class="d-md-none fixed-bottom">
+    <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
             <ul
-                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-pill shadow bg-white">
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt' style="color:#996399;"></i>
                 </a>
@@ -135,7 +135,7 @@ $row = mysqli_fetch_array($result);
         <div class="min-vh-100 py-5 mx-auto col-md-12 col-12">
             <div class="row mx-1 mx-sm-3 pb-5xp">
                 <div class="col-12 bg-white shadow rounded p-4 p-md-5">
-                    <h2 class="text-center">Profile Info</h1>
+                    <h3 class="text-center">Work-study Profile</h1>
                         <div class="col-12 d-flex flex-md-row flex-column mt-5">
                             <div class="col-12 col-md-4 col-lg-3 text-center">
                                 <!-- <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150"> -->

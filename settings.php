@@ -142,7 +142,7 @@
         </ul>
     </div>
 
-    <div class="d-md-none fixed-bottom">
+    <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
             <ul
                 class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">

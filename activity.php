@@ -124,10 +124,10 @@ $added = false;
         </ul>
     </div>
 
-    <div class="d-md-none fixed-bottom">
+    <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
             <ul
-                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-pill shadow bg-white">
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
@@ -145,11 +145,13 @@ $added = false;
     </div>
 
 
-    <section class="main-body ">
-        <div class="col-12 min-vh-100 p-4 mx-md-auto">
-            <div class="w-100 pb-4">
-                <h2>Activity Board</h2>
-                <h4>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h4>
+    <section class="main-body">
+        <div class="col-12 min-vh-100 p-4 p-md-5 mx-md-5 mx-sm-auto">
+            <div class="pb-4">
+                <small style="color:#996399;">Work Study Portal</small>
+                <h2 style="color:#996399;">Activity Board</h2>
+                <!-- <span style="color:#996399;"></span> -->
+                <h5>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h5>
                 <p>Work study Attendance sheet.</p>
             </div>
             <div class="w-50 pb-4">
