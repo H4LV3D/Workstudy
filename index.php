@@ -135,8 +135,8 @@ $row = mysqli_fetch_array($result);
         <div class="min-vh-100 py-5 mx-auto col-md-12 col-12">
             <div class="row mx-1 mx-sm-3 pb-5xp">
                 <div class="col-12 bg-white shadow rounded p-4 p-md-5">
-                    <small style="color: #996399;" class="text-center">Work-study Portal</small>
-                    <h3 class="text-center">Work-study Profile</h1>
+                    <small class="text-center text-md-left" style="color: #996399;">Work-study Portal</small>
+                    <h3 class="text-center">Profile</h1>
                         <div class="col-12 d-flex flex-md-row flex-column mt-5">
                             <div class="col-12 col-md-4 col-lg-3 text-center">
                                 <!-- <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150"> -->
