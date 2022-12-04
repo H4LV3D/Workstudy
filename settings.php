@@ -166,6 +166,7 @@
         <div class="col-12 min-vh-100 mx-auto">
             <div class="container">
                 <div class="page-header">
+                <small style="color: #996399;" class="text-center">Work-study Portal</small>
                     <h3>Hi
                         <b>
                             <?php echo htmlspecialchars($_SESSION["username"]); ?>,
