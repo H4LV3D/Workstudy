@@ -38,7 +38,6 @@ $row = mysqli_fetch_array($result);
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <title> Work Study | Dashboard</title>
