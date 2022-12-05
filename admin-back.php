@@ -60,14 +60,14 @@ $row = mysqli_fetch_array($result);
         <ul class="nav-list">
             <li>
                 <a href="index.php">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>
                 <span class="tooltip">Student Info</span>
             </li>
             <li>
                 <a href="activity.php">
-                    <i class='bx bxs-calendar'></i>
+                    <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
                 <span class="tooltip">Attendance Records</span>
@@ -98,7 +98,7 @@ $row = mysqli_fetch_array($result);
                         </div>
                     </div>
                 </div>
-                <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
+                <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i></a>
             </li>
         </ul>
     </div>
