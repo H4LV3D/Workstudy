@@ -317,7 +317,7 @@ $row = mysqli_fetch_array($result);
         $('.dropdown-toggle').dropdown()
     });
     </script>
-    </script>
+
 </body>
 
 </html>
