@@ -137,7 +137,7 @@
   display: flex;
   height: 100%;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 6px;
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
@@ -322,4 +322,15 @@ label {
 
 .bx {
   font-size: 26px;
+}
+
+/* MY Table  */
+#myTable_filter label {
+  font-size: 12px;
+}
+#myTable_filter label input {
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  padding: 0.4rem 0.6rem !important;
+  outline: none;
 }
