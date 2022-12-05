@@ -54,7 +54,9 @@ $row = mysqli_fetch_array($result);
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/assets/css/side.css">
-    <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
+    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
@@ -135,27 +137,26 @@ $row = mysqli_fetch_array($result);
         <div class="min-vh-100 py-5 mx-auto col-md-12 col-12">
             <div class="row mx-1 mx-sm-3 pb-5xp">
                 <div class="col-12 bg-white shadow rounded p-4 p-md-5">
-                    <small class="text-center text-md-left" style="color: #996399;">Work-study Portal</small>
-                    <h3 class="text-center">Profile</h1>
-                        <div class="col-12 d-flex flex-md-row flex-column mt-5">
-                            <div class="col-12 col-md-4 col-lg-3 text-center">
-                                <!-- <img src="/assets/images/me.png" alt="Admin" class="rounded-circle" width="150"> -->
-                                <i class="fas fa-user-circle fa-7x fa-fw"></i>
-                            </div>
-                            <div class="col-12 col-md-8 my-3 my-md-auto">
-                                <h4>
-                                    <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
-                                </h4>
-                                <p class="text-secondary mb-1">
-                                    <?php echo $row['Matric_No']; ?>
-                                </p>
-                                <p class="text-muted font-size-sm">
-                                    <?php echo $row['Email']; ?>
-                                </p>
-                            </div>
+                    <small class="text-center" style="color: #996399;text-align: center;">Work-study Portal</small>
+                    <h3 class="text-center">Profile</h3>
+                    <div class="col-12 d-flex flex-md-row flex-column mt-5">
+                        <div class="col-12 col-md-4 col-lg-3 text-center">
+                            <i class="fas fa-user-circle fa-7x fa-fw"></i>
                         </div>
-                        <div class="col-12 mb-5 my-md-5 px-lg-5">
-                            <!-- <hr>
+                        <div class="col-12 col-md-8 my-3 my-md-auto">
+                            <h5>
+                                <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
+                            </h5>
+                            <p class="text-secondary mb-1">
+                                <?php echo $row['Matric_No']; ?>
+                            </p>
+                            <p class="text-muted font-size-sm">
+                                <?php echo $row['Email']; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-5 my-md-5 px-lg-5">
+                        <!-- <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Reg No.</h6>
@@ -173,25 +174,25 @@ $row = mysqli_fetch_array($result);
                                         <?php echo $row['Email']; ?>
                                     </div>
                                 </div> -->
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                    <h6 class="mb-0">Course / Program</h6>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                    <?php echo $row['Program']; ?>
-                                </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <h6 class="mb-0">Course / Program</h6>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                    <h6 class="mb-0">Level</h6>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                    <?php echo $row['Level']; ?>
-                                </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                <?php echo $row['Program']; ?>
                             </div>
-                            <!-- <hr>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <h6 class="mb-0">Level</h6>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                <?php echo $row['Level']; ?>
+                            </div>
+                        </div>
+                        <!-- <hr>
                                 <div class="row">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                         <h6 class="mb-0">Telegram No.</h6>
@@ -209,94 +210,94 @@ $row = mysqli_fetch_array($result);
                                         Daniel Hall B204
                                     </div>
                                 </div> -->
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                    <h6 class="mb-0">Total Hours Worked</h6>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                    0
-                                </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <h6 class="mb-0">Total Hours Worked</h6>
                             </div>
-                            <hr>
-                            <div class="dropdown show">
-                                <div class="text-secondary" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                0
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="dropdown show">
+                            <div class="text-secondary" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                        <h6 class="mb-0">More Info</h6>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                        Click here to view
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+
+                            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-item" href="#">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                            <h6 class="mb-0">More Info</h6>
+                                            <h6 class="mb-0">Bank Name</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Click here to view
+                                            Undefined
                                         </div>
                                     </div>
                                     <hr>
                                 </div>
-
-                                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
-                                    <div class="dropdown-item" href="#">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                                <h6 class="mb-0">Bank Name</h6>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                                Undefined
-                                            </div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                            <h6 class="mb-0">Account No.</h6>
                                         </div>
-                                        <hr>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                            Undefined
+                                        </div>
                                     </div>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                                <h6 class="mb-0">Account No.</h6>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                                Undefined
-                                            </div>
+                                    <hr>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                            <h6 class="mb-0">Account Name</h6>
                                         </div>
-                                        <hr>
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                                <h6 class="mb-0">Account Name</h6>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                                Undefined
-                                            </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                            Undefined
                                         </div>
-                                        <hr>
-                                    </a>
-                                </div>
+                                    </div>
+                                    <hr>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <h3>Contact</h3>
-                            <p>For complains or enquiries, please reach out to us.</p>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-3 text-md-center">
-                                    <a href="https://www.instagram.com/studentcouncil_cu/" class="btn"><i
-                                            class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3  text-md-center">
-                                    <a href="change-password.php" class="btn">
-                                        <i class="fab fa-instagram fa-lg fa-fw"></i>
-                                        Instagram
-                                    </a>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 text-md-center">
-                                    <a href="change-password.php" class="btn ">
-                                        <i class="fas fa-globe fa-lg fa-fw"></i>
-                                        Website
-                                    </a>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 text-md-center">
-                                    <a href="mailt0:seald@covenantuniversity.edu.ng" class="btn  border-0">
-                                        <i class="fas fa-envelope fa-lg fa-fw"></i>
-                                        Mail</a>
-                                </div>
+                    </div>
+                    <div class="col-12">
+                        <h3>Contact</h3>
+                        <p>For complains or enquiries, please reach out to us.</p>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                <a href="https://www.instagram.com/studentcouncil_cu/" class="btn"><i
+                                        class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3  text-md-center">
+                                <a href="change-password.php" class="btn">
+                                    <i class="fab fa-instagram fa-lg fa-fw"></i>
+                                    Instagram
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                <a href="change-password.php" class="btn ">
+                                    <i class="fas fa-globe fa-lg fa-fw"></i>
+                                    Website
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 text-md-center">
+                                <a href="mailt0:seald@covenantuniversity.edu.ng" class="btn  border-0">
+                                    <i class="fas fa-envelope fa-lg fa-fw"></i>
+                                    Mail</a>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
 
@@ -316,7 +317,7 @@ $row = mysqli_fetch_array($result);
         $('.dropdown-toggle').dropdown()
     });
     </script>
-    </script>
+
 </body>
 
 </html>
