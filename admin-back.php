@@ -9,9 +9,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 // database connection
 include('config.php');
-
 $added = false;
+?>
 
+<?php if (isset($_SESSION['username'])): ?>
+<?php endif ?>
+<?php if (isset($_SESSION['id'])): ?>
+<?php endif ?>
+<!--  -->
+<!-- User Details -->
+<?php
+$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -21,29 +31,26 @@ $added = false;
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="/assets/css/side.css">
     <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/side.css">
 </head>
 
 <body>
-
     <div class="d-none d-md-block sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -56,33 +63,32 @@ $added = false;
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>
-                <span class="tooltip">Dashboard</span>
+                <span class="tooltip">Student Info</span>
             </li>
             <li>
                 <a href="activity.php">
                     <i class='bx bxs-calendar'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
-                <span class="tooltip">Activity</span>
+                <span class="tooltip">Attendance Records</span>
             </li>
             <li>
                 <a href="attendance.php">
                     <i class='bx bx-pencil'></i>
-                    <span class="links_name">Attendance</span>
+                    <span class="links_name">Add Student</span>
                 </a>
-                <span class="tooltip">Attendance</span>
+                <span class="tooltip">Add Student</span>
             </li>
             <li>
                 <a href="settings.php">
                     <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
+                    <span class="links_name">Settings</span>
                 </a>
-                <span class="tooltip">Setting</span>
+                <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <!-- <img src="/assets/images/profile.jpg"> -->
-                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
+                    <i class="fas fa-user-circle fa-4x fa-fw"></i>
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
@@ -97,12 +103,7 @@ $added = false;
         </ul>
     </div>
 
-    <div class="container">
-        <a href="https://lexacademy.in" target="_blank"><img
-                src="https://lexacademy.in/wp-content/uploads/2021/07/lex-academy-online-learning-platform-1.png" alt=""
-                width="350px"></a><br>
-        <hr>
-
+    <div class="container my-5 py-5">
         <!-- adding alert notification  -->
         <?php
 	if($added){
@@ -114,67 +115,64 @@ $added = false;
 	}
 
 ?>
-
-        <a href="logout.php" class="btn btn-success"><i class="fa fa-lock"></i> Logout</a>
-        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">
-            <!-- <a href="addstudent.php" class="fa fa-plus"></a> Add New Student -->
-            <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white"><span>Add New Student</span>
-            </a>
-
-        </button>
-        <a href="export.php" class="btn btn-success pull-right"><i class="fa fa-download"></i> Export Data</a>
+        <div class="flex flex-row justify-content-end">
+            <button class="btn" style="background-color:#996399;" type="button" data-toggle="modal"
+                data-target="#myModal">
+                <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white">
+                    <span>New Student</span>
+                </a>
+            </button>
+        </div>
         <hr>
-        <table class="table table-bordered table-striped table-hover" id="myTable">
-            <thead>
-                <tr>
-                    <th class="text-center" scope="col">id</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Matric No</th>
-                    <th class="text-center" scope="col">Email</th>
-                    <th class="text-center" scope="col">Program</th>
-                    <th class="text-center" scope="col">Level</th>
-                    <th class="text-center" scope="col">Placement</th>
-                </tr>
-            </thead>
-            <?php
-
-        	$get_data = "SELECT * FROM student_data order by 1 desc";
-        	$run_data = mysqli_query($con,$get_data);
-			$i = 0;
-        	while($row = mysqli_fetch_array($run_data))
-        	{
-				$id = $row['id'];
-				$Last_Name = $row['Last_Name'];
-				$Other_Name = $row['Other_Name'];
-				$Matric_No = $row['Matric_No'];
-				$Email = $row['Email'];
-				$Program = $row['Program'];
-				$Placement = $row['Placement'];
-				$Level = $row['Level'];
-
-        		echo "
-				<tr>
-					<td class='text-center'>$id</td>
-					<td class='text-left'>$Last_Name   $Other_Name</td>
-					<td class='text-left'>$Matric_No</td>
-					<td class='text-left'>$Email</td>
-					<td class='text-center'>$Program</td>
-					<td class='text-center'>$Level</td>
-					<td class='text-center'>$Placement</td>
-				</tr>
-        		";
-        	}
-
-        	?>
-
-
-
-        </table>
+        <div class="my-5">
+            <table class="table table-bordered table-striped table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">id</th>
+                        <th class="text-center" scope="col">Name</th>
+                        <th class="text-center" scope="col">Matric No</th>
+                        <th class="text-center" scope="col">Email</th>
+                        <th class="text-center" scope="col">Program</th>
+                        <th class="text-center" scope="col">Level</th>
+                        <th class="text-center" scope="col">Placement</th>
+                    </tr>
+                </thead>
+                <?php
+				$get_data = "SELECT * FROM student_data order by 1 desc";
+				$run_data = mysqli_query($con,$get_data);
+				$i = 0;
+				while($row = mysqli_fetch_array($run_data))
+				{
+					$id = $row['id'];
+					$Last_Name = $row['Last_Name'];
+					$Other_Name = $row['Other_Name'];
+					$Matric_No = $row['Matric_No'];
+					$Email = $row['Email'];
+					$Program = $row['Program'];
+					$Placement = $row['Placement'];
+					$Level = $row['Level'];
+	
+					echo "
+					<tr>
+						<td class='text-center'>$id</td>
+						<td class='text-left'>$Last_Name   $Other_Name</td>
+						<td class='text-left'>$Matric_No</td>
+						<td class='text-left'>$Email</td>
+						<td class='text-center'>$Program</td>
+						<td class='text-center'>$Level</td>
+						<td class='text-center'>$Placement</td>
+					</tr>
+					";
+				}
+	
+				?>
+            </table>
+        </div>
         <form method="post" action="export.php">
-            <input type="submit" name="export" class="btn btn-success" value="Export Data" />
+            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record"
+                style="background-color: #996399;color: #eee;" />
         </form>
     </div>
-
 
 
 
@@ -182,10 +180,20 @@ $added = false;
     <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
-
     });
     </script>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
 
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
 </body>
 
 </html>
