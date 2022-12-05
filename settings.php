@@ -166,12 +166,14 @@
         <div class="col-12 min-vh-100 mx-auto">
             <div class="container">
                 <div class="page-header">
-                <small style="color: #996399;" class="text-center">Work-study Portal</small>
-                    <h3>Hi
+                    <p class="p-0 m-0 mb-2">
+                        <small style="color: #996399;" class="text-center">Work-study Portal</small>
+                    </p>
+                    <h4>Hi
                         <b>
                             <?php echo htmlspecialchars($_SESSION["username"]); ?>,
                         </b>
-                    </h3>
+                    </h4>
                 </div>
                 <hr>
                 <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
