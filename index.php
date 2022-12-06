@@ -305,19 +305,26 @@ $row = mysqli_fetch_array($result);
     </section>
 
 
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
     });
     $(document).ready(function() {
         $('.dropdown-toggle').dropdown()
     });
     </script>
-
 </body>
 
 </html>

@@ -42,5 +42,4 @@ if(isset($_POST['submit']))
 		echo "Data not update";
 	}
 }
-
 ?>
