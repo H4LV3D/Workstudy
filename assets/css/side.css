@@ -325,12 +325,24 @@ label {
 }
 
 /* MY Table  */
-#myTable_filter label {
+/* #myTable_filter label {
   font-size: 12px;
-}
+} */
 #myTable_filter label input {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
   padding: 0.4rem 0.6rem !important;
   outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+input:active,
+input:focus {
+  outline: none;
+  border: none;
 }
