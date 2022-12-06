@@ -325,9 +325,9 @@ label {
 }
 
 /* MY Table  */
-#myTable_filter label {
+/* #myTable_filter label {
   font-size: 12px;
-}
+} */
 #myTable_filter label input {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
