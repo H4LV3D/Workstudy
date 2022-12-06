@@ -75,17 +75,17 @@ $row = mysqli_fetch_array($result);
             <li>
                 <a href="admin-attendance.php">
                     <i class='bx bx-pencil'></i>
-                    <span class="links_name">Add Student</span>
+                    <span class="links_name">Edit Student</span>
                 </a>
-                <span class="tooltip">Add Student</span>
+                <span class="tooltip">Edit Student</span>
             </li>
             <li>
                 <a href="addstudent.php">
 
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
-                    <span class="links_name">Settings</span>
+                    <span class="links_name">Add Student</span>
                 </a>
-                <span class="tooltip">Settings</span>
+                <span class="tooltip">Add Student</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
@@ -170,7 +170,7 @@ $row = mysqli_fetch_array($result);
             </table>
         </div>
         <form method="post" action="export.php">
-            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record"
+            <input type="submit" name="export" class="btn px-5 py-2" value="Export Student Record"
                 style="background-color: #996399;color: #eee;" />
         </form>
     </div>
