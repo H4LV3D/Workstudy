@@ -138,8 +138,8 @@ $row = mysqli_fetch_array($result);
             <div class="row mx-1 mx-sm-3 pb-5xp">
                 <div class="col-12 bg-white shadow rounded p-4 p-md-5">
                     <small class="text-center" style="color: #996399;text-align: center;">Work-study Portal</small>
-                    <h3 class="text-center">Profile</h3>
-                    <div class="col-12 d-flex flex-md-row flex-column mt-5">
+                    <h3 class="text-center text-md-left pt-2">Profile</h3>
+                    <div class="col-12 d-flex flex-md-row flex-column mt-4">
                         <div class="col-12 col-md-4 col-lg-3 text-center">
                             <i class="fas fa-user-circle fa-7x fa-fw"></i>
                         </div>
@@ -216,7 +216,20 @@ $row = mysqli_fetch_array($result);
                                 <h6 class="mb-0">Total Hours Worked</h6>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                0
+                                <?php
+                $table_sum="SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
+                $sum_table = mysqli_query($con,$table_sum);
+                while ($row = mysqli_fetch_assoc($sum_table))
+                { 
+                  if ($row['total'] != null) {
+                    echo round($row['total'], 2);
+                  } else {
+                    echo "No record found";
+                  }
+                }
+
+                mysqli_close($con);
+              ?>
                             </div>
                         </div>
                         <hr>
