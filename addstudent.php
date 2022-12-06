@@ -100,8 +100,7 @@ if (isset($_POST['registerBtn'])) {
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="addstudent.php">
-
+                <a href="addstudent.php" class="active">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>

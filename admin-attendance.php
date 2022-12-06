@@ -73,7 +73,7 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
+                <a href="admin-attendance.php" class="active">
                     <i class='bx bx-pencil'></i>
                     <span class="links_name">Add Student</span>
                 </a>
@@ -81,7 +81,6 @@ $row = mysqli_fetch_array($result);
             </li>
             <li>
                 <a href="addstudent.php">
-
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>

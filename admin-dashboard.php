@@ -59,7 +59,7 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="admin-dashboard.php">
+                <a href="admin-dashboard.php" class="active">
                     <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>

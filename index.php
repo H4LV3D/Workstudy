@@ -68,7 +68,7 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="index.php">
+                <a href="index.php" class="active">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -117,7 +117,7 @@ $row = mysqli_fetch_array($result);
         <div class="row d-flex justify-content-center items-align-center">
             <ul
                 class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
-                <a href="index.php" class="text-decoration-none text-light">
+                <a href="index.php" class="text-decoration-none text-light" class="active">
                     <i class='bx bx-grid-alt' style="color:#996399;"></i>
                 </a>
                 <a href="activity.php" class="text-decoration-none text-light">
