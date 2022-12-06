@@ -105,7 +105,94 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <div class="container my-5 py-5">
+        <!-- adding alert notification  -->
+        <?php
+	if($added){
+		echo "
+			<div class='btn-success' style='padding: 15px; text-align:center;'>
+				Your Student Data has been Successfully Added.
+			</div><br>
+		";
+	}
+
+?>
+        <div class="flex flex-row justify-content-end">
+            <button class="btn" style="background-color:#996399;" type="button" data-toggle="modal"
+                data-target="#myModal">
+                <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white">
+                    <span>New Student</span>
+                </a>
+            </button>
+        </div>
+        <hr>
+        <div class="my-5">
+            <table class="table table-bordered table-striped table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">id</th>
+                        <th class="text-center" scope="col">Name</th>
+                        <th class="text-center" scope="col">Matric No</th>
+                        <th class="text-center" scope="col">Email</th>
+                        <th class="text-center" scope="col">Program</th>
+                        <th class="text-center" scope="col">Level</th>
+                        <th class="text-center" scope="col">Placement</th>
+                    </tr>
+                </thead>
+                <?php
+				$get_data = "SELECT * FROM student_data order by 1 desc";
+				$run_data = mysqli_query($con,$get_data);
+				$i = 0;
+				while($row = mysqli_fetch_array($run_data))
+				{
+					$id = $row['id'];
+					$Last_Name = $row['Last_Name'];
+					$Other_Name = $row['Other_Name'];
+					$Matric_No = $row['Matric_No'];
+					$Email = $row['Email'];
+					$Program = $row['Program'];
+					$Placement = $row['Placement'];
+					$Level = $row['Level'];
+	
+					echo "
+					<tr>
+						<td class='text-center'>$id</td>
+						<td class='text-left'>$Last_Name   $Other_Name</td>
+						<td class='text-left'>$Matric_No</td>
+						<td class='text-left'>$Email</td>
+						<td class='text-center'>$Program</td>
+						<td class='text-center'>$Level</td>
+						<td class='text-center'>$Placement</td>
+					</tr>
+					";
+				}
+	
+				?>
+            </table>
+        </div>
+        <form method="post" action="export.php">
+            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record"
+                style="background-color: #996399;color: #eee;" />
+        </form>
     </div>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
 </body>
 
 </html>
