@@ -122,11 +122,11 @@
                 <span class="tooltip">Attendance</span>
             </li>
             <li>
-                <a href="settings.php">
+                <a href="settings.php" class="active">
                     <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
+                    <span class="links_name">Settings</span>
                 </a>
-                <span class="tooltip">Setting</span>
+                <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
@@ -222,17 +222,29 @@
     </div>
 
 
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+    button.addEventListener("click", () => {
+        // sidebar.classList.toggle("open");
+        searchBtn.classList.toggle("bx-search");
+        searchBtn.classList.toggle("bx-menu");
+    });
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
     });
-
-    searchBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
     });
     </script>
 </body>

@@ -59,7 +59,7 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="admin-dashboard.php">
+                <a href="admin-dashboard.php" class="active">
                     <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>
@@ -165,7 +165,6 @@ $row = mysqli_fetch_array($result);
 					</tr>
 					";
 				}
-	
 				?>
             </table>
         </div>
@@ -174,8 +173,6 @@ $row = mysqli_fetch_array($result);
                 style="background-color: #996399;color: #eee;" />
         </form>
     </div>
-
-
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
@@ -187,9 +184,11 @@ $row = mysqli_fetch_array($result);
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
     });
     $(document).ready(function() {
         $('.dropdown-toggle').dropdown()

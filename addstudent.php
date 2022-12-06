@@ -34,10 +34,7 @@ if (isset($_POST['registerBtn'])) {
     // verify the user's account was created
     $query = mysqli_query($con, "SELECT * FROM student_data WHERE Email='{$Email}'");
     if (mysqli_num_rows($query) == 1) {
-
-        /* IF WE ARE HERE THEN THE ACCOUNT WAS CREATED! YAY! */
-        /* WE WILL SEND EMAIL ACTIVATION CODE HERE LATER */
-
+ 
         $success = true;
     } else
         $error_msg = 'An error occurred and your account was not created.';
@@ -100,8 +97,7 @@ if (isset($_POST['registerBtn'])) {
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="addstudent.php">
-
+                <a href="addstudent.php" class="active">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
@@ -215,6 +211,27 @@ if (isset($_POST['registerBtn'])) {
         </div>
     </div>
     </div>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
+    });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
 </body>
 
 </html>
