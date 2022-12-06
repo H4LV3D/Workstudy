@@ -68,7 +68,7 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="index.php">
+                <a href="index.php" class="active">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -117,7 +117,7 @@ $row = mysqli_fetch_array($result);
         <div class="row d-flex justify-content-center items-align-center">
             <ul
                 class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
-                <a href="index.php" class="text-decoration-none text-light">
+                <a href="index.php" class="text-decoration-none text-light" class="active">
                     <i class='bx bx-grid-alt' style="color:#996399;"></i>
                 </a>
                 <a href="activity.php" class="text-decoration-none text-light">
@@ -272,28 +272,31 @@ $row = mysqli_fetch_array($result);
                         </div>
                     </div>
                     <div class="col-12">
-                        <h3>Contact</h3>
-                        <p>For complains or enquiries, please reach out to us.</p>
-                        <div class="row">
+                        <h5>Contact</h5>
+                        <small>For complains or enquiries, please reach out to us.</small>
+                        <div class="row mt-2">
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
                                 <a href="https://www.instagram.com/studentcouncil_cu/" class="btn"><i
-                                        class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
+                                        class="fab fa-telegram fa-lg fa-fw pr-3"></i>Telegram</a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3  text-md-center">
-                                <a href="change-password.php" class="btn">
-                                    <i class="fab fa-instagram fa-lg fa-fw"></i>
-                                    Instagram
+                                <a href="change-password.php"
+                                    class="btn d-flex align-items-center justify-content-center">
+                                    <i class="fab fa-instagram fa-lg fa-fw pr-3"></i>
+                                    <p class="my-auto">Instagram</p>
                                 </a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
-                                <a href="change-password.php" class="btn ">
-                                    <i class="fas fa-globe fa-lg fa-fw"></i>
-                                    Website
+                                <a href="change-password.php" class="btn">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-globe fa-lg fa-fw pr-3"></i>
+                                        <p class="my-auto">Website</p>
+                                    </div>
                                 </a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
                                 <a href="mailt0:seald@covenantuniversity.edu.ng" class="btn  border-0">
-                                    <i class="fas fa-envelope fa-lg fa-fw"></i>
+                                    <i class="fas fa-envelope fa-lg fa-fw pr-3"></i>
                                     Mail</a>
                             </div>
                         </div>
@@ -305,19 +308,26 @@ $row = mysqli_fetch_array($result);
     </section>
 
 
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
     });
     $(document).ready(function() {
         $('.dropdown-toggle').dropdown()
     });
     </script>
-
 </body>
 
 </html>

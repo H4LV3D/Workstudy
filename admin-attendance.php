@@ -73,7 +73,7 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
+                <a href="admin-attendance.php" class="active">
                     <i class='bx bx-pencil'></i>
                     <span class="links_name">Add Student</span>
                 </a>
@@ -81,7 +81,6 @@ $row = mysqli_fetch_array($result);
             </li>
             <li>
                 <a href="addstudent.php">
-
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
@@ -105,8 +104,28 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <div class="container my-5 py-5">
-
     </div>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
+    });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
 </body>
 
 </html>
