@@ -165,7 +165,6 @@ $row = mysqli_fetch_array($result);
 					</tr>
 					";
 				}
-	
 				?>
             </table>
         </div>
