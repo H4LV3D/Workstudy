@@ -187,9 +187,16 @@ $row = mysqli_fetch_array($result);
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+    button.addEventListener("click", () => {
+        // sidebar.classList.toggle("open");
+        searchBtn.classList.toggle("bx-search");
+        searchBtn.classList.toggle("bx-menu");
+    });
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
     });
     $(document).ready(function() {
         $('.dropdown-toggle').dropdown()

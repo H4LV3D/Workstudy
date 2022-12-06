@@ -116,22 +116,22 @@
   padding: 0 20px 0 50px;
   width: 100%;
 }
-.sidebar .bx-search {
+.sidebar .bx-menu {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  background: #1d1b31;
   color: #fff;
 }
-.sidebar.open .bx-search:hover {
-  background: #1d1b31;
+.sidebar.open .bx-menu {
+  color: #996399;
+}
+.sidebar.open .bx-menu:hover {
   color: #fff;
 }
-.sidebar .bx-search:hover {
-  background: #fff;
-  color: #11101d;
+.sidebar .bx-menu:hover {
+  color: #996399;
 }
 .sidebar li a {
   display: flex;
