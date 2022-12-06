@@ -90,7 +90,7 @@ $added = false;
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="activity.php">
+                <a href="activity.php" class="active">
                     <i class='bx bxs-calendar'></i>
                     <span class="links_name">Activity</span>
                 </a>

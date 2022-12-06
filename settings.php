@@ -122,11 +122,11 @@
                 <span class="tooltip">Attendance</span>
             </li>
             <li>
-                <a href="settings.php">
+                <a href="settings.php" class="active">
                     <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
+                    <span class="links_name">Settings</span>
                 </a>
-                <span class="tooltip">Setting</span>
+                <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
