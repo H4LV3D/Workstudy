@@ -131,10 +131,11 @@ $row = mysqli_fetch_array($result);
 
     <section class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0">
         <div class="cards p-5 mx-auto shadow rounded-15 text-center" style="width: 24rem;">
-            <div class="cards-body">
+            <div class="">
                 <small style="color: #996399;" class="text-center">Work-study Portal</small>
                 <h3 class="card-title text-center">Attendance Card</h3>
-                <p class="text-center font-weight-light">Please make sure to sign in and sign out properly. Any issues
+                <p class="text-center next">Please make sure to sign in and sign out properly. Any
+                    issues
                     should be
                     reported to seald Office</p>
                 <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">

@@ -299,11 +299,6 @@
   }
 }
 
-/* h2 {
-  font-family: "Roboto Slab", serif;
-  font-weight: 800;
-} */
-
 .card {
   position: relative;
   display: flex;
@@ -329,14 +324,14 @@ label {
   color: #797979 !important;
 }
 
+.next {
+  font-weight: 200;
+}
+
 .bx {
   font-size: 26px;
 }
 
-/* MY Table  */
-/* #myTable_filter label {
-  font-size: 12px;
-} */
 #myTable_filter label input {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
