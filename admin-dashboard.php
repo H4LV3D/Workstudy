@@ -59,29 +59,30 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="index.php">
+                <a href="admin-dashboard.php">
                     <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>
                 <span class="tooltip">Student Info</span>
             </li>
             <li>
-                <a href="activity.php">
+                <a href="admin-activity.php">
                     <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="attendance.php">
+                <a href="admin-attendance.php">
                     <i class='bx bx-pencil'></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="settings.php">
-                    <i class='bx bx-cog'></i>
+                <a href="addstudent.php">
+
+                    <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
                 <span class="tooltip">Settings</span>
