@@ -272,28 +272,31 @@ $row = mysqli_fetch_array($result);
                         </div>
                     </div>
                     <div class="col-12">
-                        <h3>Contact</h3>
-                        <p>For complains or enquiries, please reach out to us.</p>
-                        <div class="row">
+                        <h5>Contact</h5>
+                        <small>For complains or enquiries, please reach out to us.</small>
+                        <div class="row mt-2">
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
                                 <a href="https://www.instagram.com/studentcouncil_cu/" class="btn"><i
-                                        class="fab fa-telegram fa-lg fa-fw"></i>Telegram</a>
+                                        class="fab fa-telegram fa-lg fa-fw pr-3"></i>Telegram</a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3  text-md-center">
-                                <a href="change-password.php" class="btn">
-                                    <i class="fab fa-instagram fa-lg fa-fw"></i>
-                                    Instagram
+                                <a href="change-password.php"
+                                    class="btn d-flex align-items-center justify-content-center">
+                                    <i class="fab fa-instagram fa-lg fa-fw pr-3"></i>
+                                    <p class="my-auto">Instagram</p>
                                 </a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
-                                <a href="change-password.php" class="btn ">
-                                    <i class="fas fa-globe fa-lg fa-fw"></i>
-                                    Website
+                                <a href="change-password.php" class="btn">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-globe fa-lg fa-fw pr-3"></i>
+                                        <p class="my-auto">Website</p>
+                                    </div>
                                 </a>
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 text-md-center">
                                 <a href="mailt0:seald@covenantuniversity.edu.ng" class="btn  border-0">
-                                    <i class="fas fa-envelope fa-lg fa-fw"></i>
+                                    <i class="fas fa-envelope fa-lg fa-fw pr-3"></i>
                                     Mail</a>
                             </div>
                         </div>
