@@ -234,30 +234,30 @@ $added = false;
         </div>
     </section>
 
-
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    </script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+    button.addEventListener("click", () => {
+        // sidebar.classList.toggle("open");
+        searchBtn.classList.toggle("bx-search");
+        searchBtn.classList.toggle("bx-menu");
+    });
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
-        // menuBtnChange(); //calling the function(optional)
+        $(button).toggleClass('bx-search bxs-x-square');
     });
-
-    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search icons
-        sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
     });
-
-    // following are the code to change sidebar button(optional)
-    function menuBtnChange() {
-        if (sidebar.classList.contains("open")) {
-            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the icons class
-        } else {
-            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the icons class
-        }
-    }
     </script>
 </body>
 

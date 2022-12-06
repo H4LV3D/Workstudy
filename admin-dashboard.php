@@ -175,8 +175,6 @@ $row = mysqli_fetch_array($result);
         </form>
     </div>
 
-
-
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function() {
@@ -188,11 +186,6 @@ $row = mysqli_fetch_array($result);
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
     let button = document.querySelector(".bx-menu");
-    button.addEventListener("click", () => {
-        // sidebar.classList.toggle("open");
-        searchBtn.classList.toggle("bx-search");
-        searchBtn.classList.toggle("bx-menu");
-    });
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
