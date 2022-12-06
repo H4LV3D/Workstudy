@@ -78,7 +78,7 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Activity</span>
             </li>
             <li>
-                <a href="attendance.php">
+                <a href="attendance.php" class="active">
                     <i class='bx bx-pencil'></i>
                     <span class="links_name">Attendance</span>
                 </a>
