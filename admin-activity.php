@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Student Info</span>
             </li>
             <li>
-                <a href="admin-activity.php">
+                <a href="admin-activity.php" class="active">
                     <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
