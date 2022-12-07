@@ -231,6 +231,10 @@
   width: 50px;
   background: none;
 }
+.sidebar i#log_out:hover {
+  background: #fff !important;
+  color: #996399 !important;
+}
 /* Sidebar Ends  */
 
 .home-section {

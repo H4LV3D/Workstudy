@@ -211,8 +211,6 @@ $added = false;
                 <td class='text-center'>Total Time:</td>
                 <td class='text-center'>
                     <?php
-                // require('config.php');
-
                 $table_sum="SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
 
                 $sum_table = mysqli_query($con,$table_sum);
@@ -224,7 +222,6 @@ $added = false;
                     echo "No record found";
                   }
                 }
-
                 mysqli_close($con);
               ?>
                 </td>
