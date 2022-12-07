@@ -26,8 +26,6 @@ $added = false;
 $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($result);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -38,21 +36,18 @@ $row = mysqli_fetch_array($result);
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
-
     <script src="attendance.js"></script>
+    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
@@ -93,8 +88,7 @@ $row = mysqli_fetch_array($result);
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <!-- <img src="./assets/images/profile.jpg"> -->
-                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
+                    <i class="fas fa-user-circle fa-4x fa-fw"></i>
                     <div class="name_job">
                         <div class="name">
                             <?php echo $row['Other_Name']; ?>
@@ -111,8 +105,7 @@ $row = mysqli_fetch_array($result);
 
     <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
-            <ul
-                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
+            <ul class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
@@ -131,20 +124,19 @@ $row = mysqli_fetch_array($result);
 
     <section class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0">
         <div class="cards p-5 mx-auto shadow rounded-15 text-center" style="width: 24rem;">
-            <div class="cards-body">
+            <div class="">
                 <small style="color: #996399;" class="text-center">Work-study Portal</small>
                 <h3 class="card-title text-center">Attendance Card</h3>
-                <p class="text-center font-weight-light">Please make sure to sign in and sign out properly. Any issues
+                <p class="text-center next">Please make sure to sign in and sign out properly. Any
+                    issues
                     should be
                     reported to seald Office</p>
                 <form action="attendance.php" id="loginFrm" class="pt-3" method="POST">
-                    <button class="px-5 py-3 border-0 w-100 rounded mb-3 text-white" type="submit" role="button"
-                        name="signinbutton" type="submit" style="background-color: #996399;">
+                    <button class="px-5 py-3 border-0 w-100 rounded mb-3 text-white" type="submit" role="button" name="signinbutton" type="submit" style="background-color: #996399;">
                         SIGN IN
                     </button>
                     <br>
-                    <button class="px-5 py-3 border-0  w-100 rounded text-white" type="submit" role="button"
-                        name="signoutbutton" type="submit" style="background-color: #996399;">
+                    <button class="px-5 py-3 border-0  w-100 rounded text-white" type="submit" role="button" name="signoutbutton" type="submit" style="background-color: #996399;">
                         SIGN OUT
                     </button>
                 </form>
@@ -163,7 +155,7 @@ $row = mysqli_fetch_array($result);
                     $date = date("Y-m-d", strtotime("+1 HOURS"));
                     $sessid = $_SESSION['id'];
 
-                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error($con));
                     $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
                     if ($pullwh != null) {
                         $whour = $pullwh['total_time'];
@@ -172,15 +164,14 @@ $row = mysqli_fetch_array($result);
                     }
 
                     if ($pullwh == null) {
-                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error($con));
                         echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
                     } elseif ($whour <= 0) {
                         echo "<p class = 'para'>" . "You have already signed in</p>";
                     } else {
-                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error());
+                        $con->query("INSERT INTO `time_table` VALUES('$last_id', '$student', '$student_name', '$timein', '$timeout', '$total_time', '$date')") or die(mysqli_error($con));
                         echo "<p class = 'para'>" . "Signed in " . " <label class = ''>at  " . date("h:i a", strtotime($timein)) . "</label></p>";
                     }
-
                 }
                 ?>
 
@@ -189,7 +180,7 @@ $row = mysqli_fetch_array($result);
                     $student = $_SESSION['id'];
                     $timeout = date("H:i", strtotime("+1 HOURS"));
                     // $timeout = time();
-                
+
                     $date = date("Y-m-d", strtotime("+1 HOURS"));
                     $student_name = $row['Last_Name'] . " " . $row['Other_Name'];
 
@@ -200,12 +191,12 @@ $row = mysqli_fetch_array($result);
 
                     $sessid = $_SESSION['id'];
 
-                    $keep = $con->query("SELECT `timein` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $keep = $con->query("SELECT `timein` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error($con));
                     $pull = mysqli_fetch_array($keep, MYSQLI_ASSOC);
                     $timein = strtotime($pull['timein']);
                     $calctimeout = strtotime($timeout);
 
-                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error());
+                    $whoursv = $con->query("SELECT `total_time` FROM time_table WHERE student_no = $sessid ORDER BY time_id DESC") or die(mysqli_error($con));
                     $pullwh = mysqli_fetch_array($whoursv, MYSQLI_ASSOC);
                     $whour = $pullwh['total_time'];
 
@@ -216,26 +207,24 @@ $row = mysqli_fetch_array($result);
                         if ($workingHours > 6) {
                             $workingHours = 6;
                         }
-                        $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error());
-                        $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error());
+                        $con->query("UPDATE `time_table` SET `timeout` = '$timeout' WHERE time_id = '$last_id'") or die(mysqli_error($con));
+                        $con->query("UPDATE `time_table` SET `total_time` = '$workingHours' WHERE time_id = '$last_id'") or die(mysqli_error($con));
 
                         echo "<p class = 'para'>" . "Signed out " . " <label class = ''>at  " . date("h:i a", strtotime($timeout)) . "</label></p>";
                     }
-
                 }
                 ?>
-
             </div>
         </div>
     </section>
     <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
 
-    closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-    });
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
     </script>
 </body>
 
