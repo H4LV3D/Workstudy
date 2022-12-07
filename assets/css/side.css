@@ -231,6 +231,10 @@
   width: 50px;
   background: none;
 }
+.sidebar i#log_out:hover {
+  background: #fff !important;
+  color: #996399 !important;
+}
 /* Sidebar Ends  */
 
 .home-section {
@@ -299,11 +303,6 @@
   }
 }
 
-/* h2 {
-  font-family: "Roboto Slab", serif;
-  font-weight: 800;
-} */
-
 .card {
   position: relative;
   display: flex;
@@ -329,14 +328,14 @@ label {
   color: #797979 !important;
 }
 
+.next {
+  font-weight: 200;
+}
+
 .bx {
   font-size: 26px;
 }
 
-/* MY Table  */
-/* #myTable_filter label {
-  font-size: 12px;
-} */
 #myTable_filter label input {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
@@ -350,8 +349,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-input:active,
+/* input:active,
 input:focus {
   outline: none;
   border: none;
-}
+} */

@@ -34,7 +34,7 @@ if (isset($_POST['registerBtn'])) {
     // verify the user's account was created
     $query = mysqli_query($con, "SELECT * FROM student_data WHERE Email='{$Email}'");
     if (mysqli_num_rows($query) == 1) {
- 
+
         $success = true;
     } else
         $error_msg = 'An error occurred and your account was not created.';
@@ -45,9 +45,9 @@ if (isset($_POST['registerBtn'])) {
 <html>
 
 <head>
-    <title> Work Study | Admin Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
@@ -64,6 +64,10 @@ if (isset($_POST['registerBtn'])) {
     </script>
     <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/side.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
@@ -136,13 +140,13 @@ if (isset($_POST['registerBtn'])) {
                 <form action="addstudent.php" class="form" method="POST">
                     <div class="">
                         <?php
-                                if (isset($success) && $success == true) {
-                                    echo '<p color="green">New Student added successfully!<p>';
-                                }
-                                // check to see if the error message is set, if so display it
-                                else if (isset($error_msg))
-                                    echo '<p color="red">' . $error_msg . '</p>';
-                                ?>
+                        if (isset($success) && $success == true) {
+                            echo '<p color="green">New Student added successfully!<p>';
+                        }
+                        // check to see if the error message is set, if so display it
+                        else if (isset($error_msg))
+                            echo '<p color="red">' . $error_msg . '</p>';
+                        ?>
                     </div>
 
                     <!-- <div class="form-row">
@@ -171,37 +175,38 @@ if (isset($_POST['registerBtn'])) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Matric No</label>
-                            <input type="text" class="form-control" name="Matric_No" value=""
-                                placeholder="enter a Matric No" autocomplete="on" required />
+                            <input type="text" class="form-control" name="Matric_No" value="" placeholder="Matric No"
+                                autocomplete="on" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" name="Email" value=""
-                                placeholder="provide an email" autocomplete="on" required />
+                            <input type="email" class="form-control" name="Email" value="" placeholder="Student Email"
+                                autocomplete="on" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Program</label>
-                            <input type="text" class="form-control" name="Program" value=""
-                                placeholder="provide an Program" autocomplete="on" required />
+                            <input type="text" class="form-control" name="Program" value="" placeholder="Course/Program"
+                                autocomplete="on" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Level</label>
-                            <input type="number" class="form-control" name="Level" value=""
-                                placeholder="provide an Level" autocomplete="on" required />
+                            <input type="number" class="form-control" name="Level" value="" placeholder="300"
+                                autocomplete="on" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Placement</label>
-                            <input type="text" class="form-control" name="Placement" value=""
-                                placeholder="provide an placement" autocomplete="on" required />
+                            <input type="text" class="form-control" name="Placement" value="" placeholder="CSIS"
+                                autocomplete="on" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Phone Number (Telegram)</label>
-                            <input type="text" class="form-control" name="Phone_Number" value=""
-                                placeholder="provide an Phone Number" autocomplete="on" required />
+                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="form-control"
+                                name="Phone_Number" value="" size="11" placeholder="081 593 3370" autocomplete="on"
+                                required />
                         </div>
                     </div>
                     <div class="form-group col-md-12 mt-3 d-flex justify-content-end">
-                        <button class="col-md-4 btn btn-info btn-block btn-large w-100 py-3" type="submit"
+                        <button class="col-md-4 btn btn-block btn-large w-100 py-3" type="submit"
                             style="background-color: #996399; border: 1px solid #996399;">
                             Register
                         </button>
