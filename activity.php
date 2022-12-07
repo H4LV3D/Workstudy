@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
@@ -11,11 +11,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //
 $now = time(); // Checking the time now when page starts.
 
-  if ($now > $_SESSION['expire']) {
-      session_destroy();
-      header("location: login.php");
-  }
-  else { }//Starting this else one [else1]
+if ($now > $_SESSION['expire']) {
+    session_destroy();
+    header("location: login.php");
+} else {
+} //Starting this else one [else1]
 
 // database connection
 include('config.php');
@@ -24,33 +24,22 @@ $added = false;
 ?>
 
 <!-- Session variables -->
-<?php  if (isset($_SESSION['username'])) : ?>
+<?php if (isset($_SESSION['username'])) : ?>
 <?php endif ?>
-<?php  if (isset($_SESSION['id'])) : ?>
+<?php if (isset($_SESSION['id'])) : ?>
 <?php endif ?>
-<!--  -->
-<!-- User Details -->
-<?php
-    $sql = "SELECT * FROM time_table WHERE student_no = '" . $_SESSION['id'] . "'";
-    $result1 = mysqli_query($con,$sql);
-    // $row1 = mysqli_fetch_array($result);
 
+<?php
+$sql = "SELECT * FROM time_table WHERE student_no = '" . $_SESSION['id'] . "'";
+$result1 = mysqli_query($con, $sql);
+// $row1 = mysqli_fetch_array($result);
 ?>
 
 <?php
-    // database connection
-    // include('config.php');
-
-    $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($con,$sql);
-    $row = mysqli_fetch_array($result);
-
-    // echo "Hello, " . $row['Last_Name'] . " " . $row['Email'] . " ";
-
+$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -72,6 +61,9 @@ $added = false;
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
@@ -112,11 +104,10 @@ $added = false;
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <!-- <img src="./assets/images/profile.jpg"> -->
-                    <i class="fas fa-user-circle fa-3x fa-fw"></i>
+                    <i class="fas fa-user-circle fa-4x fa-fw"></i>
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
-                        <div class="job"><?php echo $row['Level']." "."Level"; ?></div>
+                        <div class="job"><?php echo $row['Level'] . " " . "Level"; ?></div>
                     </div>
                 </div>
                 <a href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
@@ -150,7 +141,6 @@ $added = false;
             <div class="pb-4">
                 <small style="color:#996399;">Work Study Portal</small>
                 <h2 style="color:#996399;">Activity Board</h2>
-                <!-- <span style="color:#996399;"></span> -->
                 <h5>Hi, <?php echo " " . strtolower($row['Other_Name']); ?>.</h5>
                 <p>Work study Attendance sheet.</p>
             </div>
@@ -183,20 +173,19 @@ $added = false;
                 </thead>
 
                 <?php
-              // include ('config.php');
-              // $get_data = "SELECT * FROM 'time_table' WHERE student_no = '" . $_SESSION['id'] . "'";
-              // $run_data = mysqli_query($con,$get_data);
-              $i = 0;
-              while($row1 = mysqli_fetch_array($result1))
-              {
-                $sl = ++$i;
-                $date = $row1['date'];
-                $student_name = $row1['student_name'];
-                $timein = $row1['timein'];
-                $timeout = $row1['timeout'];
-                $total_time = $row1['total_time'];
-      
-                echo "
+                // include ('config.php');
+                // $get_data = "SELECT * FROM 'time_table' WHERE student_no = '" . $_SESSION['id'] . "'";
+                // $run_data = mysqli_query($con,$get_data);
+                $i = 0;
+                while ($row1 = mysqli_fetch_array($result1)) {
+                    $sl = ++$i;
+                    $date = $row1['date'];
+                    $student_name = $row1['student_name'];
+                    $timein = $row1['timein'];
+                    $timeout = $row1['timeout'];
+                    $total_time = $row1['total_time'];
+
+                    echo "
                   <tr>
                       <td class='text-center'>$sl</td>
                       <td class='text-center'>$date</td>
@@ -205,25 +194,24 @@ $added = false;
                       <td class='text-center'>$total_time</td>
                   </tr>
                 ";
-              }
-        	  ?>
+                }
+                ?>
                 <td class='text-center'></td>
                 <td class='text-center'>Total Time:</td>
                 <td class='text-center'>
                     <?php
-                $table_sum="SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
+                    $table_sum = "SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
 
-                $sum_table = mysqli_query($con,$table_sum);
-                while ($row = mysqli_fetch_assoc($sum_table))
-                { 
-                  if ($row['total'] != null) {
-                    echo round($row['total'], 2);
-                  } else {
-                    echo "No record found";
-                  }
-                }
-                mysqli_close($con);
-              ?>
+                    $sum_table = mysqli_query($con, $table_sum);
+                    while ($row = mysqli_fetch_assoc($sum_table)) {
+                        if ($row['total'] != null) {
+                            echo round($row['total'], 2);
+                        } else {
+                            echo "No record found";
+                        }
+                    }
+                    mysqli_close($con);
+                    ?>
                 </td>
                 <td class='text-center'></td>
                 <td class='text-center'></td>
