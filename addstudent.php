@@ -34,7 +34,7 @@ if (isset($_POST['registerBtn'])) {
     // verify the user's account was created
     $query = mysqli_query($con, "SELECT * FROM student_data WHERE Email='{$Email}'");
     if (mysqli_num_rows($query) == 1) {
- 
+
         $success = true;
     } else
         $error_msg = 'An error occurred and your account was not created.';
@@ -45,9 +45,9 @@ if (isset($_POST['registerBtn'])) {
 <html>
 
 <head>
-    <title> Work Study | Admin Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
@@ -136,13 +136,13 @@ if (isset($_POST['registerBtn'])) {
                 <form action="addstudent.php" class="form" method="POST">
                     <div class="">
                         <?php
-                                if (isset($success) && $success == true) {
-                                    echo '<p color="green">New Student added successfully!<p>';
-                                }
-                                // check to see if the error message is set, if so display it
-                                else if (isset($error_msg))
-                                    echo '<p color="red">' . $error_msg . '</p>';
-                                ?>
+                        if (isset($success) && $success == true) {
+                            echo '<p color="green">New Student added successfully!<p>';
+                        }
+                        // check to see if the error message is set, if so display it
+                        else if (isset($error_msg))
+                            echo '<p color="red">' . $error_msg . '</p>';
+                        ?>
                     </div>
 
                     <!-- <div class="form-row">
