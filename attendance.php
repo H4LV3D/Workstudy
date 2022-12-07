@@ -50,8 +50,6 @@ $row = mysqli_fetch_array($result);
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
-
     <script src="attendance.js"></script>
 </head>
 

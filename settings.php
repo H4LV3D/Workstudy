@@ -69,6 +69,18 @@
 }
 ?>
 
+<?php if (isset($_SESSION['username'])): ?>
+<?php endif ?>
+<?php if (isset($_SESSION['id'])): ?>
+<?php endif ?>
+<!--  -->
+<!-- User Details -->
+<?php
+$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,7 +142,6 @@
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <!-- <img src="./assets/images/profile.jpg"> -->
                     <i class="fas fa-user-circle fa-3x fa-fw"></i>
                     <div class="name_job">
                         <div class="name"><?php echo  $row['Other_Name']; ?> </div>
