@@ -9,18 +9,36 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 // database connection
 include('config.php');
-$added = false;
-?>
 
-<?php if (isset($_SESSION['username'])) : ?>
-<?php endif ?>
-<?php if (isset($_SESSION['id'])) : ?>
-<?php endif ?>
+if (isset($_POST['registerBtn'])) {
+    // get all of the form data 
+    $id = mysqli_insert_id($con);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $Last_Name = $_POST['Last_name'];
+    $Other_Name = $_POST['Other_Name'];
+    $Matric_No = $_POST['Matric_No'];
+    $Email = $_POST['Email'];
+    $Program = $_POST['Program'];
+    $Level = $_POST['Level'];
+    $Placement = $_POST['Placement'];
 
-<?php
-$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($result);
+    // next code block
+    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+
+    // insert the user into the database
+    mysqli_query($con, "INSERT INTO student_data VALUES (
+        '{$id}', '{$username}', '{$param_password}', '{$Last_Name}', '{$Other_Name}', '{$Matric_No}', '{$Email}', '{$Program}', '{$Level}', '{$Placement}'
+    )");
+
+    // verify the user's account was created
+    $query = mysqli_query($con, "SELECT * FROM student_data WHERE Email='{$Email}'");
+    if (mysqli_num_rows($query) == 1) {
+
+        $success = true;
+    } else
+        $error_msg = 'An error occurred and your account was not created.';
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +46,7 @@ $row = mysqli_fetch_array($result);
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css"
@@ -46,9 +64,14 @@ $row = mysqli_fetch_array($result);
     </script>
     <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/side.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
+
     <div class="d-none d-md-block sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -64,21 +87,21 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Student Info</span>
             </li>
             <li>
-                <a href="admin-activity.php" class="active">
+                <a href="admin-activity.php">
                     <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
+                <a href="addstudent.php">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="admin-settings.php">
+                <a href="admin-settings.php" class="active">
                     <i class="fas fa-gears fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
@@ -101,74 +124,37 @@ $row = mysqli_fetch_array($result);
         </ul>
     </div>
 
-    <div class="container my-5 py-5">
-        <?php
-        if ($added) {
-            echo "
-			<div class='btn-success' style='padding: 15px; text-align:center;'>
-				Your Student Data has been Successfully Added.
-			</div><br>
-		";
-        }
-
-        ?>
-        <div class="flex flex-row justify-content-end">
-            <button class="btn" style="background-color:#996399;" type="button" data-toggle="modal"
-                data-target="#myModal">
-                <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white">
-                    <span>New Student</span>
-                </a>
-            </button>
+    <section class="main-body container my-5 mb-md-0">
+        <div class="col-12 min-vh-100 mx-auto">
+            <div class="container">
+                <div class="page-header">
+                    <p class="p-0 m-0 mb-2">
+                        <small style="color: #996399;" class="text-center">Work-study Portal</small>
+                    </p>
+                    <h4>Hi
+                        <b>
+                            <?php echo htmlspecialchars($_SESSION["username"]); ?>,
+                        </b>
+                    </h4>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
+                    style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
+                    Reset Your Password
+                </button>
+                <div class="d-md-none">
+                    <hr>
+                    <p>Sign Out of Your Account
+                    </p>
+                    <a href="logout.php">
+                        <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2">
+                            Logout
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
-        <hr>
-        <div class="my-5">
-            <table class="table table-bordered table-striped table-hover" id="myTable">
-                <thead>
-                    <tr>
-                        <th class="text-center" scope="col">id</th>
-                        <th class="text-center" scope="col">Name</th>
-                        <th class="text-center" scope="col">Matric No</th>
-                        <th class="text-center" scope="col">Email</th>
-                        <th class="text-center" scope="col">Program</th>
-                        <th class="text-center" scope="col">Level</th>
-                        <th class="text-center" scope="col">Placement</th>
-                    </tr>
-                </thead>
-                <?php
-                $get_data = "SELECT * FROM student_data order by 1 desc";
-                $run_data = mysqli_query($con, $get_data);
-                $i = 0;
-                while ($row = mysqli_fetch_array($run_data)) {
-                    $id = $row['id'];
-                    $Last_Name = $row['Last_Name'];
-                    $Other_Name = $row['Other_Name'];
-                    $Matric_No = $row['Matric_No'];
-                    $Email = $row['Email'];
-                    $Program = $row['Program'];
-                    $Placement = $row['Placement'];
-                    $Level = $row['Level'];
-
-                    echo "
-					<tr>
-						<td class='text-center'>$id</td>
-						<td class='text-left'>$Last_Name   $Other_Name</td>
-						<td class='text-left'>$Matric_No</td>
-						<td class='text-left'>$Email</td>
-						<td class='text-center'>$Program</td>
-						<td class='text-center'>$Level</td>
-						<td class='text-center'>$Placement</td>
-					</tr>
-					";
-                }
-
-                ?>
-            </table>
-        </div>
-        <form method="post" action="export.php">
-            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record"
-                style="background-color: #996399;color: #eee;" />
-        </form>
-    </div>
+    </section>
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
