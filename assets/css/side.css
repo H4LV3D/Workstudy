@@ -396,7 +396,7 @@ label {
 
 .table {
   font-size: 13px !important;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 input:-webkit-autofill,
