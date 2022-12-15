@@ -205,8 +205,8 @@ if (isset($_POST['registerBtn'])) {
                                 required />
                         </div>
                     </div>
-                    <div class="form-group col-12 col-md-10 col-lg-6 mx-auto me-lg-0 mt-2 d-flex justify-content-end">
-                        <button class="btn btn-block btn-large w-100 py-3 text-white" type="submit"
+                    <div class="form-group col-12 col-md-10 col-lg-6  mt-2 mx-auto d-flex justify-content-end">
+                        <button class="btn btn-block btn-large w-100 py-3 text-white mx-auto " type="submit"
                             style="background-color: #996399; border: 1px solid #996399;">
                             Register
                         </button>
