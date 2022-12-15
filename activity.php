@@ -49,6 +49,8 @@ $row = mysqli_fetch_array($result);
     <title> Work study Portal</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -145,7 +147,7 @@ $row = mysqli_fetch_array($result);
                 <p>Work study Attendance sheet.</p>
             </div>
             <div class="w-50 pb-4">
-                <table class="table table-bordered table-striped table-hover" id="myTable">
+                <table class="table table-bordered table-striped table-hover">
                     <tbody>
                         <td>No. of Week(s)</td>
                         <td>1 week(s)</td>
@@ -173,9 +175,6 @@ $row = mysqli_fetch_array($result);
                 </thead>
 
                 <?php
-                // include ('config.php');
-                // $get_data = "SELECT * FROM 'time_table' WHERE student_no = '" . $_SESSION['id'] . "'";
-                // $run_data = mysqli_query($con,$get_data);
                 $i = 0;
                 while ($row1 = mysqli_fetch_array($result1)) {
                     $sl = ++$i;
@@ -224,17 +223,10 @@ $row = mysqli_fetch_array($result);
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
-    </script>
-    <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
     let button = document.querySelector(".bx-menu");
-    button.addEventListener("click", () => {
-        // sidebar.classList.toggle("open");
-        searchBtn.classList.toggle("bx-search");
-        searchBtn.classList.toggle("bx-menu");
-    });
 
     closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");

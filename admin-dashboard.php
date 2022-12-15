@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($result);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Work Study | Admin Dashboard</title>
-    <!-- <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js">
@@ -53,9 +53,9 @@ $row = mysqli_fetch_array($result);
 <body>
     <div class="d-none d-md-block sidebar">
         <div class="logo-details">
-            <i class="fas fa-cart-plus fa-lg fa-fw"></i>
+            <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name">Work Study</div>
-            <i class="fas fa-bars fa-lg fa-fw"></i>
+            <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
             <li>
@@ -73,18 +73,18 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
-                    <i class="fas fa-user-plus fa-lg fa-fw"></i>
-                    <span class="links_name">Edit Student</span>
-                </a>
-                <span class="tooltip">Edit Student</span>
-            </li>
-            <li>
-                <a href="admin-settings.php">
+                <a href="addstudent.php">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
+            </li>
+            <li>
+                <a href="admin-settings.php">
+                    <i class="fas fa-gears fa-lg fa-fw"></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
