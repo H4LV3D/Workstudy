@@ -137,13 +137,11 @@ if (isset($_POST['registerBtn'])) {
                         </b>
                     </h4>
                 </div>
-                <hr>
                 <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
                     style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
                     Reset Your Password
                 </button>
                 <div class="d-md-none">
-                    <hr>
                     <p>Sign Out of Your Account
                     </p>
                     <a href="logout.php">

@@ -186,6 +186,15 @@ $row = mysqli_fetch_array($result);
                         <hr>
                         <div class="row">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <h6 class="mb-0">Placement</h6>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
+                                <?php echo $row['Placement']; ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                 <h6 class="mb-0">Level</h6>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">

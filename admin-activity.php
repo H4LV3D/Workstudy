@@ -31,18 +31,15 @@ $row = mysqli_fetch_array($result);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+    <!-- <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" /> -->
     <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js">
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/side.css">
@@ -71,7 +68,7 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
+                <a href="addstudent.php">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
@@ -102,25 +99,6 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <div class="container my-5 py-5">
-        <?php
-        if ($added) {
-            echo "
-			<div class='btn-success' style='padding: 15px; text-align:center;'>
-				Your Student Data has been Successfully Added.
-			</div><br>
-		";
-        }
-
-        ?>
-        <div class="flex flex-row justify-content-end">
-            <button class="btn" style="background-color:#996399;" type="button" data-toggle="modal"
-                data-target="#myModal">
-                <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white">
-                    <span>New Student</span>
-                </a>
-            </button>
-        </div>
-        <hr>
         <div class="my-5">
             <table class="table table-bordered table-striped table-hover" id="myTable">
                 <thead>
@@ -128,8 +106,8 @@ $row = mysqli_fetch_array($result);
                         <th class="text-center" scope="col">id</th>
                         <th class="text-center" scope="col">Name</th>
                         <th class="text-center" scope="col">Matric No</th>
-                        <th class="text-center" scope="col">Email</th>
-                        <th class="text-center" scope="col">Program</th>
+                        <th class="text-center" scope="col">Week</th>
+                        <th class="text-center" scope="col">Total Hours</th>
                         <th class="text-center" scope="col">Level</th>
                         <th class="text-center" scope="col">Placement</th>
                     </tr>
@@ -165,30 +143,27 @@ $row = mysqli_fetch_array($result);
             </table>
         </div>
         <form method="post" action="export.php">
-            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record"
-                style="background-color: #996399;color: #eee;" />
+            <input type="submit" name="export" class="btn  px-5 py-2" value="Export Record" style="background-color: #996399;color: #eee;" />
         </form>
     </div>
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
-    </script>
-    <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
-    let button = document.querySelector(".bx-menu");
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+        let button = document.querySelector(".bx-menu");
 
-    closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-        $(button).toggleClass('bx-search bxs-x-square');
-    });
-    $(document).ready(function() {
-        $('.dropdown-toggle').dropdown()
-    });
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            $(button).toggleClass('bx-search bxs-x-square');
+        });
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdown()
+        });
     </script>
 </body>
 
