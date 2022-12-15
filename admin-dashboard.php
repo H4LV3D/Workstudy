@@ -53,9 +53,9 @@ $row = mysqli_fetch_array($result);
 <body>
     <div class="d-none d-md-block sidebar">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus icon'></i>
+            <i class="fas fa-cart-plus fa-lg fa-fw"></i>
             <div class="logo_name">Work Study</div>
-            <i class='bx bx-menu' id="btn"></i>
+            <i class="fas fa-bars fa-lg fa-fw"></i>
         </div>
         <ul class="nav-list">
             <li>
