@@ -336,11 +336,67 @@ label {
   font-size: 26px;
 }
 
+#myTable_wrapper label,
+#myTable_info {
+  font-size: 14px !important;
+}
+
+#myTable_info,
+#myTable_paginate,
+#myTable_length,
+#myTable_filter {
+  display: inline-flex !important;
+  width: 50% !important;
+}
+
+#myTable_paginate,
+#myTable_filter {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 #myTable_filter label input {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
-  padding: 0.4rem 0.6rem !important;
+  padding: 0.25rem 0.6rem !important;
   outline: none;
+  margin: 0.6rem 0.3rem !important;
+}
+
+#myTable_paginate,
+#myTable_info {
+  margin: 15px 0 !important;
+}
+#myTable_paginate a {
+  padding: 10px 10px 10px 0px !important;
+  text-decoration: none !important;
+  color: #996399;
+}
+#myTable_paginate a.current {
+  padding: 10px 15px !important;
+  background-color: #996399 !important;
+  color: #fff !important;
+  border-radius: 4px;
+}
+#myTable_paginate a.disabled {
+  padding: 10px 10px 10px 0px !important;
+  text-decoration: none !important;
+  color: #a88ca8;
+}
+#myTable_paginate a:hover {
+  padding: 10px 15px !important;
+  background-color: #996399 !important;
+  color: #fff !important;
+  border-radius: 4px;
+}
+#myTable_paginate span a {
+  margin: 0px 10px !important;
+}
+
+.table {
+  font-size: 13px !important;
+  font-weight: 400 !important;
 }
 
 input:-webkit-autofill,
@@ -349,8 +405,3 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-/* input:active,
-input:focus {
-  outline: none;
-  border: none;
-} */

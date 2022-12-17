@@ -83,19 +83,18 @@ $row = mysqli_fetch_array($result);
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="admin-attendance.php">
-                    <i class='bx bx-pencil'></i>
-                    <span class="links_name">Edit Student</span>
-                </a>
-                <span class="tooltip">Edit Student</span>
-            </li>
-            <li>
                 <a href="addstudent.php">
-
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
+            </li>
+            <li>
+                <a href="admin-settings.php">
+                    <i class="fas fa-gears fa-lg fa-fw"></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
@@ -115,7 +114,7 @@ $row = mysqli_fetch_array($result);
     </div>
 
     <div class="container my-5 py-5">
-        <!-- adding alert notification  -->
+
         <?php
         if ($added) {
             echo "
@@ -134,7 +133,7 @@ $row = mysqli_fetch_array($result);
                 </a>
             </button>
         </div>
-        <hr>
+
         <div class="my-5">
             <table class="table table-bordered table-striped table-hover" id="myTable">
                 <thead>

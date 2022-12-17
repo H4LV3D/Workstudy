@@ -5,3 +5,8 @@
   font-weight: 300 !important;
   color: rgb(77, 77, 77) !important;
 }
+
+.table {
+  font-size: 13px !important;
+  font-weight: 400;
+}
