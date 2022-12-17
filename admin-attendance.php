@@ -7,6 +7,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
+
+//return 403:unauthorized if session id is not 1
+if ($_SESSION["id"] !== "1") {
+    header("HTTP/1.0 403 Unauthorized");
+    exit;
+}
+
 // database connection
 include('config.php');
 $added = false;

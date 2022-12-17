@@ -1,78 +1,86 @@
 <?php
-// Initialize the session
-session_start();
-
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
-// database connection
-require_once "config.php";
-
-// Define variables and initialize with empty values
-$new_password = $confirm_password = "";
-$new_password_err = $confirm_password_err = "";
-
-// Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Validate new password
-    if (empty(trim($_POST["new_password"]))) {
-        $new_password_err = "Please enter the new password.";
-    } elseif (strlen(trim($_POST["new_password"])) < 6) {
-        $new_password_err = "Password must have at least 6 characters.";
-    } else {
-        $new_password = trim($_POST["new_password"]);
+    // Initialize the session
+    session_start();
+    
+    // Check if the user is logged in, otherwise redirect to login page
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
     }
+    
+    require_once "config.php";
+    
+    // Define variables and initialize with empty values
+    $new_password = $confirm_password = "";
+    $new_password_err = $confirm_password_err = "";
 
-    // Validate confirm password
-    if (empty(trim($_POST["confirm_password"]))) {
-        $confirm_password_err = "Please confirm the password.";
-    } else {
-        $confirm_password = trim($_POST["confirm_password"]);
-        if (empty($new_password_err) && ($new_password != $confirm_password)) {
-            $confirm_password_err = "Password did not match.";
+    // Processing form data when form is submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        // Validate new password
+        if(empty(trim($_POST["new_password"]))){
+            $new_password_err = "Please enter the new password.";     
+        } elseif(strlen(trim($_POST["new_password"])) < 8) {
+            $new_password_err = "Password must have at least 8 characters.";
+        } else{
+            $new_password = trim($_POST["new_password"]);
         }
-    }
 
-    // Check input errors before updating the database
-    if (empty($new_password_err) && empty($confirm_password_err)) {
-        // Prepare an update statement
-        $sql = "UPDATE users SET password = ? WHERE id = ?";
+        if($new_password_err){
+            echo "<div id='error' style='color:red;'>" . $new_password_err . "</div>";
+        }
 
-        if ($stmt = mysqli_prepare($con, $sql)) {
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
-
-            // Set parameters
-            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $param_id = $_SESSION["id"];
-
-            // Attempt to execute the prepared statement
-            if (mysqli_stmt_execute($stmt)) {
-                // Password updated successfully. Destroy the session, and redirect to login page
-                session_destroy();
-                header("location: login.php");
-                exit();
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
+        // Validate confirm password
+        if(empty(trim($_POST["confirm_password"]))){
+            $confirm_password_err = "Please confirm the password.";
+        } else{
+            $confirm_password = trim($_POST["confirm_password"]);
+            if(empty($new_password_err) && ($new_password != $confirm_password)){
+                $confirm_password_err = "Passwords did not match.";
             }
         }
 
-        // Close statement
-        mysqli_stmt_close($stmt);
-    }
+        if($confirm_password_err){
+            echo "<div id='error' style='color:red;'>" . $confirm_password_err . "</div>";
+        }
 
-    // Close connection
-    mysqli_close($con);
-}
+        // Check input errors before updating the database
+        if(empty($new_password_err) && empty($confirm_password_err)){
+            // Prepare an update statement
+            $sql = "UPDATE student_data SET password = ? WHERE id = ?";
+            
+            if($stmt = mysqli_prepare($con, $sql)){
+                // Bind variables to the prepared statement as parameters
+                mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+                
+                // Set parameters
+                $param_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $param_id = $_SESSION["id"];
+                
+                // Attempt to execute the prepared statement
+                if(mysqli_stmt_execute($stmt)){
+                    // Password updated successfully. Destroy the session, and redirect to login page
+                    session_destroy();
+                    header("location: login.php");
+                    exit();
+                } else{
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
+            }
+            
+            // Close statement
+            // mysqli_stmt_close($stmt);
+        }
+
+        // Close connection
+        mysqli_close($con);
+    }
 ?>
 
 <?php
-$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($result);
+    // $sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
+    // $result = mysqli_query($con, $sql);
+    // $row = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -83,12 +91,16 @@ $row = mysqli_fetch_array($result);
     <title> Work study Portal</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./assets/css/side.css">
     <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
@@ -148,7 +160,8 @@ $row = mysqli_fetch_array($result);
 
     <div class="d-md-none fixed-bottom mb-2">
         <div class="row d-flex justify-content-center items-align-center">
-            <ul class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
+            <ul
+                class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white">
                 <a href="index.php" class="text-decoration-none text-light">
                     <i class='bx bx-grid-alt' style="color:#000;"></i>
                 </a>
@@ -179,7 +192,8 @@ $row = mysqli_fetch_array($result);
                     </h4>
                 </div>
                 <hr>
-                <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2" style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
+                    style="background-color: #996399;" data-toggle="modal" data-target="#exampleModal">
                     Reset Your Password
                 </button>
                 <div class="d-md-none">
@@ -196,7 +210,8 @@ $row = mysqli_fetch_array($result);
         </div>
     </section>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog border-0" role="document" style="width: 25rem;">
             <div class="modal-content">
                 <div class="modal-header">
@@ -211,7 +226,8 @@ $row = mysqli_fetch_array($result);
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
                                 <label>New Password</label>
-                                <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+                                <input type="password" name="new_password" class="form-control"
+                                    value="<?php echo $new_password; ?>">
                                 <span class="help-block"><?php echo $new_password_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
@@ -234,28 +250,28 @@ $row = mysqli_fetch_array($result);
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
     </script>
     <script>
-        let sidebar = document.querySelector(".sidebar");
-        let closeBtn = document.querySelector("#btn");
-        let searchBtn = document.querySelector(".bx-search");
-        let button = document.querySelector(".bx-menu");
-        button.addEventListener("click", () => {
-            // sidebar.classList.toggle("open");
-            searchBtn.classList.toggle("bx-search");
-            searchBtn.classList.toggle("bx-menu");
-        });
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+    let button = document.querySelector(".bx-menu");
+    button.addEventListener("click", () => {
+        // sidebar.classList.toggle("open");
+        searchBtn.classList.toggle("bx-search");
+        searchBtn.classList.toggle("bx-menu");
+    });
 
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-            $(button).toggleClass('bx-search bxs-x-square');
-        });
-        $(document).ready(function() {
-            $('.dropdown-toggle').dropdown()
-        });
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        $(button).toggleClass('bx-search bxs-x-square');
+    });
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
     </script>
 </body>
 

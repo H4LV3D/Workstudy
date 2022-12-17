@@ -4,10 +4,15 @@ session_start();
 
 require_once "config.php";
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: index.php");
-    exit;
+    //redirect to admin-dashboard.php if session id is = 1
+    if ($_SESSION["id"] == "1") {
+        header("location: admin-dashboard.php");
+        exit;
+    } else {
+        header("location: index.php");
+        exit;
+    }
 }
 
 // Define variables and initialize with empty values
@@ -59,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["id"] = intval($id);
                             $_SESSION["username"] = $username;
                             $_SESSION['start'] = time(); // Taking now logged in time.
                             // Ending a session in 30 minutes from the starting time.
@@ -73,8 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // $_SESSION["Level"] = $Level;
                             // $_SESSION["username"] = $Placement;                            
 
-                            // Redirect user to welcome page
-                            header("location: index.php");
+                            // Redirect user to respective pages
+                            if ($_SESSION["id"] == "1 ") {
+                                header("location: admin-dashboard.php");
+                                exit;
+                            } else {
+                                header("location: index.php");
+                                exit;
+                            }
                         } else {
                             // Display an error message if password is not valid
                             $password_err = "Invalid Username or password";
