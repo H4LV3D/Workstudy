@@ -77,14 +77,14 @@ $row = mysqli_fetch_array($result);
             </li>
             <li>
                 <a href="admin-attendance.php" class="active">
-                    <i class='bx bx-pencil'></i>
+                    <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="addstudent.php">
-                    <i class="fas fa-user-plus fa-lg fa-fw"></i>
+                <a href="admin-settings.php">
+                    <i class="fas fa-gears fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
                 <span class="tooltip">Settings</span>
