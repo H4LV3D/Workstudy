@@ -54,9 +54,9 @@ $row = mysqli_fetch_array($result);
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/assets/css/side.css">
-    <link href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
-    <link href="./assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
-    <link href="./assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
+    <link href="/assets/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+    <link href="/assets/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+    <link href="/assets/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
