@@ -15,7 +15,7 @@ if ($now > $_SESSION['expire']) {
     session_destroy();
     header("location: login.php");
 } else {
-} //Starting this else one [else1]
+} //Starting this else one [else1], I just wan make change
 
 // database connection
 include('config.php');
