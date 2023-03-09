@@ -9,7 +9,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 
 //return 403:unauthorized if session id is not 1
-if ($_SESSION["id"] !== "1") {
+if ($_SESSION["id"] !== 2) {
     header("HTTP/1.0 403 Unauthorized");
     exit;
 }
@@ -145,28 +145,29 @@ $row = mysqli_fetch_array($result);
                     </tr>
                 </thead>
                 <?php
-                $get_data = "SELECT * FROM student_data order by 1 desc";
+                $get_data = "SELECT time_id, total_time, date, student_name FROM time_table ORDER BY time_id desc";
+                // $get_data = "SELECT MAX(time_id),MAX(total_time),MAX(date),MAX(student_name) FROM time_table GROUP BY student_no";
                 $run_data = mysqli_query($con, $get_data);
                 $i = 0;
                 while ($row = mysqli_fetch_array($run_data)) {
-                    $id = $row['id'];
-                    $Last_Name = $row['Last_Name'];
-                    $Other_Name = $row['Other_Name'];
-                    $Matric_No = $row['Matric_No'];
-                    $Email = $row['Email'];
-                    $Program = $row['Program'];
-                    $Placement = $row['Placement'];
-                    $Level = $row['Level'];
+                    $id = $row[0];
+                    $Student_Name = $row[3];
+                    // $Matric_No = $row['Matric_No'];
+                    // $Email = $row['Email'];
+                    // $Program = $row['Program'];
+                    $Total_time = $row[1];
+                    $Date = $row[2];
+                    // $Level = $row['Level'];
 
                     echo "
 					<tr>
 						<td class='text-center'>$id</td>
-						<td class='text-left'>$Last_Name   $Other_Name</td>
-						<td class='text-left'>$Matric_No</td>
-						<td class='text-left'>$Email</td>
-						<td class='text-center'>$Program</td>
-						<td class='text-center'>$Level</td>
-						<td class='text-center'>$Placement</td>
+						<td class='text-left'>$Student_Name</td>
+						<td class='text-left'>1234567890</td>
+						<td class='text-left'>$Date</td>
+						<td class='text-center'>$Total_time</td>
+						<td class='text-center'>x1000</td>
+						<td class='text-center'>SEALED</td>
 					</tr>
 					";
                 }

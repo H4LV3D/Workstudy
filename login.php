@@ -5,13 +5,16 @@ session_start();
 require_once "config.php";
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    //redirect to admin-dashboard.php if session id is = 1
-    if ($_SESSION["id"] == "1") {
+    //redirect to admin-dashboard.php if session id is = 1    
+    if ($_SESSION["id"] == 2) {
         header("location: admin-dashboard.php");
         exit;
     } else {
-        header("location: index.php");
+        echo 'else';
+        echo $_SESSION["id"];
         exit;
+        // header("location: index.php");
+        // exit;
     }
 }
 
@@ -64,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = intval($id);
+                            $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION['start'] = time(); // Taking now logged in time.
                             // Ending a session in 30 minutes from the starting time.
