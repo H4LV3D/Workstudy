@@ -144,6 +144,8 @@ $row = mysqli_fetch_array($result);
                             <i class="fas fa-user-circle fa-7x fa-fw"></i>
                         </div>
                         <div class="col-12 col-md-8 my-3 my-md-auto">
+                            <?php echo $_SESSION['id']; ?>
+
                             <h5>
                                 <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
                             </h5>
