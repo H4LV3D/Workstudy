@@ -262,7 +262,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Bank Name</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Bank_Name']) {
+                                                    echo $row['Bank_Name'];
+                                                } else {
+                                                    echo "Bank Name not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
@@ -273,7 +279,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Account No.</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Account_No']) {
+                                                    echo $row['Account_No'];
+                                                } else {
+                                                    echo "Account_No not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
@@ -284,7 +296,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Account Name</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Account_Name']) {
+                                                    echo $row['Account_Name'];
+                                                } else {
+                                                    echo "Account_Name not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
