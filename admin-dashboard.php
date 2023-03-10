@@ -9,13 +9,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 
 //redirect user to index.php if session id is 1
-if ($_SESSION["id"] !== "1 ") {
+if ($_SESSION["id"] !== 2) {
     header("location: index.php");
     exit;
 }
-
-//return session id
-echo $_SESSION["id"];
 
 // database connection
 include('config.php');
