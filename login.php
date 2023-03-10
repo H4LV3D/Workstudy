@@ -189,9 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     class="field padding-bottom--24  form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
-                                    <p>
-                                        <a href="reset-password.php" class="reset">Forgot your password?</a>
-                                    </p>
+
                                 </div>
                                 <p class="padding-bottom--15 flex-flex center-center text-red">
                                     <?php echo $password_err; ?>
