@@ -131,8 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="loginbackground box-background--white padding-top--64">
                 <div class="loginbackground-gridContainer">
                     <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
-                        <div class="box-root"
-                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                        <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
                         </div>
                     </div>
                     <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
@@ -175,18 +174,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="formbg-inner padding-horizontal--48">
                             <h2 class="padding-bottom--8">Work Study Portal</h2>
                             <p class="padding-bottom--24">Sign in to your account</p>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login"
-                                method="post">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="stripe-login" method="post">
                                 <div class="field form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                                     <label for="email">Matric No.</label>
-                                    <input type="text" name="username" class="form-control"
-                                        value="<?php echo $username; ?>">
+                                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                                     <p class="padding-bottom--15 padding-top--8 flex-flex center-center text-red">
                                         <?php echo $username_err; ?>
                                     </p>
                                 </div>
-                                <div
-                                    class="field padding-bottom--24  form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                <div class="field padding-bottom--24  form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" class="form-control">
 
