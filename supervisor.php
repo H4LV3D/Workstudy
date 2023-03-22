@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($result);
                 </a>
                 <span class="tooltip">Student Info</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="admin-activity.php">
                     <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
@@ -86,12 +86,12 @@ $row = mysqli_fetch_array($result);
                 </a>
                 <span class="tooltip">Add Student</span>
             </li>
-            <li>
-                <a href="admin-settings.php">
-                    <i class="fas fa-gears fa-lg fa-fw"></i>
-                    <span class="links_name">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
+            <li> -->
+            <a href="admin-settings.php">
+                <i class="fas fa-gears fa-lg fa-fw"></i>
+                <span class="links_name">Settings</span>
+            </a>
+            <span class="tooltip">Settings</span>
             </li>
             <li class="profile">
                 <div class="profile-details">
@@ -138,10 +138,9 @@ $row = mysqli_fetch_array($result);
                         <th class="text-center" scope="col">id</th>
                         <th class="text-center" scope="col">Name</th>
                         <th class="text-center" scope="col">Matric No</th>
-                        <th class="text-center" scope="col">Email</th>
                         <th class="text-center" scope="col">Program</th>
                         <th class="text-center" scope="col">Level</th>
-                        <th class="text-center" scope="col">Placement</th>
+                        <th class="text-center" scope="col">Email</th>
                     </tr>
                 </thead>
                 <?php
