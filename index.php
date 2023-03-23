@@ -15,7 +15,7 @@ if ($now > $_SESSION['expire']) {
     session_destroy();
     header("location: login.php");
 } else {
-} //Starting this else one [else1], I just wan make change
+} //Starting this else one [else1]
 
 // database connection
 include('config.php');
@@ -144,8 +144,6 @@ $row = mysqli_fetch_array($result);
                             <i class="fas fa-user-circle fa-7x fa-fw"></i>
                         </div>
                         <div class="col-12 col-md-8 my-3 my-md-auto">
-                            <?php echo $_SESSION['id']; ?>
-
                             <h5>
                                 <?php echo $row['Last_Name'] . " " . $row['Other_Name']; ?>
                             </h5>
@@ -264,7 +262,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Bank Name</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Bank_Name']) {
+                                                    echo $row['Bank_Name'];
+                                                } else {
+                                                    echo "Bank Name not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
@@ -275,7 +279,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Account No.</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Account_No']) {
+                                                    echo $row['Account_No'];
+                                                } else {
+                                                    echo "Account_No not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
@@ -286,7 +296,13 @@ $row = mysqli_fetch_array($result);
                                             <h6 class="mb-0">Account Name</h6>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-                                            Undefined
+                                            <?php
+                                                if($row['Account_Name']) {
+                                                    echo $row['Account_Name'];
+                                                } else {
+                                                    echo "Account_Name not set";
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                     <hr>
