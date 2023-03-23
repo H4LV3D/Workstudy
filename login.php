@@ -6,15 +6,12 @@ require_once "config.php";
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     //redirect to admin-dashboard.php if session id is = 1    
-    if ($_SESSION["id"] == 2) {
+    if ($_SESSION["id"] == 1) {
         header("location: admin-dashboard.php");
         exit;
     } else {
-        echo 'else';
-        echo $_SESSION["id"];
+        header("location: index.php");
         exit;
-        // header("location: index.php");
-        // exit;
     }
 }
 
