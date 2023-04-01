@@ -56,18 +56,14 @@ if (isset($_POST['registerBtn'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Work Study | Admin Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js">
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/2029614d15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/side.css">
@@ -172,49 +168,39 @@ if (isset($_POST['registerBtn'])) {
                     <div class="py-4">
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Last name</label>
-                            <input type="text" class="form-control" name="Last_name" value="" placeholder="Last Name"
-                                autocomplete="on" required />
+                            <input type="text" class="form-control" name="Last_name" value="" placeholder="Last Name" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">First Name</label>
-                            <input type="text" class="form-control" name="First_Name" value="" placeholder="First Name"
-                                autocomplete="on" required />
+                            <input type="text" class="form-control" name="First_Name" value="" placeholder="First Name" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Matric No</label>
-                            <input type="text" class="form-control" name="Matric_No" value="" placeholder="Matric No"
-                                autocomplete="on" required />
+                            <input type="text" class="form-control" name="Matric_No" value="" placeholder="Matric No" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" name="Email" value="" placeholder="Student Email"
-                                autocomplete="on" required />
+                            <input type="email" class="form-control" name="Email" value="" placeholder="Student Email" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Program</label>
-                            <input type="text" class="form-control" name="Program" value="" placeholder="Course/Program"
-                                autocomplete="on" required />
+                            <input type="text" class="form-control" name="Program" value="" placeholder="Course/Program" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Level</label>
-                            <input type="number" class="form-control" name="Level" value="" placeholder="300"
-                                autocomplete="on" required />
+                            <input type="number" class="form-control" name="Level" value="" placeholder="300" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Placement</label>
-                            <input type="text" class="form-control" name="Placement" value="" placeholder="CSIS"
-                                autocomplete="on" required />
+                            <input type="text" class="form-control" name="Placement" value="" placeholder="CSIS" autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
                             <label for="inputEmail4">Phone Number (Telegram)</label>
-                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="form-control"
-                                name="Phone_Number" value="" size="11" placeholder="081 593 3370" autocomplete="on"
-                                required />
+                            <input type="tel" required class="form-control" name="Phone_Number" value="" size="11" placeholder="081 593 3370" autocomplete="on" required />
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-10 col-lg-6  mt-2 mx-auto d-flex justify-content-end">
-                        <button class="btn btn-block btn-large w-100 py-3 text-white mx-auto " type="submit"
-                            style="background-color: #996399; border: 1px solid #996399;">
+                        <button class="btn btn-block btn-large w-100 py-3 text-white mx-auto " type="submit" style="background-color: #996399; border: 1px solid #996399;">
                             Register
                         </button>
                     </div>
@@ -226,23 +212,23 @@ if (isset($_POST['registerBtn'])) {
 
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
     </script>
     <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
-    let button = document.querySelector(".bx-menu");
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+        let button = document.querySelector(".bx-menu");
 
-    closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-        $(button).toggleClass('bx-search bxs-x-square');
-    });
-    $(document).ready(function() {
-        $('.dropdown-toggle').dropdown()
-    });
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            $(button).toggleClass('bx-search bxs-x-square');
+        });
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdown()
+        });
     </script>
 </body>
 
