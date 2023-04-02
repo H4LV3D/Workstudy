@@ -171,45 +171,44 @@ if (isset($_POST['registerBtn'])) {
 
                     <div class="py-4">
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Last name</label>
+                            <label for="">Last name</label>
                             <input type="text" class="form-control" name="Last_name" value="" placeholder="Last Name"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">First Name</label>
+                            <label for="">First Name</label>
                             <input type="text" class="form-control" name="First_Name" value="" placeholder="First Name"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Matric No</label>
+                            <label for="">Matric No</label>
                             <input type="text" class="form-control" name="Matric_No" value="" placeholder="Matric No"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Email</label>
+                            <label for="">Email</label>
                             <input type="email" class="form-control" name="Email" value="" placeholder="Student Email"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Program</label>
+                            <label for="">Program</label>
                             <input type="text" class="form-control" name="Program" value="" placeholder="Course/Program"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Level</label>
+                            <label for="">Level</label>
                             <input type="number" class="form-control" name="Level" value="" placeholder="300"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Placement</label>
+                            <label for="">Placement</label>
                             <input type="text" class="form-control" name="Placement" value="" placeholder="CSIS"
                                 autocomplete="on" required />
                         </div>
                         <div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-                            <label for="inputEmail4">Phone Number (Telegram)</label>
-                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="form-control"
-                                name="Phone_Number" value="" size="11" placeholder="081 593 3370" autocomplete="on"
-                                required />
+                            <label for="">Phone Number (Telegram)</label>
+                            <input type="tel" required class="form-control" name="Phone_Number" value="" size="11"
+                                placeholder="0815933370" autocomplete="on" required />
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-10 col-lg-6  mt-2 mx-auto d-flex justify-content-end">
