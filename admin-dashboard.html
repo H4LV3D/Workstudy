@@ -4,18 +4,18 @@ session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
+    header("location: login.html");
     exit;
 }
 
-//redirect user to index.php if session id is 1
+//redirect user to index.html if session id is 1
 if ($_SESSION["id"] !== 1) {
-    header("location: index.php");
+    header("location: index.html");
     exit;
 }
 
 // database connection
-include('config.php');
+include('config.html');
 $added = false;
 ?>
 
@@ -62,28 +62,28 @@ $row = mysqli_fetch_array($result);
         </div>
         <ul class="nav-list">
             <li>
-                <a href="admin-dashboard.php" class="active">
+                <a href="admin-dashboard.html" class="active">
                     <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Student Info</span>
                 </a>
                 <span class="tooltip">Student Info</span>
             </li>
             <li>
-                <a href="admin-activity.php">
+                <a href="admin-activity.html">
                     <i class='fas fa-calendar-days'></i>
                     <span class="links_name">Attendance Records</span>
                 </a>
                 <span class="tooltip">Attendance Records</span>
             </li>
             <li>
-                <a href="addstudent.php">
+                <a href="addstudent.html">
                     <i class="fas fa-user-plus fa-lg fa-fw"></i>
                     <span class="links_name">Add Student</span>
                 </a>
                 <span class="tooltip">Add Student</span>
             </li>
             <li>
-                <a href="admin-settings.php">
+                <a href="admin-settings.html">
                     <i class="fas fa-gears fa-lg fa-fw"></i>
                     <span class="links_name">Settings</span>
                 </a>
@@ -101,7 +101,7 @@ $row = mysqli_fetch_array($result);
                         </div>
                     </div>
                 </div>
-                <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i></a>
+                <a href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i></a>
             </li>
         </ul>
     </div>
@@ -120,7 +120,7 @@ $row = mysqli_fetch_array($result);
         ?>
         <div class="flex flex-row justify-content-end">
             <button class="btn" style="background-color:#996399;" type="button" data-toggle="modal" data-target="#myModal">
-                <a href="addstudent.php" class="fa fa-plus text-decoration-none text-white">
+                <a href="addstudent.html" class="fa fa-plus text-decoration-none text-white">
                     <span>New Student</span>
                 </a>
             </button>
@@ -168,7 +168,7 @@ $row = mysqli_fetch_array($result);
                 ?>
             </table>
         </div>
-        <form method="post" action="export.php">
+        <form method="post" action="export.html">
             <input type="submit" name="export" class="btn px-5 py-2" value="Export Student Record" style="background-color: #996399;color: #eee;" />
         </form>
     </div>

@@ -63,28 +63,28 @@
 			</div>
 			<ul class="nav-list">
 				<li>
-					<a href="index.php" class="active">
+					<a href="index.html" class="active">
 						<i class="bx bx-grid-alt"></i>
 						<span class="links_name">Dashboard</span>
 					</a>
 					<span class="tooltip">Dashboard</span>
 				</li>
 				<li>
-					<a href="activity.php">
+					<a href="activity.html">
 						<i class="bx bxs-calendar"></i>
 						<span class="links_name">Activity</span>
 					</a>
 					<span class="tooltip">Activity</span>
 				</li>
 				<li>
-					<a href="attendance.php">
+					<a href="attendance.html">
 						<i class="bx bx-pencil"></i>
 						<span class="links_name">Attendance</span>
 					</a>
 					<span class="tooltip">Attendance</span>
 				</li>
 				<li>
-					<a href="settings.php">
+					<a href="settings.html">
 						<i class="bx bx-cog"></i>
 						<span class="links_name">Setting</span>
 					</a>
@@ -99,7 +99,7 @@
 							<div class="job" id="sidebar-level"></div>
 						</div>
 					</div>
-					<a href="logout.php"><i class="bx bx-log-out" id="log_out"></i></a>
+					<a href="logout.html"><i class="bx bx-log-out" id="log_out"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -173,9 +173,10 @@
 								<div class="col-12 col-sm-6 col-md-6 col-lg-3">
 									<h6 class="mb-0">Course / Program</h6>
 								</div>
-								<div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-									<?php echo $row['Program']; ?>
-								</div>
+								<div
+									class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary"
+									id="card-program"
+								></div>
 							</div>
 							<hr />
 							<div class="row">
@@ -220,21 +221,10 @@
 								<div class="col-12 col-sm-6 col-md-6 col-lg-3">
 									<h6 class="mb-0">Total Hours Worked</h6>
 								</div>
-								<div class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary">
-									<?php
-                                $table_sum = "SELECT sum(total_time) as total FROM time_table WHERE student_no = '" . $_SESSION['id'] . "' ";
-                                $sum_table = mysqli_query($con, $table_sum);
-                                while ($row = mysqli_fetch_assoc($sum_table)) {
-                                    if ($row['total'] != null) {
-                                        echo round($row['total'], 2);
-                                    } else {
-                                        echo "No record found";
-                                    }
-                                }
-
-                                mysqli_close($con);
-                                ?>
-								</div>
+								<div
+									class="col-12 col-sm-6 col-md-6 col-lg-9 text-secondary"
+									id="card-totalHours"
+								></div>
 							</div>
 							<hr />
 							<div class="dropdown show">
@@ -336,7 +326,7 @@
 								</div>
 								<div class="col-12 col-sm-6 col-md-3 text-md-center">
 									<a
-										href="change-password.php"
+										href="change-password.html"
 										class="btn d-flex align-items-center justify-content-center"
 									>
 										<i class="fab fa-instagram fa-lg fa-fw pr-3"></i>
@@ -344,7 +334,7 @@
 									</a>
 								</div>
 								<div class="col-12 col-sm-6 col-md-3 text-md-center">
-									<a href="change-password.php" class="btn">
+									<a href="change-password.html" class="btn">
 										<div
 											class="d-flex align-items-center justify-content-center"
 										>

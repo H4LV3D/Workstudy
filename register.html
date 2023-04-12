@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config.html";
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+                header("location: login.html");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -137,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a href="login.php"class="btn btn-success my-2 my-sm-0" type="submit">Login Account</a>
+      <a href="login.html"class="btn btn-success my-2 my-sm-0" type="submit">Login Account</a>
     </form>
   </div>
 </nav>
@@ -169,7 +169,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
         </form>
     </div>    
 </div>
