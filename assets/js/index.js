@@ -1,13 +1,10 @@
 const API_URL = "http://127.0.0.1:3000";
-// const token = document.cookie.split("=")[1];
-console.log(token);
 
 window.onload = () => {
 	// Send the user object to the server
 	fetch(`${API_URL}/user/`, {
 		method: "GET",
 		headers: {
-			"Content-Type": "application/json",
 			Authorization: `token ${token}`,
 		},
 	})
@@ -42,4 +39,10 @@ let buildPage = (data) => {
 
 	let cardPlacement = document.getElementById("card-placement");
 	cardPlacement.innerText = data.placement || "No placement set";
+
+	let cardHours = document.getElementById("card-totalHours");
+	cardHours.innerText = data.totalHours || "No record found";
+
+	let cardProgram = document.getElementById("card-program");
+	cardProgram.innerText = data.course;
 };

@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('config.html');
 
 $id = $_GET['id'];
 
@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
 	$run_update = mysqli_query($con,$update);
 
 	if($run_update){
-		header('location:index.php');
+		header('location:index.html');
 	}else{
 		echo "Data not update";
 	}

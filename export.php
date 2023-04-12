@@ -1,6 +1,6 @@
 <?php
-//export.php  
-include 'config.php';
+//export.html  
+include 'config.html';
 $output = '';
 if (isset($_POST["export"])) {
      $query = "SELECT * FROM student_data order by 1 desc";
