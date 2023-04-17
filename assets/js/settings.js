@@ -1,8 +1,6 @@
-const API_URL = "http://127.0.0.1:3000";
-
 window.onload = () => {
 	// Send the user object to the server
-	fetch(`${API_URL}/user/`, {
+	fetch(`${API_URL}/users/me`, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -11,8 +9,7 @@ window.onload = () => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
-			buildPage(data);
+			buildPage(...data);
 		})
 		.catch((error) => {
 			console.log(error);

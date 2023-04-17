@@ -1,52 +1,11 @@
-<?php
-// Initialize the session
-session_start();
-
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.html");
-    exit;
-}
-// database connection
-include('config.html');
-
-if (isset($_POST['registerBtn'])) {
-    // get all of the form data 
-    $id = mysqli_insert_id($con);
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $Last_Name = $_POST['Last_name'];
-    $Other_Name = $_POST['Other_Name'];
-    $Matric_No = $_POST['Matric_No'];
-    $Email = $_POST['Email'];
-    $Program = $_POST['Program'];
-    $Level = $_POST['Level'];
-    $Placement = $_POST['Placement'];
-
-    // next code block
-    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
-    // insert the user into the database
-    mysqli_query($con, "INSERT INTO student_data VALUES (
-        '{$id}', '{$username}', '{$param_password}', '{$Last_Name}', '{$Other_Name}', '{$Matric_No}', '{$Email}', '{$Program}', '{$Level}', '{$Placement}'
-    )");
-
-    // verify the user's account was created
-    $query = mysqli_query($con, "SELECT * FROM student_data WHERE Email='{$Email}'");
-    if (mysqli_num_rows($query) == 1) {
-
-        $success = true;
-    } else
-        $error_msg = 'An error occurred and your account was not created.';
-}
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Work Study | Admin Dashboard</title>
+		<script src="./assets/js/authentication.js"></script>
+
 		<link
 			href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
 			rel="stylesheet"

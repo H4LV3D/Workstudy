@@ -1,7 +1,5 @@
-const API_URL = "http://127.0.0.1:3000";
-
 window.onload = () => {
-	fetch(`${API_URL}/attendance/`, {
+	fetch(`${API_URL}/attendances/`, {
 		method: "GET",
 		headers: {
 			Authorization: `token ${token}`,
@@ -10,7 +8,7 @@ window.onload = () => {
 		.then((response) => response.json())
 		.then((data) => {
 			buildTable(data);
-			fetch(`${API_URL}/user/`, {
+			fetch(`${API_URL}/users/me`, {
 				method: "GET",
 				headers: {
 					Authorization: `token ${token}`,
@@ -18,7 +16,7 @@ window.onload = () => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					buildPage(data);
+					buildPage(...data);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -37,21 +35,21 @@ let buildTable = (attendance) => {
 		const row = document.createElement("tr");
 		const sl = document.createElement("td");
 		sl.classList.add("text-center");
-		sl.textContent = 1;
+		sl.textContent += index + 1;
 
 		const date = document.createElement("td");
 		date.classList.add("text-center");
-		date.textContent = attendance.date;
+		date.textContent = data.date;
 
 		const timeIn = document.createElement("td");
 		timeIn.classList.add("text-center");
-		timeIn.textContent = attendance.signInTime;
+		timeIn.textContent = data.signInTime.substring(11, 19);
 
 		const timeOut = document.createElement("td");
 		timeOut.classList.add("text-center");
 
-		if (attendance.signOutTime) {
-			timeOut.textContent = attendance.signOutTime.substring(11, 19);
+		if (data.signOutTime) {
+			timeOut.textContent = data.signOutTime.substring(11, 19);
 		} else {
 			timeOut.textContent = "-";
 		}
@@ -75,7 +73,7 @@ let buildTable = (attendance) => {
 
 let buildPage = (data) => {
 	let username = document.getElementById("sidebar-name");
-	username.innerText = data.fullname.split(" ")[0];
+	username.innerText = data.fullname;
 
 	let sbLevel = document.getElementById("sidebar-level");
 	sbLevel.innerText = data.level || "No level set";
@@ -84,5 +82,5 @@ let buildPage = (data) => {
 	totalHours.innerText = data.totalHours || "No record found";
 
 	let greetName = document.getElementById("greetName");
-	greetName.innerText = data.fullname.split(" ")[0];
+	greetName.innerText = data.fullname;
 };

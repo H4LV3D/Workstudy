@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Work-study Portal</title>
+		<script src="./assets/js/authentication.js"></script>
 
 		<link
 			href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -31,7 +32,7 @@
 			crossorigin="anonymous"
 		></script>
 		<link rel="stylesheet" href="/assets/css/side.css" />
-		<script src="./assets/js/attendance.js"></script>
+		<!-- <script src="./assets/js/attendance.js"></script> -->
 		<link
 			href="/assets/fontawesome-free-6.2.1-web/css/fontawesome.css"
 			rel="stylesheet"
@@ -47,18 +48,6 @@
 	</head>
 
 	<body>
-		<script>
-			// Check if JWT is present in cookies token= JWT
-			const token = document.cookie
-				.split("; ")
-				.find((row) => row.startsWith("token="))
-				.split("=")[1];
-
-			// If JWT is not present, redirect to login page
-			if (!token) {
-				window.location.href = "/login.html";
-			}
-		</script>
 		<div class="d-none d-md-block sidebar">
 			<div class="logo-details">
 				<i class="bx bxl-c-plus-plus icon"></i>
@@ -177,6 +166,6 @@
 				sidebar.classList.toggle("open");
 			});
 		</script>
-		<script src="./assets/js/attendance2.js"></script>
+		<script src="./assets/js/attendance.js"></script>
 	</body>
 </html>
