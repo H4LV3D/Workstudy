@@ -1,6 +1,6 @@
 let matricNumber;
 window.onload = () => {
-	fetch(`${API_URL}/user/`, {
+	fetch(`${API_URL}/users/me`, {
 		method: "GET",
 		headers: {
 			Authorization: `token ${token}`,
@@ -8,7 +8,7 @@ window.onload = () => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			matricNumber = data.username;
+			matricNumber = data[0].username;
 		})
 		.catch((error) => {
 			console.log(error);
@@ -18,7 +18,7 @@ window.onload = () => {
 let signinAction = (e) => {
 	let clickedButton = e.target.name;
 	if (clickedButton == "signinbutton") {
-		fetch(`${API_URL}/attendance`, {
+		fetch(`${API_URL}/attendances`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -36,7 +36,7 @@ let signinAction = (e) => {
 				}
 			});
 	} else if (clickedButton == "signoutbutton") {
-		fetch(`${API_URL}/attendance`, {
+		fetch(`${API_URL}/attendances`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
