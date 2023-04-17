@@ -1,42 +1,11 @@
-<?php
-// Initialize the session
-session_start();
-
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.html");
-    exit;
-}
-
-//return 403:unauthorized if session id is not 1
-if ($_SESSION["id"] !== "1") {
-    header("HTTP/1.0 403 Unauthorized");
-    exit;
-}
-
-// database connection
-include('config.html');
-$added = false;
-?>
-
-<?php if (isset($_SESSION['username'])) : ?>
-<?php endif ?>
-<?php if (isset($_SESSION['id'])) : ?>
-<?php endif ?>
-<!--  -->
-<!-- User Details -->
-<?php
-$sql = "SELECT * FROM student_data WHERE username = '" . $_SESSION['username'] . "'";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($result);
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Work Study | Admin Dashboard</title>
+		<script src="./assets/js/authentication.js"></script>
+
 		<link
 			href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
 			rel="stylesheet"

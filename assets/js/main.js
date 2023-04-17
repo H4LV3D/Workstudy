@@ -1,11 +1,7 @@
 const API_URL = "http://127.0.0.1:3000";
 
 let login = (e) => {
-	console.log(e);
 	e.preventDefault();
-	console.log("Login button clicked!");
-	// Prevent the form from submitting
-	// e.preventDefault();
 
 	// Get the username and password from the form
 	let username = document.getElementById("username").value;
@@ -18,7 +14,7 @@ let login = (e) => {
 	};
 
 	// Send the user object to the server
-	fetch(`${API_URL}/user/login`, {
+	fetch(`${API_URL}/users/login`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -28,10 +24,14 @@ let login = (e) => {
 		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
-			// Save the token to cookies
-			document.cookie = `token=${data.token}`;
-			// Redirect to the home page
-			window.location.href = "/";
+			if (data.token) {
+				// Save the token to cookies
+				document.cookie = `token=${data.token}`;
+				// Redirect to the home page
+				window.location.href = "/";
+			} else {
+				alert(data.error);
+			}
 		})
 		.catch((error) => {
 			console.log(error);
