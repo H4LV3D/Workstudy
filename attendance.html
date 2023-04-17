@@ -47,6 +47,18 @@
 	</head>
 
 	<body>
+		<script>
+			// Check if JWT is present in cookies token= JWT
+			const token = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("token="))
+				.split("=")[1];
+
+			// If JWT is not present, redirect to login page
+			if (!token) {
+				window.location.href = "/login.html";
+			}
+		</script>
 		<div class="d-none d-md-block sidebar">
 			<div class="logo-details">
 				<i class="bx bxl-c-plus-plus icon"></i>
@@ -84,14 +96,10 @@
 				</li>
 				<li class="profile">
 					<div class="profile-details">
-						<i class="fas fa-user-circle fa-4x fa-fw"></i>
+						<i class="fas fa-user-circle fa-3x fa-fw"></i>
 						<div class="name_job">
-							<div class="name">
-								<?php echo $row['Other_Name']; ?>
-							</div>
-							<div class="job">
-								<?php echo $row['Level'] . " " . "Level"; ?>
-							</div>
+							<div class="name" id="sidebar-name"></div>
+							<div class="job" id="sidebar-level"></div>
 						</div>
 					</div>
 					<a href="logout.html"><i class="bx bx-log-out" id="log_out"></i></a>
@@ -136,30 +144,23 @@
 						Please make sure to sign in and sign out properly. Any issues should
 						be reported to seald Office
 					</p>
-					<form
-						action="attendance.html"
-						id="loginFrm"
-						class="pt-3"
-						method="POST"
-					>
+					<form id="loginFrm" class="pt-3">
 						<button
 							class="px-5 py-3 border-0 w-100 rounded mb-3 text-white"
-							type="submit"
 							role="button"
 							name="signinbutton"
-							type="submit"
 							style="background-color: #996399"
+							onclick="signinAction(event)"
 						>
 							SIGN IN
 						</button>
 						<br />
 						<button
 							class="px-5 py-3 border-0 w-100 rounded text-white"
-							type="submit"
 							role="button"
 							name="signoutbutton"
-							type="submit"
 							style="background-color: #996399"
+							onclick="signinAction(event)"
 						>
 							SIGN OUT
 						</button>
@@ -176,5 +177,6 @@
 				sidebar.classList.toggle("open");
 			});
 		</script>
+		<script src="./assets/js/attendance2.js"></script>
 	</body>
 </html>

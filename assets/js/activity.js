@@ -37,21 +37,21 @@ let buildTable = (attendance) => {
 		const row = document.createElement("tr");
 		const sl = document.createElement("td");
 		sl.classList.add("text-center");
-		sl.textContent = index + 1;
+		sl.textContent = 1;
 
 		const date = document.createElement("td");
 		date.classList.add("text-center");
-		date.textContent = data.date;
+		date.textContent = attendance.date;
 
 		const timeIn = document.createElement("td");
 		timeIn.classList.add("text-center");
-		timeIn.textContent = data.signInTime.substring(11, 19);
+		timeIn.textContent = attendance.signInTime;
 
 		const timeOut = document.createElement("td");
 		timeOut.classList.add("text-center");
 
-		if (data.signOutTime) {
-			timeOut.textContent = data.signOutTime.substring(11, 19);
+		if (attendance.signOutTime) {
+			timeOut.textContent = attendance.signOutTime.substring(11, 19);
 		} else {
 			timeOut.textContent = "-";
 		}
