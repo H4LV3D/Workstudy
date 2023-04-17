@@ -122,12 +122,12 @@
 					</div>
 				</div>
 				<div class="modal-body pb-4">
-					<form action="addstudent.html" class="form" method="POST">
-						<div class="">
+					<form class="form" onsubmit="addStudent(event)">
+						<!-- <div class="">
 							<p color="green">New Student added successfully!</p>
 							<p></p>
 							<p color="red">error_msg</p>
-						</div>
+						</div> -->
 
 						<!-- <div class="form-row">
                         <div class="form-group col-md-6">
@@ -144,25 +144,14 @@
 
 						<div class="py-4">
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-								<label for="">Last name</label>
+								<label for="">Full name</label>
 								<input
 									type="text"
 									class="form-control"
-									name="Last_name"
+									id="fullname"
+									name="full_name"
 									value=""
-									placeholder="Last Name"
-									autocomplete="on"
-									required
-								/>
-							</div>
-							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
-								<label for="">First Name</label>
-								<input
-									type="text"
-									class="form-control"
-									name="First_Name"
-									value=""
-									placeholder="First Name"
+									placeholder="Full Name"
 									autocomplete="on"
 									required
 								/>
@@ -170,6 +159,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Matric No</label>
 								<input
+									id="matric_no"
 									type="text"
 									class="form-control"
 									name="Matric_No"
@@ -182,6 +172,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Email</label>
 								<input
+									id="email"
 									type="email"
 									class="form-control"
 									name="Email"
@@ -194,6 +185,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Program</label>
 								<input
+									id="program"
 									type="text"
 									class="form-control"
 									name="Program"
@@ -206,6 +198,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Level</label>
 								<input
+									id="level"
 									type="number"
 									class="form-control"
 									name="Level"
@@ -218,6 +211,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Placement</label>
 								<input
+									id="placement"
 									type="text"
 									class="form-control"
 									name="Placement"
@@ -230,6 +224,7 @@
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Phone Number (Telegram)</label>
 								<input
+									id="phonenumber"
 									type="tel"
 									required
 									class="form-control"
@@ -257,13 +252,9 @@
 				</div>
 			</div>
 		</div>
+		<script src="./assets/js/addstudent.js"></script>
 
 		<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-		<script>
-			$(document).ready(function () {
-				$("#myTable").DataTable();
-			});
-		</script>
 		<script>
 			let sidebar = document.querySelector(".sidebar");
 			let closeBtn = document.querySelector("#btn");

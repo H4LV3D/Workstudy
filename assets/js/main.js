@@ -1,6 +1,4 @@
 const API_URL = "http://127.0.0.1:3000";
-console.log("Hello from main.js!");
-const loginBtn = document.getElementById("submit");
 
 let login = (e) => {
 	console.log(e);
