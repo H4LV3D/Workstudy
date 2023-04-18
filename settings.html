@@ -229,97 +229,79 @@
       </div>
     </div>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="./assets/js/settings.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#myTable").DataTable();
-      });
-    </script>
-    <script>
-          let sidebar = document.querySelector(".sidebar");
-          let closeBtn = document.querySelector("#btn");
-          let searchBtn = document.querySelector(".bx-search");
-          let button = document.querySelector(".bx-menu");
-          button.addEventListener("click", () => {
-            // sidebar.classList.toggle("open");
-            searchBtn.classList.toggle("bx-search");
-            searchBtn.classList.toggle("bx-menu");
-          });
-      <div
-      	class="modal fade"
-      	id="exampleModal"
-      	tabindex="-1"
-      	role="dialog"
-      	aria-labelledby="exampleModalLabel"
-      	aria-hidden="true"
-      >
-      	<div class="modal-dialog border-0" role="document" style="width: 25rem">
-      		<div class="modal-content">
-      			<div class="modal-header">
-      				<h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
-      				<button
-      					type="button"
-      					class="close"
-      					data-dismiss="modal"
-      					aria-label="Close"
-      				>
-      					<span aria-hidden="true">&times;</span>
-      				</button>
-      			</div>
-      			<div class="card mx-auto p-4 shadow-none" style="width: 24rem">
-      				<div class="card-body shadow-none">
-      					<p>Please fill out this form to reset your password.</p>
-      					<form action="" method="post">
-      						<div
-      							class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>"
-      						>
-      							<label>New Password</label>
-      							<input
-      								type="password"
-      								name="new_password"
-      								class="form-control"
-      								value="<?php echo $new_password; ?>"
-      							/>
-      							<span class="help-block"
-      								><?php echo $new_password_err; ?></span
-      							>
-      						</div>
-      						<div
-      							class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>"
-      						>
-      							<label>Confirm Password</label>
-      							<input
-      								type="password"
-      								name="confirm_password"
-      								class="form-control"
-      							/>
-      							<span class="help-block"
-      								><?php echo $confirm_password_err; ?></span
-      							>
-      						</div>
-      						<div class="form-group">
-      							<input
-      								type="submit"
-      								class="btn btn-primary w-100 mt-4 mb-2"
-      								value="Submit"
-      							/>
-      							<br />
-      							<a
-      								class="btn btn-danger w-100"
-      								href="index.html"
-      								data-dismiss="modal"
-      								>Cancel</a
-      							>
-      						</div>
-      					</form>
-      				</div>
-      			</div>
-      		</div>
-      	</div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog border-0" role="document" style="width: 25rem">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="card mx-auto p-4 shadow-none" style="width: 24rem">
+            <div class="card-body shadow-none">
+              <p>Please fill out this form to reset your password.</p>
+              <form action="" method="post">
+                <div
+                  class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>"
+                >
+                  <label>New Password</label>
+                  <input
+                    type="password"
+                    name="new_password"
+                    class="form-control"
+                    value="<?php echo $new_password; ?>"
+                  />
+                  <span class="help-block"
+                    ><?php echo $new_password_err; ?></span
+                  >
+                </div>
+                <div
+                  class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>"
+                >
+                  <label>Confirm Password</label>
+                  <input
+                    type="password"
+                    name="confirm_password"
+                    class="form-control"
+                  />
+                  <span class="help-block"
+                    ><?php echo $confirm_password_err; ?></span
+                  >
+                </div>
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary w-100 mt-4 mb-2"
+                    value="Submit"
+                  />
+                  <br />
+                  <a
+                    class="btn btn-danger w-100"
+                    href="index.html"
+                    data-dismiss="modal"
+                    >Cancel</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <script src="./assets/js/settings.js">
-    </script>
+    </div>
+    <script src="./assets/js/settings.js"></script>
     <script>
       let sidebar = document.querySelector(".sidebar");
       let closeBtn = document.querySelector("#btn");
