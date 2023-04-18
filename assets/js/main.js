@@ -23,10 +23,9 @@ let login = (e) => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
 			if (data.login.token) {
 				// Save the token to cookies
-				document.cookie = `token=${data.token}`;
+				document.cookie = `token=${data.login.token}`;
 				// Redirect to the home page / dashboard
 				if (data.login.role == "student") {
 					window.location.href = "/";
@@ -34,7 +33,7 @@ let login = (e) => {
 					window.location.href = "/admin-dashboard.html";
 				}
 			} else {
-				alert(data.error);
+				alert(data.login.error);
 			}
 		})
 		.catch((error) => {
