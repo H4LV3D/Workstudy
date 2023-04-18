@@ -24,11 +24,15 @@ let login = (e) => {
 		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
-			if (data.token) {
+			if (data.login.token) {
 				// Save the token to cookies
 				document.cookie = `token=${data.token}`;
-				// Redirect to the home page
-				window.location.href = "/";
+				// Redirect to the home page / dashboard
+				if (data.login.role == "student") {
+					window.location.href = "/";
+				} else {
+					window.location.href = "/admin-dashboard.html";
+				}
 			} else {
 				alert(data.error);
 			}
