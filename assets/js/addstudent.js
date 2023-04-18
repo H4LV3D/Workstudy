@@ -1,5 +1,3 @@
-const API_URL = "http://127.0.0.1:3000";
-
 let addStudent = (e) => {
 	e.preventDefault();
 
@@ -35,7 +33,7 @@ let addStudent = (e) => {
 			console.log(data);
 			if (data.message === "Account Created!") {
 				alert("Student added successfully!");
-				window.location.href = "/addstudent.html";
+				window.location.href = "/admin-addstudent.html";
 			}
 		})
 		.catch((error) => {
