@@ -1,4 +1,6 @@
 let matricNumber;
+const preloader = document.getElementById("preloader");
+
 window.onload = () => {
 	fetch(`${API_URL}/users/me`, {
 		method: "GET",
@@ -18,6 +20,7 @@ window.onload = () => {
 let signinAction = (e) => {
 	let clickedButton = e.target.name;
 	if (clickedButton == "signinbutton") {
+		preloader.style.display = "flex";
 		fetch(`${API_URL}/attendances`, {
 			method: "POST",
 			headers: {
@@ -29,6 +32,7 @@ let signinAction = (e) => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				preloader.style.display = "none";
 				if (data.error) {
 					alert(data.error);
 				} else {
@@ -36,6 +40,7 @@ let signinAction = (e) => {
 				}
 			});
 	} else if (clickedButton == "signoutbutton") {
+		preloader.style.display = "flex";
 		fetch(`${API_URL}/attendances`, {
 			method: "PUT",
 			headers: {
@@ -47,6 +52,7 @@ let signinAction = (e) => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				preloader.style.display = "none";
 				if (data.message == "User not found or already signed out") {
 					alert(data.message);
 				} else if (data.date) {
