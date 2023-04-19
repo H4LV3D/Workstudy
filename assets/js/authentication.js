@@ -1,4 +1,6 @@
-const API_URL = "https://cu-workstudy-backend.cyclic.app/";
+const API_URL = "https://cu-workstudy-backend.cyclic.app";
+// const API_URL = "http://127.0.0.1:3000";
+
 let token;
 let role;
 

@@ -8,7 +8,11 @@ window.onload = () => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			buildPage(...data);
+			if (!data.error) {
+				buildPage(...data);
+			} else {
+				return;
+			}
 		})
 		.catch((error) => {
 			console.log(error);
