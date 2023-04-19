@@ -26,8 +26,7 @@ let login = (e) => {
 		.then((data) => {
 			if (data.login.token) {
 				// Save the token to cookies
-				document.cookie = `token=${data.login.token}`;
-
+				document.cookie = `token=${data.login.token}; secure; SameSite=None`;
 				// Redirect to the home page / dashboard
 				if (data.login.role == "student") {
 					window.location.href = "/portal/";
