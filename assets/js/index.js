@@ -10,6 +10,7 @@ async function getCookie(name) {
 }
 
 let token = await getCookie("token");
+console.log(token);
 
 window.onload = () => {
 	// Send the user object to the server
