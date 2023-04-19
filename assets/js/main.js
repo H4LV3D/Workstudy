@@ -28,9 +28,9 @@ let login = (e) => {
 				document.cookie = `token=${data.login.token}`;
 				// Redirect to the home page / dashboard
 				if (data.login.role == "student") {
-					window.location.href = "/";
+					window.location.href = "/portal/";
 				} else {
-					window.location.href = "/admin-dashboard.html";
+					window.location.href = "/portal/admin-dashboard.html";
 				}
 			} else {
 				alert(data.login.error);
