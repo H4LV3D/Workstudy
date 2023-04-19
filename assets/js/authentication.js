@@ -22,6 +22,7 @@ if (!document.cookie || document.cookie == "") {
 	fetch(`${API_URL}/users/verify`, {
 		method: "GET",
 		credentials: "include",
+		mode: "cors",
 	})
 		.then((response) => response.json())
 		.then((data) => {
