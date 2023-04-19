@@ -1,4 +1,4 @@
-async function getCookie(name) {
+function getCookie(name) {
 	const cookies = document.cookie.split(";");
 	for (let i = 0; i < cookies.length; i++) {
 		const cookie = cookies[i].trim();
@@ -9,7 +9,7 @@ async function getCookie(name) {
 	return null;
 }
 
-let token = await getCookie("token");
+let token = getCookie("token");
 console.log(token);
 
 window.onload = () => {
