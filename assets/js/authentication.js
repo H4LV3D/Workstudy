@@ -3,7 +3,18 @@ const API_URL = "https://cu-workstudy-backend.cyclic.app";
 
 let token;
 let role;
-alert(document.cookie);
+
+function getCookie(name) {
+	const cookies = document.cookie.split(";");
+	for (let i = 0; i < cookies.length; i++) {
+		const cookie = cookies[i].trim();
+		if (cookie.startsWith(name + "=")) {
+			return decodeURIComponent(cookie.substring(name.length + 1));
+		}
+	}
+	return null;
+}
+
 if (!document.cookie || document.cookie == "") {
 	window.location.href = "/portal/login.html";
 } else {
@@ -21,17 +32,6 @@ if (!document.cookie || document.cookie == "") {
 			role = data.role;
 			checkAuthorization();
 		});
-}
-
-function getCookie(name) {
-	const cookies = document.cookie.split(";");
-	for (let i = 0; i < cookies.length; i++) {
-		const cookie = cookies[i].trim();
-		if (cookie.startsWith(name + "=")) {
-			return decodeURIComponent(cookie.substring(name.length + 1));
-		}
-	}
-	return null;
 }
 
 function checkAuthorization() {
