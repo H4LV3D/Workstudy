@@ -26,7 +26,8 @@ let login = (e) => {
 		.then((data) => {
 			if (data.login.token) {
 				// Save the token to cookies
-				document.cookie = `token=${data.login.token}; secure; SameSite=None`;
+				document.cookie = `token=${data.login.token}; path=/portal/; domain=cu-workstudy-backend.cyclic.app; secure; SameSite=None`;
+
 				// Redirect to the home page / dashboard
 				if (data.login.role == "student") {
 					window.location.href = "/portal/";
