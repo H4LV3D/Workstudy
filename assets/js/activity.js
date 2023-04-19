@@ -1,27 +1,29 @@
-window.onload = () => {
-	fetch(`${API_URL}/attendances/`, {
-		method: "GET",
-		credentials: "include",
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			buildTable(data);
-			fetch(`${API_URL}/users/`, {
-				method: "GET",
-				credentials: "include",
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					buildPage(...data);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+fetch(`${API_URL}/attendances/`, {
+	method: "GET",
+	headers: {
+		Authorization: `token ${token}`,
+	},
+})
+	.then((response) => response.json())
+	.then((data) => {
+		buildTable(data);
+		fetch(`${API_URL}/users/`, {
+			method: "GET",
+			headers: {
+				Authorization: `token ${token}`,
+			},
 		})
-		.catch((error) => {
-			console.log(error);
-		});
-};
+			.then((response) => response.json())
+			.then((data) => {
+				buildPage(...data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	})
+	.catch((error) => {
+		console.log(error);
+	});
 
 let buildTable = (attendance) => {
 	const table = document.getElementById("myTable");
