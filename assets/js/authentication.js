@@ -3,7 +3,7 @@ const API_URL = "https://cu-workstudy-backend.cyclic.app";
 
 let token;
 let role;
-
+alert(document.cookie);
 if (!document.cookie || document.cookie == "") {
 	window.location.href = "/portal/login.html";
 } else {
