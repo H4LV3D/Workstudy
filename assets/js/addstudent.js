@@ -33,7 +33,7 @@ let addStudent = (e) => {
 			console.log(data);
 			if (data.message === "Account Created!") {
 				alert("Student added successfully!");
-				window.location.href = "/admin-addstudent.html";
+				window.location.href = "/portal/admin-addstudent.html";
 			}
 		})
 		.catch((error) => {

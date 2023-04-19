@@ -3,7 +3,7 @@ let token;
 let role;
 
 if (!document.cookie || document.cookie == "") {
-	window.location.href = "/login.html";
+	window.location.href = "/portal/login.html";
 } else {
 	fetch(`${API_URL}/users/verify`, {
 		method: "GET",
@@ -13,7 +13,7 @@ if (!document.cookie || document.cookie == "") {
 		.then((data) => {
 			if (data.error) {
 				document.cookie = "token=";
-				window.location.href = "/login.html";
+				window.location.href = "/portal/login.html";
 			}
 			token = getCookie("token");
 			role = data.role;
@@ -41,12 +41,12 @@ function checkAuthorization() {
 		window.location.pathname.includes("/admin")
 	) {
 		// user has student role and is trying to access admin page
-		window.location.href = "/index.html";
+		window.location.href = "/portal/";
 	}
 	// user has valid role for the page they are trying to access
 }
 
 function logout() {
 	document.cookie = "token=";
-	window.location.href = "/login.html";
+	window.location.href = "/portal/login.html";
 }
