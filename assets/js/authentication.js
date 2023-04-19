@@ -16,7 +16,6 @@ function getCookie(name) {
 }
 
 if (!document.cookie || document.cookie == "") {
-	window.location.href = "/login.html";
 	window.location.href = "/portal/login.html";
 } else {
 	fetch(`${API_URL}/users/verify`, {
@@ -28,7 +27,7 @@ if (!document.cookie || document.cookie == "") {
 		.then((data) => {
 			if (data.error) {
 				document.cookie = "token=";
-				window.location.href = "/login.html";
+				window.location.href = "/portal/login.html";
 			}
 			token = getCookie("token");
 			role = data.role;
