@@ -9,19 +9,15 @@ async function getCookie(name) {
 	return null;
 }
 
-token = await getCookie("token");
-
 // Send the user object to the server
 fetch(`${API_URL}/users/me`, {
 	method: "GET",
-	headers: {
-		Authorization: `token ${token}`,
-	},
+	credentials: "include",
 })
 	.then((response) => response.json())
 	.then((data) => {
 		if (!data.error) {
-			buildPage(...data);
+			buildPage(data);
 		} else {
 			return;
 		}
@@ -31,8 +27,9 @@ fetch(`${API_URL}/users/me`, {
 	});
 
 let buildPage = (data) => {
+	console.log(data);
 	let username = document.getElementById("sidebar-name");
-	username.innerText = data.fullname.split(" ")[0];
+	// username.innerText = data.fullname.split(" ")[0];
 
 	let sbLevel = document.getElementById("sidebar-level");
 	sbLevel.innerText = data.level || "No level set";

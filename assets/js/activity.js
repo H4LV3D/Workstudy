@@ -1,22 +1,18 @@
 window.onload = () => {
 	fetch(`${API_URL}/attendances/`, {
 		method: "GET",
-		headers: {
-			Authorization: `token ${token}`,
-		},
+		credentials: "include",
 	})
 		.then((response) => response.json())
 		.then((data) => {
 			buildTable(data);
 			fetch(`${API_URL}/users/me`, {
 				method: "GET",
-				headers: {
-					Authorization: `token ${token}`,
-				},
+				credentials: "include",
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					buildPage(...data);
+					buildPage(data);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -28,6 +24,7 @@ window.onload = () => {
 };
 
 let buildTable = (attendance) => {
+	console.log(attendance);
 	const table = document.getElementById("myTable");
 	const tbody = table.querySelector("tbody");
 
