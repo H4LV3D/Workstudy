@@ -1,4 +1,4 @@
-function getCookie(name) {
+async function getCookie(name) {
 	const cookies = document.cookie.split(";");
 	for (let i = 0; i < cookies.length; i++) {
 		const cookie = cookies[i].trim();
@@ -9,28 +9,26 @@ function getCookie(name) {
 	return null;
 }
 
-token = getCookie("token");
+token = await getCookie("token");
 
-window.onload = () => {
-	// Send the user object to the server
-	fetch(`${API_URL}/users/me`, {
-		method: "GET",
-		headers: {
-			Authorization: `token ${token}`,
-		},
+// Send the user object to the server
+fetch(`${API_URL}/users/me`, {
+	method: "GET",
+	headers: {
+		Authorization: `token ${token}`,
+	},
+})
+	.then((response) => response.json())
+	.then((data) => {
+		if (!data.error) {
+			buildPage(...data);
+		} else {
+			return;
+		}
 	})
-		.then((response) => response.json())
-		.then((data) => {
-			if (!data.error) {
-				buildPage(...data);
-			} else {
-				return;
-			}
-		})
-		.catch((error) => {
-			console.log(error);
-		});
-};
+	.catch((error) => {
+		console.log(error);
+	});
 
 let buildPage = (data) => {
 	let username = document.getElementById("sidebar-name");
