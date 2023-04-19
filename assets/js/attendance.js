@@ -2,11 +2,9 @@ let matricNumber;
 const preloader = document.getElementById("preloader");
 
 window.onload = () => {
-	fetch(`${API_URL}/users/me`, {
+	fetch(`${API_URL}/users/`, {
 		method: "GET",
-		headers: {
-			Authorization: `token ${token}`,
-		},
+		credentials: "include",
 	})
 		.then((response) => response.json())
 		.then((data) => {
