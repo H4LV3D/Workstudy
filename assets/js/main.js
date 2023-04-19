@@ -1,4 +1,4 @@
-const API_URL = "https://cu-workstudy-backend.cyclic.app/";
+const API_URL = "http://localhost:3000/";
 
 let login = (e) => {
 	e.preventDefault();
