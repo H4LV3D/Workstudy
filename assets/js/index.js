@@ -1,3 +1,5 @@
+console.log(token);
+
 // Send the user object to the server
 fetch(`${API_URL}/users/`, {
 	method: "GET",
@@ -7,6 +9,7 @@ fetch(`${API_URL}/users/`, {
 })
 	.then((response) => response.json())
 	.then((data) => {
+		console.log(data);
 		if (!data.error) {
 			buildPage(...data);
 		} else {
