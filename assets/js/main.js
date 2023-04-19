@@ -1,4 +1,5 @@
-const API_URL = "https://cu-workstudy-backend.cyclic.app/";
+const API_URL = "https://cu-workstudy-backend.cyclic.app";
+// const API_URL = "http://127.0.0.1:3000";
 
 let login = (e) => {
 	e.preventDefault();
@@ -25,7 +26,8 @@ let login = (e) => {
 		.then((data) => {
 			if (data.login.token) {
 				// Save the token to cookies
-				document.cookie = `token=${data.login.token}`;
+				document.cookie = `token=${data.login.token}; path=/portal; domain=cu-workstudy-backend.cyclic.app; secure; samesite=none;`;
+
 				// Redirect to the home page / dashboard
 				if (data.login.role == "student") {
 					window.location.href = "/portal/";
