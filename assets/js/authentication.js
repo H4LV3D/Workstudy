@@ -1,35 +1,23 @@
 const API_URL = "https://cu-workstudy-backend.cyclic.app";
 // const API_URL = "http://127.0.0.1:3000";
-
-let token;
+const token = localStorage.getItem("token");
 let role;
 
-function getCookie(name) {
-	const cookies = document.cookie.split(";");
-	for (let i = 0; i < cookies.length; i++) {
-		const cookie = cookies[i].trim();
-		if (cookie.startsWith(name + "=")) {
-			return decodeURIComponent(cookie.substring(name.length + 1));
-		}
-	}
-	return null;
-}
-
-if (!document.cookie || document.cookie == "") {
+if (!token) {
 	window.location.href = "/portal/login.html";
 } else {
 	fetch(`${API_URL}/users/verify`, {
 		method: "GET",
-		credentials: "include",
-		mode: "cors",
+		headers: {
+			Authorization: `token ${token}`,
+		},
 	})
 		.then((response) => response.json())
 		.then((data) => {
+			console.log(data);
 			if (data.error) {
-				document.cookie = "token=";
 				window.location.href = "/portal/login.html";
 			}
-			token = getCookie("token");
 			role = data.role;
 			checkAuthorization();
 		});
