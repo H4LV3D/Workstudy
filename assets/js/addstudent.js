@@ -13,11 +13,11 @@ let addStudent = (e) => {
 	let user = {
 		username: matricNumber,
 		password: matricNumber,
-		email,
-		fullname,
-		placement,
+		email: email,
+		fullname: fullname,
+		placement: placement,
 		course: program,
-		level,
+		level: level,
 	};
 
 	// Send the user object to the server
