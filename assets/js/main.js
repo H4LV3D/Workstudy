@@ -1,5 +1,6 @@
-const API_URL = "https://cu-workstudy-backend.cyclic.app";
-// const API_URL = "http://127.0.0.1:3000";
+// const API_URL = "https://cu-workstudy-backend.cyclic.app";
+const API_URL = "http://127.0.0.1:3000";
+const preloader = document.getElementById("preloader");
 
 let login = (e) => {
 	e.preventDefault();
@@ -14,6 +15,7 @@ let login = (e) => {
 		password: password,
 	};
 
+	preloader.style.display = "flex";
 	// Send the user object to the server
 	fetch(`${API_URL}/users/login`, {
 		method: "POST",
@@ -25,6 +27,7 @@ let login = (e) => {
 		.then((response) => response.json())
 		.then((data) => {
 			if (data.login.token) {
+				preloader.style.display = "none";
 				// Save the token to cookies
 				localStorage.setItem("token", data.login.token);
 

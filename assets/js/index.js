@@ -1,24 +1,29 @@
-console.log(token);
+const preloader = document.getElementById("preloader");
 
-// Send the user object to the server
-fetch(`${API_URL}/users/`, {
-	method: "GET",
-	headers: {
-		Authorization: `token ${token}`,
-	},
-})
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data);
-		if (!data.error) {
-			buildPage(...data);
-		} else {
-			return;
-		}
+window.onload = () => {
+	preloader.style.display = "flex";
+
+	// Send the user object to the server
+	fetch(`${API_URL}/users/`, {
+		method: "GET",
+		headers: {
+			Authorization: `token ${token}`,
+		},
 	})
-	.catch((error) => {
-		console.log(error);
-	});
+		.then((response) => response.json())
+		.then((data) => {
+			if (!data.error) {
+				preloader.style.display = "none";
+
+				buildPage(...data);
+			} else {
+				return;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
 
 let buildPage = (data) => {
 	let username = document.getElementById("sidebar-name");
