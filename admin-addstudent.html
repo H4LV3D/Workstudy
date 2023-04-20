@@ -40,20 +40,11 @@
 			src="https://kit.fontawesome.com/2029614d15.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="/assets/css/side.css" />
-		<link rel="stylesheet" href="/assets/css/admin.css" />
-		<link
-			href="./assets/fontawesome-free-6.2.1-web/css/fontawesome.css"
-			rel="stylesheet"
-		/>
-		<link
-			href="./assets/fontawesome-free-6.2.1-web/css/brands.css"
-			rel="stylesheet"
-		/>
-		<link
-			href="./assets/fontawesome-free-6.2.1-web/css/solid.css"
-			rel="stylesheet"
-		/>
+		<link rel="stylesheet" href="./assets/css/side.css" />
+		<link rel="stylesheet" href="./assets/css/admin.css" />
+		<link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+		<link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+		<link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -100,9 +91,7 @@
 							<div class="job"></div>
 						</div>
 					</div>
-					<a href="/portal/logout.html"
-						><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i
-					></a>
+					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -125,25 +114,6 @@
 				</div>
 				<div class="modal-body pb-4">
 					<form class="form" onsubmit="addStudent(event)">
-						<!-- <div class="">
-							<p color="green">New Student added successfully!</p>
-							<p></p>
-							<p color="red">error_msg</p>
-						</div> -->
-
-						<!-- <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Username</label>
-                            <input type="text" class="form-control" name="username" value=""
-                                placeholder="enter a username" autocomplete="on" autofocus required />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Password</label>
-                            <input type="password" class="form-control" name="password" value=""
-                                placeholder="enter a password" autocomplete="on" required />
-                        </div>
-                    </div> -->
-
 						<div class="py-4">
 							<div class="form-group col-12 col-md-10 col-lg-6 mx-auto">
 								<label for="">Full name</label>

@@ -14,7 +14,7 @@ window.onload = () => {
 		});
 };
 
-let buildTable = (attendance) => {
+const buildTable = (attendance) => {
 	const table = document.getElementById("myTable");
 	const tbody = table.querySelector("tbody");
 
@@ -34,11 +34,7 @@ let buildTable = (attendance) => {
 
 		const totalHours = document.createElement("td");
 		totalHours.classList.add("text-center");
-		if (data.totalHours) {
-			totalHours.textContent = data.totalHours;
-		} else {
-			totalHours.textContent = "0";
-		}
+		totalHours.textContent = data.totalHours || "0";
 
 		const level = document.createElement("td");
 		level.classList.add("text-center");

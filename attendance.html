@@ -31,23 +31,18 @@
 			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="/assets/css/side.css" />
+		<link rel="stylesheet" href="./assets/css/side.css" />
+		<link rel="stylesheet" href="./assets/css/loader.css" />
 		<!-- <script src="./assets/js/attendance.js"></script> -->
-		<link
-			href="/assets/fontawesome-free-6.2.1-web/css/fontawesome.css"
-			rel="stylesheet"
-		/>
-		<link
-			href="/assets/fontawesome-free-6.2.1-web/css/brands.css"
-			rel="stylesheet"
-		/>
-		<link
-			href="/assets/fontawesome-free-6.2.1-web/css/solid.css"
-			rel="stylesheet"
-		/>
+		<link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+		<link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+		<link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
 	</head>
 
 	<body>
+		<div id="preloader">
+			<div class="spinner"></div>
+		</div>
 		<div class="d-none d-md-block sidebar">
 			<div class="logo-details">
 				<img src="./assets/images/logo.png" class="icon" alt="" />
@@ -91,9 +86,7 @@
 							<div class="job" id="sidebar-level"></div>
 						</div>
 					</div>
-					<a href="/portal/logout.html"
-						><i class="bx bx-log-out" id="log_out"></i
-					></a>
+					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -150,7 +143,7 @@
 							role="button"
 							name="signinbutton"
 							style="background-color: #996399"
-							onclick="signinAction(event)"
+							id="signinbutton"
 						>
 							SIGN IN
 						</button>
@@ -160,7 +153,7 @@
 							role="button"
 							name="signoutbutton"
 							style="background-color: #996399"
-							onclick="signinAction(event)"
+							id="signoutbutton"
 						>
 							SIGN OUT
 						</button>

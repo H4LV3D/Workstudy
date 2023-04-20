@@ -40,7 +40,7 @@
 			src="https://kit.fontawesome.com/2029614d15.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="/assets/css/side.css" />
+		<link rel="stylesheet" href="./assets/css/side.css" />
 	</head>
 
 	<body>
@@ -83,17 +83,11 @@
 					<div class="profile-details">
 						<i class="fas fa-user-circle fa-4x fa-fw"></i>
 						<div class="name_job">
-							<div class="name">
-								<?php echo $row['Other_Name']; ?>
-							</div>
-							<div class="job">
-								<?php echo $row['Level'] . " " . "Level"; ?>
-							</div>
+							<div class="name"></div>
+							<div class="job"></div>
 						</div>
 					</div>
-					<a href="/portal/logout.html"
-						><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i
-					></a>
+					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
 				</li>
 			</ul>
 		</div>
