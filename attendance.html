@@ -32,6 +32,7 @@
 			crossorigin="anonymous"
 		></script>
 		<link rel="stylesheet" href="/assets/css/side.css" />
+		<link rel="stylesheet" href="/assets/css/loader.css" />
 		<!-- <script src="./assets/js/attendance.js"></script> -->
 		<link
 			href="/assets/fontawesome-free-6.2.1-web/css/fontawesome.css"
@@ -48,6 +49,9 @@
 	</head>
 
 	<body>
+		<div id="preloader">
+			<div class="spinner"></div>
+		</div>
 		<div class="d-none d-md-block sidebar">
 			<div class="logo-details">
 				<img src="./assets/images/logo.png" class="icon" alt="" />
@@ -91,14 +95,9 @@
 							<div class="job" id="sidebar-level"></div>
 						</div>
 					</div>
-					<a href="/portal/logout.html"
-						><i class="bx bx-log-out" id="log_out"></i
-					></a>
+					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
 				</li>
 			</ul>
-		</div>
-		<div id="preloader">
-			<div class="spinner"></div>
 		</div>
 
 		<div class="d-md-none fixed-bottom mb-2">
