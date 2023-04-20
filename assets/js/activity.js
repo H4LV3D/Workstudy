@@ -56,7 +56,7 @@ let buildTable = (attendance) => {
 
 		const totalHours = document.createElement("td");
 		totalHours.classList.add("text-center");
-		totalHours.textContent = data.totalTime;
+		totalHours.textContent = data.totalTime.toFixed(3);
 
 		row.appendChild(sl);
 		row.appendChild(date);
@@ -79,7 +79,7 @@ let buildPage = (data) => {
 	sbLevel.innerText = data.level || "No level set";
 
 	let totalHours = document.getElementById("totalHours");
-	totalHours.innerText = data.totalHours || "No record found";
+	totalHours.innerText = data.totalHours.toFixed(2) || "No record found";
 
 	let greetName = document.getElementById("greetName");
 	greetName.innerText = data.fullname;

@@ -48,7 +48,7 @@ let buildPage = (data) => {
 	cardPlacement.innerText = data.placement || "No placement set";
 
 	let cardHours = document.getElementById("card-totalHours");
-	cardHours.innerText = data.totalHours || "No record found";
+	cardHours.innerText = data.totalHours.toFixed(2) || "No record found";
 
 	let cardProgram = document.getElementById("card-program");
 	cardProgram.innerText = data.course;

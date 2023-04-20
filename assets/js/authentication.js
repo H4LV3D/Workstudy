@@ -11,6 +11,7 @@ fetch(`${API_URL}/users/verify`, {
 })
 	.then((response) => response.json())
 	.then((data) => {
+		console.log(data);
 		if (data.error) {
 			window.location.href = "/portal/login.html";
 		}

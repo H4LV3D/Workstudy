@@ -40,8 +40,8 @@
 			src="https://kit.fontawesome.com/2029614d15.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="/assets/css/side.css" />
-		<link rel="stylesheet" href="/assets/css/admin.css" />
+		<link rel="stylesheet" href="./assets/css/side.css" />
+		<link rel="stylesheet" href="./assets/css/admin.css" />
 		<link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
 		<link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
 		<link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
@@ -87,12 +87,8 @@
 					<div class="profile-details">
 						<i class="fas fa-user-circle fa-4x fa-fw"></i>
 						<div class="name_job">
-							<div class="name">
-								<?php echo $row['Other_Name']; ?>
-							</div>
-							<div class="job">
-								<?php echo $row['Level'] . " " . "Level"; ?>
-							</div>
+							<div class="name"></div>
+							<div class="job"></div>
 						</div>
 					</div>
 					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
@@ -111,7 +107,7 @@
 						</p>
 						<h4>
 							Hi
-							<b> <?php echo htmlspecialchars($_SESSION["username"]); ?>, </b>
+							<b>, </b>
 						</h4>
 					</div>
 					<button

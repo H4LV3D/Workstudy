@@ -38,6 +38,7 @@ let login = (e) => {
 					window.location.href = "/portal/admin-dashboard.html";
 				}
 			} else {
+				preloader.style.display = "none";
 				alert(data.login.error);
 			}
 		})
