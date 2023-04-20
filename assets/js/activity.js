@@ -58,7 +58,7 @@ const buildTable = (attendance) => {
 
 		const totalHours = document.createElement("td");
 		totalHours.classList.add("text-center");
-		totalHours.textContent = data.totalTime.toFixed(3);
+		totalHours.textContent = data.totalTime ? data.totalTime.toFixed(3) : "0";
 
 		row.appendChild(sl);
 		row.appendChild(date);
