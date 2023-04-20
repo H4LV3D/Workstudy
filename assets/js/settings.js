@@ -1,8 +1,7 @@
 const preloader = document.getElementById("preloader");
 
+preloader.style.display = "flex";
 window.onload = () => {
-	// Send the user object to the server
-	preloader.style.display = "flex";
 	fetch(`${API_URL}/users/`, {
 		method: "GET",
 		headers: {
@@ -20,21 +19,21 @@ window.onload = () => {
 		});
 };
 
-let buildPage = (data) => {
-	let settingsUsername = document.getElementById("settings-username");
+const buildPage = (data) => {
+	const settingsUsername = document.getElementById("settings-username");
 	settingsUsername.innerText = data.username;
 
-	let username = document.getElementById("sidebar-name");
+	const username = document.getElementById("sidebar-name");
 	username.innerText = data.fullname.split(" ")[0];
 
-	let sbLevel = document.getElementById("sidebar-level");
+	const sbLevel = document.getElementById("sidebar-level");
 	sbLevel.innerText = data.level || "No level set";
 };
 
-let resetPassword = (e) => {
+const resetPassword = (e) => {
 	e.preventDefault();
-	let password = document.getElementById("password").value;
-	let confirmPassword = document.getElementById("confirm_password").value;
+	const password = document.getElementById("password").value;
+	const confirmPassword = document.getElementById("confirm_password").value;
 
 	if (!password || !confirmPassword) {
 		alert("All fields are required");

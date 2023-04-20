@@ -1,8 +1,7 @@
 const preloader = document.getElementById("preloader");
 
+preloader.style.display = "flex";
 window.onload = () => {
-	preloader.style.display = "flex";
-
 	// Send the user object to the server
 	fetch(`${API_URL}/users/`, {
 		method: "GET",
@@ -14,42 +13,28 @@ window.onload = () => {
 		.then((data) => {
 			if (!data.error) {
 				preloader.style.display = "none";
-
 				buildPage(...data);
-			} else {
-				return;
 			}
 		})
 		.catch((error) => {
+			preloader.style.display = "none";
 			console.log(error);
 		});
 };
 
 let buildPage = (data) => {
-	let username = document.getElementById("sidebar-name");
-	username.innerText = data.fullname;
+	const { fullname, level, username, email, placement, totalHours, course } =
+		data;
 
-	let sbLevel = document.getElementById("sidebar-level");
-	sbLevel.innerText = data.level || "No level set";
-
-	let cardName = document.getElementById("card-fullname");
-	cardName.innerText = data.fullname;
-
-	let cardMatric = document.getElementById("card-matric");
-	cardMatric.innerText = data.username;
-
-	let cardLevel = document.getElementById("card-level");
-	cardLevel.innerText = data.level || "No level set";
-
-	let cardEmail = document.getElementById("card-email");
-	cardEmail.innerText = data.email;
-
-	let cardPlacement = document.getElementById("card-placement");
-	cardPlacement.innerText = data.placement || "No placement set";
-
-	let cardHours = document.getElementById("card-totalHours");
-	cardHours.innerText = data.totalHours.toFixed(2) || "No record found";
-
-	let cardProgram = document.getElementById("card-program");
-	cardProgram.innerText = data.course;
+	document.getElementById("sidebar-name").innerText = fullname;
+	document.getElementById("sidebar-level").innerText = level || "No level set";
+	document.getElementById("card-fullname").innerText = fullname;
+	document.getElementById("card-matric").innerText = username;
+	document.getElementById("card-level").innerText = level || "No level set";
+	document.getElementById("card-email").innerText = email;
+	document.getElementById("card-placement").innerText =
+		placement || "No placement set";
+	document.getElementById("card-totalHours").innerText =
+		totalHours?.toFixed(2) || "No record found";
+	document.getElementById("card-program").innerText = course;
 };

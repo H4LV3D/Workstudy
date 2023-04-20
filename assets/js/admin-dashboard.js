@@ -14,12 +14,13 @@ window.onload = () => {
 		});
 };
 
-let buildTable = (attendance) => {
+const buildTable = (attendance) => {
 	const table = document.getElementById("myTable");
 	const tbody = table.querySelector("tbody");
 
 	attendance.forEach((data, index) => {
 		const row = document.createElement("tr");
+
 		const sl = document.createElement("td");
 		sl.classList.add("text-center");
 		sl.textContent = index + 1;
@@ -42,11 +43,7 @@ let buildTable = (attendance) => {
 
 		const totalHours = document.createElement("td");
 		totalHours.classList.add("text-center");
-		if (data.totalHours) {
-			totalHours.textContent = data.totalHours;
-		} else {
-			totalHours.textContent = "0";
-		}
+		totalHours.textContent = data.totalHours ?? "0";
 
 		const level = document.createElement("td");
 		level.classList.add("text-center");
@@ -61,6 +58,7 @@ let buildTable = (attendance) => {
 		row.appendChild(matric);
 		row.appendChild(email);
 		row.appendChild(program);
+		row.appendChild(totalHours);
 		row.appendChild(level);
 		row.appendChild(placement);
 

@@ -1,3 +1,6 @@
+const preloader = document.getElementById("preloader");
+
+preloader.style.display = "flex";
 window.onload = () => {
 	fetch(`${API_URL}/attendances/`, {
 		method: "GET",
@@ -7,6 +10,7 @@ window.onload = () => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
+			preloader.style.display = "none";
 			buildTable(data);
 			fetch(`${API_URL}/users/`, {
 				method: "GET",
@@ -15,19 +19,20 @@ window.onload = () => {
 				},
 			})
 				.then((response) => response.json())
-				.then((data) => {
-					buildPage(...data);
+				.then((userData) => {
+					buildPage(...userData);
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		})
 		.catch((error) => {
+			preloader.style.display = "none";
 			console.log(error);
 		});
 };
 
-let buildTable = (attendance) => {
+const buildTable = (attendance) => {
 	const table = document.getElementById("myTable");
 	const tbody = table.querySelector("tbody");
 
@@ -35,7 +40,7 @@ let buildTable = (attendance) => {
 		const row = document.createElement("tr");
 		const sl = document.createElement("td");
 		sl.classList.add("text-center");
-		sl.textContent += index + 1;
+		sl.textContent = index + 1;
 
 		const date = document.createElement("td");
 		date.classList.add("text-center");
@@ -47,12 +52,9 @@ let buildTable = (attendance) => {
 
 		const timeOut = document.createElement("td");
 		timeOut.classList.add("text-center");
-
-		if (data.signOutTime) {
-			timeOut.textContent = data.signOutTime.substring(11, 19);
-		} else {
-			timeOut.textContent = "-";
-		}
+		timeOut.textContent = data.signOutTime
+			? data.signOutTime.substring(11, 19)
+			: "-";
 
 		const totalHours = document.createElement("td");
 		totalHours.classList.add("text-center");
@@ -66,21 +68,21 @@ let buildTable = (attendance) => {
 		tbody.appendChild(row);
 	});
 
-	$(document).ready(function () {
+	$(document).ready(() => {
 		$("#myTable").DataTable();
 	});
 };
 
-let buildPage = (data) => {
-	let username = document.getElementById("sidebar-name");
+const buildPage = (data) => {
+	const username = document.getElementById("sidebar-name");
 	username.innerText = data.fullname;
 
-	let sbLevel = document.getElementById("sidebar-level");
+	const sbLevel = document.getElementById("sidebar-level");
 	sbLevel.innerText = data.level || "No level set";
 
-	let totalHours = document.getElementById("totalHours");
+	const totalHours = document.getElementById("totalHours");
 	totalHours.innerText = data.totalHours.toFixed(2) || "No record found";
 
-	let greetName = document.getElementById("greetName");
+	const greetName = document.getElementById("greetName");
 	greetName.innerText = data.fullname;
 };

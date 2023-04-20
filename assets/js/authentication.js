@@ -1,5 +1,5 @@
-const API_URL = "https://cu-workstudy-backend.cyclic.app";
-// const API_URL = "http://127.0.0.1:3000";
+// const API_URL = "https://cu-workstudy-backend.cyclic.app";
+const API_URL = "http://127.0.0.1:3000";
 
 const token = localStorage.getItem("token");
 
@@ -11,12 +11,10 @@ fetch(`${API_URL}/users/verify`, {
 })
 	.then((response) => response.json())
 	.then((data) => {
-		console.log(data);
 		if (data.error) {
 			window.location.href = "/portal/login.html";
 		}
-		role = data.role;
-		checkAuthorization(role);
+		checkAuthorization(data.role);
 	});
 
 function checkAuthorization(role) {
@@ -29,17 +27,6 @@ function checkAuthorization(role) {
 	) {
 		// user has student role and is trying to access admin page
 		window.location.href = "/index.html";
-	}
-	// user has valid role for the page they are trying to access
-	if (role === "admin" && window.location.pathname.includes("/admin")) {
-		// user has admin role and is trying to access admin page
-		return;
-	} else if (
-		role === "student" &&
-		window.location.pathname.includes("/admin")
-	) {
-		// user has student role and is trying to access admin page
-		window.location.href = "/portal/";
 	}
 	// user has valid role for the page they are trying to access
 }
