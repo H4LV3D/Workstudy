@@ -1,19 +1,25 @@
 let matricNumber;
 const preloader = document.getElementById("preloader");
 
-fetch(`${API_URL}/users/`, {
-	method: "GET",
-	headers: {
-		Authorization: `token ${token}`,
-	},
-})
-	.then((response) => response.json())
-	.then((data) => {
-		matricNumber = data[0].username;
+window.onload = () => {
+	preloader.style.display = "flex";
+
+	fetch(`${API_URL}/users/`, {
+		method: "GET",
+		headers: {
+			Authorization: `token ${token}`,
+		},
 	})
-	.catch((error) => {
-		console.log(error);
-	});
+		.then((response) => response.json())
+		.then((data) => {
+			preloader.style.display = "none";
+
+			matricNumber = data[0].username;
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
 
 let signinAction = (e) => {
 	let clickedButton = e.target.name;
