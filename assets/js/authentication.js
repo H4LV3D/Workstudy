@@ -14,6 +14,9 @@ fetch(`${API_URL}/users/verify`, {
 		if (data.error) {
 			window.location.href = "/portal/login.html";
 		}
+		if (data.length === 0) {
+			logout();
+		}
 		checkAuthorization(data.role);
 	});
 
