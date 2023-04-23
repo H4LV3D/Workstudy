@@ -3,7 +3,7 @@ let matricNumber;
 const preloader = document.getElementById("preloader");
 
 preloader.style.display = "flex";
-window.addEventListener("load", () => {
+window.onload = () => {
 	fetch(`${API_URL}/users`, {
 		method: "GET",
 		headers: {
@@ -21,11 +21,13 @@ window.addEventListener("load", () => {
 			matricNumber = data[0].username;
 		})
 		.catch((error) => {
+			preloader.style.display = "none";
 			console.error("Error fetching user data:", error);
 		});
-});
+};
 
-const signIn = () => {
+const signIn = (e) => {
+	e.preventDefault();
 	preloader.style.display = "flex";
 	fetch(`${API_URL}/attendances`, {
 		method: "POST",
@@ -56,7 +58,8 @@ const signIn = () => {
 		});
 };
 
-const signOut = () => {
+const signOut = (e) => {
+	e.preventDefault();
 	preloader.style.display = "flex";
 	fetch(`${API_URL}/attendances`, {
 		method: "PUT",
@@ -86,9 +89,3 @@ const signOut = () => {
 			console.error("Error signing out user:", error);
 		});
 };
-
-const signInButton = document.getElementById("signinbutton");
-const signOutButton = document.getElementById("signoutbutton");
-
-signInButton.addEventListener("click", signIn);
-signOutButton.addEventListener("click", signOut);

@@ -19,6 +19,7 @@ window.onload = () => {
 		.catch((error) => {
 			preloader.style.display = "none";
 			console.log(error);
+			logout();
 		});
 };
 
