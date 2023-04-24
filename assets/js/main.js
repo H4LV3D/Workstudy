@@ -1,5 +1,5 @@
-// const API_URL = "https://cu-workstudy-backend.cyclic.app";
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://cu-workstudy-backend.cyclic.app";
+// const API_URL = "http://127.0.0.1:3000";
 
 const preloader = document.getElementById("preloader");
 
