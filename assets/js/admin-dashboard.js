@@ -41,10 +41,6 @@ const buildTable = (attendance) => {
 		program.classList.add("text-center");
 		program.textContent = data.course;
 
-		const totalHours = document.createElement("td");
-		totalHours.classList.add("text-center");
-		totalHours.textContent = data.totalHours ?? "0";
-
 		const level = document.createElement("td");
 		level.classList.add("text-center");
 		level.textContent = data.level;
@@ -58,7 +54,6 @@ const buildTable = (attendance) => {
 		row.appendChild(matric);
 		row.appendChild(email);
 		row.appendChild(program);
-		row.appendChild(totalHours);
 		row.appendChild(level);
 		row.appendChild(placement);
 
