@@ -464,3 +464,17 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+
+.dt-button {
+  padding: 3px 16px !important;
+  background-color: #996399;
+  outline: none;
+  border: 0px solid #996399;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+
+/* */

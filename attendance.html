@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Work-study Portal</title>
-		<script src="./assets/js/authentication.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Work-study Portal</title>
+    <script src="./assets/js/authentication.js"></script>
 
-		<link
-			href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-			rel="stylesheet"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"
-		></script>
-		<link rel="stylesheet" href="./assets/css/side.css" />
-		<link rel="stylesheet" href="./assets/css/loader.css" />
-		<!-- <script src="./assets/js/attendance.js"></script> -->
-		<link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
-		<link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
-		<link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
-	</head>
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/side.css" />
+    <link rel="stylesheet" href="./assets/css/loader.css" />
+    <!-- <script src="./assets/js/attendance.js"></script> -->
+    <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
+  </head>
 
-	<body>
-		<div id="preloader">
-			<div class="spinner"></div>
-		</div>
-		<div class="d-none d-md-block sidebar">
-			<div class="logo-details">
-				<img src="./assets/images/logo.png" class="icon" alt="" />
-				<div class="logo_name">Work Study</div>
-				<i class="bx bx-menu" id="btn"></i>
-			</div>
-			<ul class="nav-list">
-				<li>
-					<a href="/portal/">
-						<i class="bx bx-grid-alt"></i>
-						<span class="links_name">Dashboard</span>
-					</a>
-					<span class="tooltip">Dashboard</span>
-				</li>
-				<li>
-					<a href="/portal/activity.html">
-						<i class="bx bxs-calendar"></i>
-						<span class="links_name">Activity</span>
-					</a>
-					<span class="tooltip">Activity</span>
-				</li>
-				<li>
-					<a href="/portal/attendance.html" class="active">
-						<i class="bx bx-pencil"></i>
-						<span class="links_name">Attendance</span>
-					</a>
-					<span class="tooltip">Attendance</span>
-				</li>
-				<li>
-					<a href="/portal/settings.html">
-						<i class="bx bx-cog"></i>
-						<span class="links_name">Setting</span>
-					</a>
-					<span class="tooltip">Setting</span>
-				</li>
-				<li class="profile">
-					<div class="profile-details">
-						<i class="fas fa-user-circle fa-3x fa-fw"></i>
-						<div class="name_job">
-							<div class="name" id="sidebar-name"></div>
-							<div class="job" id="sidebar-level"></div>
-						</div>
-					</div>
-					<a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
-				</li>
-			</ul>
-		</div>
+  <body>
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <div class="d-none d-md-block sidebar">
+      <div class="logo-details">
+        <img src="./assets/images/logo.png" class="icon" alt="" />
+        <div class="logo_name">Work Study</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="/portal/">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="/portal/activity.html">
+            <i class="bx bxs-calendar"></i>
+            <span class="links_name">Activity</span>
+          </a>
+          <span class="tooltip">Activity</span>
+        </li>
+        <li>
+          <a href="/portal/attendance.html" class="active">
+            <i class="bx bx-pencil"></i>
+            <span class="links_name">Attendance</span>
+          </a>
+          <span class="tooltip">Attendance</span>
+        </li>
+        <li>
+          <a href="/portal/settings.html">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Settings</span>
+          </a>
+          <span class="tooltip">Settings</span>
+        </li>
+        <li class="profile">
+          <div class="profile-details">
+            <i class="fas fa-user-circle fa-3x fa-fw"></i>
+            <div class="name_job">
+              <div class="name" id="sidebar-name"></div>
+              <div class="job" id="sidebar-level"></div>
+            </div>
+          </div>
+          <a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
+        </li>
+      </ul>
+    </div>
 
-		<div class="d-md-none fixed-bottom mb-2">
-			<div class="row d-flex justify-content-center items-align-center">
-				<ul
-					class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white"
-				>
-					<a href="/portal/" class="text-decoration-none text-light">
-						<i class="bx bx-grid-alt" style="color: #000"></i>
-					</a>
-					<a
-						href="/portal/activity.html"
-						class="text-decoration-none text-light"
-					>
-						<i class="bx bxs-calendar" style="color: #000"></i>
-					</a>
-					<a
-						href="/portal/attendance.html"
-						class="text-decoration-none text-light"
-					>
-						<i class="bx bx-pencil" style="color: #996399"></i>
-					</a>
-					<a
-						href="/portal/settings.html"
-						class="text-decoration-none text-light"
-					>
-						<i class="bx bx-cog" style="color: #000"></i>
-					</a>
-				</ul>
-			</div>
-		</div>
+    <div class="d-md-none fixed-bottom mb-2">
+      <div class="row d-flex justify-content-center items-align-center">
+        <ul
+          class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white"
+        >
+          <a href="/portal/" class="text-decoration-none text-light">
+            <i class="bx bx-grid-alt" style="color: #000"></i>
+          </a>
+          <a
+            href="/portal/activity.html"
+            class="text-decoration-none text-light"
+          >
+            <i class="bx bxs-calendar" style="color: #000"></i>
+          </a>
+          <a
+            href="/portal/attendance.html"
+            class="text-decoration-none text-light"
+          >
+            <i class="bx bx-pencil" style="color: #996399"></i>
+          </a>
+          <a
+            href="/portal/settings.html"
+            class="text-decoration-none text-light"
+          >
+            <i class="bx bx-cog" style="color: #000"></i>
+          </a>
+        </ul>
+      </div>
+    </div>
 
-		<section
-			class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0"
-		>
-			<div
-				class="cards p-5 mx-auto shadow rounded-15 text-center"
-				style="width: 24rem"
-			>
-				<div class="">
-					<small style="color: #996399" class="text-center"
-						>Work-study Portal</small
-					>
-					<h3 class="card-title text-center">Attendance Card</h3>
-					<p class="text-center next">
-						Please make sure to sign in and sign out properly. Any issues should
-						be reported to seald Office
-					</p>
-					<form id="loginFrm" class="pt-3">
-						<button
-							class="px-5 py-3 border-0 w-100 rounded mb-3 text-white"
-							role="button"
-							name="signinbutton"
-							style="background-color: #996399"
-							onclick="signIn(event)"
-						>
-							SIGN IN
-						</button>
-						<br />
-						<button
-							class="px-5 py-3 border-0 w-100 rounded text-white"
-							role="button"
-							name="signoutbutton"
-							style="background-color: #996399"
-							onclick="signOut(event)"
-						>
-							SIGN OUT
-						</button>
-					</form>
-				</div>
-			</div>
-		</section>
-		<script>
-			let sidebar = document.querySelector(".sidebar");
-			let closeBtn = document.querySelector("#btn");
-			let searchBtn = document.querySelector(".bx-search");
+    <section
+      class="d-flex align-items-center justify-content-center vh-100 mb-5 mb-md-0"
+    >
+      <div
+        class="cards p-5 mx-auto shadow rounded-15 text-center"
+        style="width: 24rem"
+      >
+        <div class="">
+          <small style="color: #996399" class="text-center"
+            >Work-study Portal</small
+          >
+          <h3 class="card-title text-center">Attendance Card</h3>
+          <p class="text-center next">
+            Please make sure to sign in and sign out properly. Any issues should
+            be reported to seald Office
+          </p>
+          <form id="loginFrm" class="pt-3">
+            <button
+              class="px-5 py-3 border-0 w-100 rounded mb-3 text-white"
+              role="button"
+              name="signinbutton"
+              style="background-color: #996399"
+              onclick="signIn(event)"
+            >
+              SIGN IN
+            </button>
+            <br />
+            <button
+              class="px-5 py-3 border-0 w-100 rounded text-white"
+              role="button"
+              name="signoutbutton"
+              style="background-color: #996399"
+              onclick="signOut(event)"
+            >
+              SIGN OUT
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
 
-			closeBtn.addEventListener("click", () => {
-				sidebar.classList.toggle("open");
-			});
-		</script>
-		<script src="./assets/js/attendance.js"></script>
-	</body>
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    </script>
+    <script src="./assets/js/attendance.js"></script>
+  </body>
 </html>
