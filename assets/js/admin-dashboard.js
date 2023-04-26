@@ -91,7 +91,7 @@ const buildTable = (attendance) => {
       { title: "Placement", data: "placement", className: "text-center" },
     ],
     dom: "Bfrtip",
-    buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+    buttons: ["copyHtml5", "excelHtml5", "pdfHtml5"],
   });
 };
 
@@ -137,3 +137,31 @@ function showModal(rowData) {
   });
   modal.modal("show");
 }
+
+fetch(`${API_URL}/users/`, {
+  method: "GET",
+  headers: {
+    Authorization: `token ${token}`,
+  },
+})
+  .then((response) => response.json())
+  .then((userData) => {
+    buildPage(...userData);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+const buildPage = (data) => {
+  const username = document.getElementById("sidebar-name");
+  username.innerText = data.fullname;
+
+  const sbLevel = document.getElementById("sidebar-level");
+  sbLevel.innerText = data.level || "No level set";
+
+  const totalHours = document.getElementById("totalHours");
+  totalHours.innerText = data.totalHours.toFixed(2) || "No record found";
+
+  const greetName = document.getElementById("greetName");
+  greetName.innerText = data.fullname;
+};
