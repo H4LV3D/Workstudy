@@ -1,17 +1,17 @@
 window.onload = () => {
-	fetch(`${API_URL}/users`, {
-		method: "GET",
-		headers: {
-			Authorization: `token ${token}`,
-		},
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			buildTable(data);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+    fetch(`${API_URL}/users`, {
+        method: 'GET',
+        headers: {
+            Authorization: `token ${token}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            buildTable(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 // const buildTable = (attendance) => {
@@ -74,91 +74,91 @@ window.onload = () => {
 
 let table;
 const buildTable = (attendance) => {
-	table = $("#myTable").DataTable({
-		data: attendance,
-		columns: [
-			{
-				title: "S/N",
-				data: null,
-				className: "text-center",
-				render: (data, type, row, meta) => meta.row + 1,
-			},
-			{ title: "Full Name", data: "fullname", className: "text-center" },
-			{ title: "Username", data: "username", className: "text-center" },
-			{ title: "Email", data: "email", className: "text-center" },
-			{ title: "Course", data: "course", className: "text-center" },
-			{ title: "Level", data: "level", className: "text-center" },
-			{ title: "Placement", data: "placement", className: "text-center" },
-		],
-		dom: "Bfrtip",
-		buttons: ["copyHtml5", "excelHtml5", "pdfHtml5"],
-	});
+    table = $('#myTable').DataTable({
+        data: attendance,
+        columns: [
+            {
+                title: 'S/N',
+                data: null,
+                className: 'text-center',
+                render: (data, type, row, meta) => meta.row + 1,
+            },
+            { title: 'Full Name', data: 'fullname', className: 'text-center' },
+            { title: 'Username', data: 'username', className: 'text-center' },
+            { title: 'Email', data: 'email', className: 'text-center' },
+            { title: 'Course', data: 'course', className: 'text-center' },
+            { title: 'Level', data: 'level', className: 'text-center' },
+            { title: 'Placement', data: 'placement', className: 'text-center' },
+        ],
+        dom: 'Bfrtip',
+        buttons: ['copyHtml5', 'excelHtml5', 'pdfHtml5'],
+    });
 };
 
-$("#myTable").on("click", "tbody tr", function () {
-	const rowData = table.row(this).data();
-	showModal(rowData);
+$('#myTable').on('click', 'tbody tr', function () {
+    const rowData = table.row(this).data();
+    showModal(rowData);
 });
 
-const modal = $("#editUserModal");
+const modal = $('#editUserModal');
 
 function showModal(rowData) {
-	modal.find("#id").val(rowData.id);
-	modal.find("#fullname").val(rowData.fullname);
-	modal.find("#username").val(rowData.username);
-	modal.find("#email").val(rowData.email);
-	modal.find("#course").val(rowData.course);
-	modal.find("#level").val(rowData.level);
-	modal.find("#placement").val(rowData.placement);
+    modal.find('#id').val(rowData.id);
+    modal.find('#fullname').val(rowData.fullname);
+    modal.find('#username').val(rowData.username);
+    modal.find('#email').val(rowData.email);
+    modal.find('#course').val(rowData.course);
+    modal.find('#level').val(rowData.level);
+    modal.find('#placement').val(rowData.placement);
 
-	modal.find("form").submit(function (event) {
-		event.preventDefault();
-		const formData = $(this).serialize();
-		fetch(`${API_URL}/users/${rowData.id}`, {
-			method: "PUT",
-			headers: {
-				Authorization: `token ${token}`,
-				"Content-Type": "application/x-www-form-urlencoded",
-			},
-			body: formData,
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.error) {
-					alert(data.message);
-				} else {
-					alert(data.message);
-					window.location.reload();
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	});
-	modal.modal("show");
+    modal.find('form').submit(function (event) {
+        event.preventDefault();
+        const formData = $(this).serialize();
+        fetch(`${API_URL}/users/${rowData.id}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `token ${token}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.error) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                    window.location.reload();
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    });
+    modal.modal('show');
 }
 
 fetch(`${API_URL}/users/`, {
-	method: "GET",
-	headers: {
-		Authorization: `token ${token}`,
-	},
+    method: 'GET',
+    headers: {
+        Authorization: `token ${token}`,
+    },
 })
-	.then((response) => response.json())
-	.then((userData) => {
-		buildPage(...userData);
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+    .then((response) => response.json())
+    .then((userData) => {
+        buildPage(...userData);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 
 const buildPage = (data) => {
-	const username = document.getElementById("sidebar-name");
-	username.innerText = data.fullname;
+    const username = document.getElementById('sidebar-name');
+    username.innerText = data.fullname;
 
-	const sbLevel = document.getElementById("sidebar-level");
-	sbLevel.innerText = data.level || "No level set";
+    const sbLevel = document.getElementById('sidebar-level');
+    sbLevel.innerText = data.level || 'No level set';
 
-	const greetName = document.getElementById("greetName");
-	greetName.innerText = data.fullname;
+    const greetName = document.getElementById('greetName');
+    greetName.innerText = data.fullname;
 };

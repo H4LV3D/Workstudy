@@ -1,344 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Work study Portal</title>
-    <script src="./assets/js/authentication.js"></script>
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./assets/css/side.css" />
-    <link rel="stylesheet" href="./assets/css/loader.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <title>Work study Portal</title>
+        <script src="./assets/js/authentication.js"></script>
+        <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="./assets/css/side.css" />
+        <link rel="stylesheet" href="./assets/css/loader.css" />
 
-    <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
-    <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
-    <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
-  </head>
+        <link
+            href="./assets/fontawesome/css/fontawesome.css"
+            rel="stylesheet"
+        />
+        <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+        <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
+    </head>
 
-  <body>
-    <div id="preloader">
-      <div class="spinner"></div>
-    </div>
-    <div class="d-none d-md-block sidebar">
-      <div class="logo-details">
-        <img src="./assets/images/logo.png" class="icon" alt="" />
-        <div class="logo_name">Work Study</div>
-        <i class="bx bx-menu" id="btn"></i>
-      </div>
-      <hr />
-      <ul class="nav-list">
-        <li>
-          <a href="/portal/">
-            <i class="bx bx-grid-alt"></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-          <span class="tooltip">Dashboard</span>
-        </li>
-        <li>
-          <a href="/portal/activity.html">
-            <i class="bx bxs-calendar"></i>
-            <span class="links_name">Activity</span>
-          </a>
-          <span class="tooltip">Activity</span>
-        </li>
-        <li>
-          <a href="/portal/attendance.html">
-            <i class="bx bx-pencil"></i>
-            <span class="links_name">Attendance</span>
-          </a>
-          <span class="tooltip">Attendance</span>
-        </li>
-        <li>
-          <a href="/portal/settings.html" class="active">
-            <i class="bx bx-cog"></i>
-            <span class="links_name">Settings</span>
-          </a>
-          <span class="tooltip">Settings</span>
-        </li>
-        <li class="profile">
-          <div class="profile-details">
-            <i class="fas fa-user-circle fa-3x fa-fw"></i>
-            <div class="name_job">
-              <div class="name" id="sidebar-name"></div>
-              <div class="job" id="sidebar-level"></div>
+    <body>
+        <div id="preloader">
+            <div class="spinner"></div>
+        </div>
+        <div class="d-none d-md-block sidebar">
+            <div class="logo-details">
+                <img src="./assets/images/logo.png" class="icon" alt="" />
+                <div class="logo_name">Work Study</div>
+                <i class="bx bx-menu" id="btn"></i>
             </div>
-          </div>
-          <a onclick="logout()"><i class="bx bx-log-out" id="log_out"></i></a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="d-md-none fixed-bottom mb-2">
-      <div class="row d-flex justify-content-center items-align-center">
-        <ul
-          class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white"
-        >
-          <a href="/portal/" class="text-decoration-none text-light">
-            <i class="bx bx-grid-alt" style="color: #000"></i>
-          </a>
-          <a
-            href="/portal/activity.html"
-            class="text-decoration-none text-light"
-          >
-            <i class="bx bxs-calendar" style="color: #000"></i>
-          </a>
-          <a
-            href="/portal/attendance.html"
-            class="text-decoration-none text-light"
-          >
-            <i class="bx bx-pencil" style="color: #333"></i>
-          </a>
-          <a
-            href="/portal/settings.html"
-            class="text-decoration-none text-light"
-          >
-            <i class="bx bx-cog" style="color: #996399"></i>
-          </a>
-        </ul>
-      </div>
-    </div>
-
-    <section class="main-body container my-5 mb-md-0">
-      <div class="col-12 min-vh-100 mx-auto">
-        <div class="container">
-          <div class="page-header">
-            <p class="p-0 m-0 mb-2">
-              <small style="color: #996399" class="text-center"
-                >Work-study Portal</small
-              >
-            </p>
-            <h4>
-              Hi,
-              <b id="settings-username"> </b>
-            </h4>
-          </div>
-          <hr />
-          <button
-            type="button"
-            class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
-            style="background-color: #996399"
-            data-toggle="modal"
-            data-target="#exampleModal2"
-          >
-            Reset Your Password
-          </button>
-
-          <br />
-
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            style="background-color: #996399"
-            class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2 mt-4"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            Add Account Details
-          </button>
-
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" style="width: 25rem">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                    Bank Account Form
-                  </h5>
-                  <div
-                    type="button"
-                    class="btn-close"
-                    style="
-                      border: 2px solid #996399 !important;
-                      padding: 2px !important;
-                      color: #fff;
-                      border-radius: 6px;
-                      background-color: #996399 !important;
-                    "
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    style="color: #996399"
-                  >
-                    <i class="fas fa-xmark fa-fw fa-lg"></i>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="mb-3">
-                      <label for="bankName" class="form-label">Bank Name</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="bankName"
-                        required
-                      />
+            <hr />
+            <ul class="nav-list">
+                <li>
+                    <a href="/portal/">
+                        <i class="bx bx-grid-alt"></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+                <li>
+                    <a href="/portal/activity.html">
+                        <i class="bx bxs-calendar"></i>
+                        <span class="links_name">Activity</span>
+                    </a>
+                    <span class="tooltip">Activity</span>
+                </li>
+                <li>
+                    <a href="/portal/attendance.html">
+                        <i class="bx bx-pencil"></i>
+                        <span class="links_name">Attendance</span>
+                    </a>
+                    <span class="tooltip">Attendance</span>
+                </li>
+                <li>
+                    <a href="/portal/settings.html" class="active">
+                        <i class="bx bx-cog"></i>
+                        <span class="links_name">Settings</span>
+                    </a>
+                    <span class="tooltip">Settings</span>
+                </li>
+                <li class="profile">
+                    <div class="profile-details">
+                        <i class="fas fa-user-circle fa-3x fa-fw"></i>
+                        <div class="name_job">
+                            <div class="name" id="sidebar-name"></div>
+                            <div class="job" id="sidebar-level"></div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                      <label for="accountNumber" class="form-label"
-                        >Account Number</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="accountNumber"
-                        required
-                      />
+                    <a onclick="logout()"
+                        ><i class="bx bx-log-out" id="log_out"></i
+                    ></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-md-none fixed-bottom mb-2">
+            <div class="row d-flex justify-content-center items-align-center">
+                <ul
+                    class="col-10 d-flex flex-row justify-content-between align-items-center my-auto py-3 px-5 border rounded-15 shadow bg-white"
+                >
+                    <a href="/portal/" class="text-decoration-none text-light">
+                        <i class="bx bx-grid-alt" style="color: #000"></i>
+                    </a>
+                    <a
+                        href="/portal/activity.html"
+                        class="text-decoration-none text-light"
+                    >
+                        <i class="bx bxs-calendar" style="color: #000"></i>
+                    </a>
+                    <a
+                        href="/portal/attendance.html"
+                        class="text-decoration-none text-light"
+                    >
+                        <i class="bx bx-pencil" style="color: #333"></i>
+                    </a>
+                    <a
+                        href="/portal/settings.html"
+                        class="text-decoration-none text-light"
+                    >
+                        <i class="bx bx-cog" style="color: #996399"></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-body container my-5 mb-md-0">
+            <div class="col-12 min-vh-100 mx-auto">
+                <div class="container">
+                    <div class="page-header">
+                        <p class="p-0 m-0 mb-2">
+                            <small style="color: #996399" class="text-center"
+                                >Work-study Portal</small
+                            >
+                        </p>
+                        <h4>
+                            Hi,
+                            <b id="settings-username"> </b>
+                        </h4>
                     </div>
-                    <div class="mb-3">
-                      <label for="accountName" class="form-label"
-                        >Account Name</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="accountName"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <button
+                    <hr />
+                    <button
+                        type="button"
+                        class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
+                        style="background-color: #996399"
+                        data-toggle="modal"
+                        data-target="#exampleModal2"
+                    >
+                        Reset Your Password
+                    </button>
+
+                    <br />
+
+                    <!-- Button trigger modal -->
+                    <button
                         type="button"
                         style="background-color: #996399"
-                        class="btn btn-primary w-100 py-2"
-                        onclick="submitForm()"
-                      >
-                        Submit
-                      </button>
+                        class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2 mt-4"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                    >
+                        Add Account Details
+                    </button>
+
+                    <!-- Modal -->
+                    <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog" style="width: 25rem">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5
+                                        class="modal-title"
+                                        id="exampleModalLabel"
+                                    >
+                                        Bank Account Form
+                                    </h5>
+                                    <div
+                                        type="button"
+                                        class="btn-close"
+                                        style="
+                                            border: 2px solid #996399 !important;
+                                            padding: 2px !important;
+                                            color: #fff;
+                                            border-radius: 6px;
+                                            background-color: #996399 !important;
+                                        "
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                        style="color: #996399"
+                                    >
+                                        <i class="fas fa-xmark fa-fw fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label
+                                                for="bankName"
+                                                class="form-label"
+                                                >Bank Name</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="bankName"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="accountNumber"
+                                                class="form-label"
+                                                >Account Number</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="accountNumber"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="accountName"
+                                                class="form-label"
+                                                >Account Name</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="accountName"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <button
+                                                type="button"
+                                                style="
+                                                    background-color: #996399;
+                                                "
+                                                class="btn btn-primary w-100 py-2"
+                                                onclick="submitForm()"
+                                            >
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </form>
+
+                    <div class="d-md-none">
+                        <hr />
+                        <p>Sign Out of Your Account</p>
+                        <a href="" onclick="logout()">
+                            <button
+                                type="button"
+                                class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
+                            >
+                                Logout
+                            </button>
+                        </a>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <div class="d-md-none">
-            <hr />
-            <p>Sign Out of Your Account</p>
-            <a href="" onclick="logout()">
-              <button
-                type="button"
-                class="btn btn-warning shadow-none border-0 text-white px-5 px-sm-4 py-2"
-              >
-                Logout
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="modal fade"
-      id="exampleModal2"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog border-0" role="document" style="width: 25rem">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
+        <div
+            class="modal fade"
+            id="exampleModal2"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-dialog border-0"
+                role="document"
+                style="width: 25rem"
             >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <form action="" method="post">
-                <div class="form-group has-error">
-                  <label>New Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    name="new_password"
-                    class="form-control"
-                    required
-                  />
-                  <span class="help-block"></span>
-                </div>
-                <div class="form-group has-error">
-                  <label>Confirm Password</label>
-                  <input
-                    id="confirm_password"
-                    type="password"
-                    name="confirm_password"
-                    class="form-control"
-                    required
-                  />
-                  <span class="help-block"></span>
-                </div>
-                <div class="form-group flex mb-0">
-                  <input
-                    style="background-color: #996399"
-                    class="btn btn-primary w-100 mt-2 mb-2 py-2"
-                    value="Submit"
-                    onclick="resetPassword(event)"
-                  />
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Reset Password
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="post">
+                                <div class="form-group has-error">
+                                    <label>New Password</label>
+                                    <input
+                                        id="password"
+                                        type="password"
+                                        name="new_password"
+                                        class="form-control"
+                                        required
+                                    />
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-error">
+                                    <label>Confirm Password</label>
+                                    <input
+                                        id="confirm_password"
+                                        type="password"
+                                        name="confirm_password"
+                                        class="form-control"
+                                        required
+                                    />
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group flex mb-0">
+                                    <input
+                                        style="background-color: #996399"
+                                        class="btn btn-primary w-100 mt-2 mb-2 py-2"
+                                        value="Submit"
+                                        onclick="resetPassword(event)"
+                                    />
 
-                  <p class="btn btn-secondary w-100" data-dismiss="modal">
-                    Cancel
-                  </p>
+                                    <p
+                                        class="btn btn-secondary w-100"
+                                        data-dismiss="modal"
+                                    >
+                                        Cancel
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <script src="./assets/js/settings.js"></script>
-    <script>
-      let sidebar = document.querySelector(".sidebar");
-      let closeBtn = document.querySelector("#btn");
-      let searchBtn = document.querySelector(".bx-search");
-      let button = document.querySelector(".bx-menu");
-      button.addEventListener("click", () => {
-        // sidebar.classList.toggle("open");
-        searchBtn.classList.toggle("bx-search");
-        searchBtn.classList.toggle("bx-menu");
-      });
+        <script src="./assets/js/settings.js"></script>
+        <script>
+            let sidebar = document.querySelector('.sidebar');
+            let closeBtn = document.querySelector('#btn');
+            let searchBtn = document.querySelector('.bx-search');
+            let button = document.querySelector('.bx-menu');
+            button.addEventListener('click', () => {
+                // sidebar.classList.toggle("open");
+                searchBtn.classList.toggle('bx-search');
+                searchBtn.classList.toggle('bx-menu');
+            });
 
-      closeBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-        $(button).toggleClass("bx-search bxs-x-square");
-      });
-      $(document).ready(function () {
-        $(".dropdown-toggle").dropdown();
-      });
-    </script>
-  </body>
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                $(button).toggleClass('bx-search bxs-x-square');
+            });
+            $(document).ready(function () {
+                $('.dropdown-toggle').dropdown();
+            });
+        </script>
+    </body>
 </html>
