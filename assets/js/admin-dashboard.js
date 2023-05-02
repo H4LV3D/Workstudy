@@ -1,3 +1,6 @@
+const preloader = document.getElementById('preloader');
+
+preloader.style.display = 'flex';
 // Fetch users data from the API and build the table
 window.onload = () => {
     fetch(`${API_URL}/users`, {
@@ -8,6 +11,7 @@ window.onload = () => {
     })
         .then((response) => response.json())
         .then((data) => {
+            preloader.style.display = 'none';
             buildTable(data);
         })
         .catch((error) => {

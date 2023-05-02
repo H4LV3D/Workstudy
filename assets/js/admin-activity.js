@@ -14,75 +14,45 @@ window.onload = () => {
         });
 };
 
+let table;
 const buildTable = (attendance) => {
-    const table = document.getElementById('myTable');
-    const tbody = table.querySelector('tbody');
-
-    attendance.forEach((data, index) => {
-        const row = document.createElement('tr');
-        const sl = document.createElement('td');
-        sl.classList.add('text-center');
-        sl.textContent = index + 1;
-
-        const name = document.createElement('td');
-        name.classList.add('text-center');
-        name.textContent = data.fullname;
-
-        const matric = document.createElement('td');
-        matric.classList.add('text-center');
-        matric.textContent = data.username;
-
-        const level = document.createElement('td');
-        level.classList.add('text-center');
-        level.textContent = data.level;
-
-        const placement = document.createElement('td');
-        placement.classList.add('text-center');
-        placement.textContent = data.placement;
-
-        const totalHours = document.createElement('td');
-        totalHours.classList.add('text-center');
-        totalHours.textContent = data.totalHours || '0';
-
-        row.appendChild(sl);
-        row.appendChild(name);
-        row.appendChild(matric);
-        row.appendChild(totalHours);
-        row.appendChild(level);
-        row.appendChild(placement);
-
-        tbody.appendChild(row);
+    table = $('#myTable').DataTable({
+        data: attendance,
+        columns: [
+            {
+                title: 'S/N',
+                data: null,
+                className: 'text-center',
+                render: (data, type, row, meta) => meta.row + 1,
+            },
+            {
+                title: 'Full Name',
+                data: 'fullname',
+                className: 'text-center',
+            },
+            {
+                title: 'Username',
+                data: 'username',
+                className: 'text-center',
+            },
+            {
+                title: 'Total Hours',
+                data: 'totalHours',
+                className: 'text-center',
+                defaultContent: '0',
+            },
+            {
+                title: 'Level',
+                data: 'level',
+                className: 'text-center',
+            },
+            {
+                title: 'Placement',
+                data: 'placement',
+                className: 'text-center',
+            },
+        ],
+        dom: 'Bfrtip',
+        buttons: ['copyHtml5', 'excelHtml5', 'pdfHtml5'],
     });
-
-    $(document).ready(function () {
-        $('#myTable').DataTable();
-    });
-};
-
-fetch(`${API_URL}/users/`, {
-    method: 'GET',
-    headers: {
-        Authorization: `token ${token}`,
-    },
-})
-    .then((response) => response.json())
-    .then((userData) => {
-        buildPage(...userData);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-
-const buildPage = (data) => {
-    const username = document.getElementById('sidebar-name');
-    username.innerText = data.fullname;
-
-    const sbLevel = document.getElementById('sidebar-level');
-    sbLevel.innerText = data.level || 'No level set';
-
-    const totalHours = document.getElementById('totalHours');
-    totalHours.innerText = data.totalHours.toFixed(2) || 'No record found';
-
-    const greetName = document.getElementById('greetName');
-    greetName.innerText = data.fullname;
 };
