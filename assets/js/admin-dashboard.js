@@ -59,29 +59,56 @@ function showModal(rowData) {
 
     modal.find('form').submit(function (event) {
         event.preventDefault();
-        const formData = $(this).serialize();
-        console.log('Form data:', formData);
+        const fullName = document.getElementById('fullname').value;
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const course = document.getElementById('course').value;
+        const level = document.getElementById('level').value;
+        const placement = document.getElementById('placement').value;
 
-        fetch(`${API_URL}/users/${rowData.id}`, {
-            method: 'PUT',
-            headers: {
-                Authorization: `token ${token}`,
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData,
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.error) {
-                    alert(data.message);
-                } else {
-                    alert(data.message);
-                    // window.location.reload();
-                }
+        // Create a JavaScript object with the form data
+        const formData = {
+            fullName: fullName,
+            username: username,
+            email: email,
+            course: course,
+            level: level,
+            placement: placement,
+        };
+
+        if (
+            rowData.fullname === formData.fullName &&
+            rowData.username === formData.username &&
+            rowData.email === formData.email &&
+            rowData.course === formData.course &&
+            rowData.level === formData.level &&
+            rowData.placement === formData.placement
+        ) {
+            alert('No changes made');
+            modal.modal('hide');
+        } else {
+            fetch(`${API_URL}/users/${rowData.username}`, {
+                method: 'PUT',
+
+                headers: {
+                    Authorization: `token ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataJson),
             })
-            .catch((error) => {
-                console.log(error);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.error) {
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+                        window.location.reload();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     });
 
     modal.modal('show');

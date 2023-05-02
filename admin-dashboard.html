@@ -144,10 +144,10 @@
                 <div
                     class="modal-dialog modal-dialog-centered border-0"
                     role="document"
-                    style="width: 25rem"
+                    style="width: 40rem"
                 >
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header p-4">
                             <h5 class="modal-title" id="editUserModalLabel">
                                 Edit User
                             </h5>
@@ -160,56 +160,102 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body p-5">
                             <form>
                                 <div class="form-group">
-                                    <label for="inputFullName">Full Name</label>
+                                    <label
+                                        for="inputFullName"
+                                        style="font-size: 14px"
+                                        >Full Name</label
+                                    >
+                                    <!-- Add inline CSS to adjust font size -->
                                     <input
                                         type="text"
                                         class="form-control"
+                                        style="font-size: 14px"
                                         id="fullname"
                                         placeholder="Enter Full Name"
                                     />
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputUsername">Username</label>
+                                    <label
+                                        for="inputUsername"
+                                        style="font-size: 14px"
+                                        >Username</label
+                                    >
                                     <input
                                         type="text"
                                         class="form-control"
+                                        style="font-size: 14px"
                                         id="username"
                                         placeholder="Enter Username"
                                     />
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail">Email</label>
+                                    <label
+                                        for="inputEmail"
+                                        style="font-size: 14px"
+                                        >Email</label
+                                    >
                                     <input
                                         type="email"
                                         class="form-control"
+                                        style="font-size: 14px"
                                         id="email"
                                         placeholder="Enter Email"
                                     />
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputCourse">Course</label>
-                                    <input type="text" class="form-control"
-                                    id="course"
+                                    <label
+                                        for="inputCourse"
+                                        style="font-size: 14px"
+                                        >Course</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        style="font-size: 14px"
+                                        id="course"
+                                    />
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputLevel">Level</label>
-                                    <input type="text" class="form-control"
-                                    id="level"
+                                    <label
+                                        for="inputLevel"
+                                        style="font-size: 14px"
+                                        >Level</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        style="font-size: 14px"
+                                        id="level"
+                                    />
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputLevel">Placement</label>
-                                    <input type="text" class="form-control"
-                                    id="placement"
+                                    <label
+                                        for="inputLevel"
+                                        style="font-size: 14px"
+                                        >Placement</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        style="font-size: 14px"
+                                        id="placement"
+                                    />
                                 </div>
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                    style="
+                                        font-size: 16px;
+                                        width: 100%;
+                                        background-color: #996399;
+                                    "
+                                >
+                                    Save Changes
+                                </button>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">
-                                Save Changes
-                            </button>
                         </div>
                     </div>
                 </div>
