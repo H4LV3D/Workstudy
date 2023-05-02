@@ -1,3 +1,4 @@
+// Fetch users data from the API and build the table
 window.onload = () => {
     fetch(`${API_URL}/users`, {
         method: 'GET',
@@ -14,64 +15,7 @@ window.onload = () => {
         });
 };
 
-// const buildTable = (attendance) => {
-//   const table = document.getElementById("myTable");
-//   const tbody = table.querySelector("tbody");
-
-//   attendance.forEach((data, index) => {
-//     const row = document.createElement("tr");
-
-//     const sl = document.createElement("td");
-//     sl.classList.add("text-center");
-//     sl.textContent = index + 1;
-
-//     const name = document.createElement("td");
-//     name.classList.add("text-center");
-//     name.textContent = data.fullname;
-
-//     const matric = document.createElement("td");
-//     matric.classList.add("text-center");
-//     matric.textContent = data.username;
-
-//     const email = document.createElement("td");
-//     email.classList.add("text-center");
-//     email.textContent = data.email;
-
-//     const program = document.createElement("td");
-//     program.classList.add("text-center");
-//     program.textContent = data.course;
-
-//     const level = document.createElement("td");
-//     level.classList.add("text-center");
-//     level.textContent = data.level;
-
-//     const placement = document.createElement("td");
-//     placement.classList.add("text-center");
-//     placement.textContent = data.placement;
-
-//     row.appendChild(sl);
-//     row.appendChild(name);
-//     row.appendChild(matric);
-//     row.appendChild(email);
-//     row.appendChild(program);
-//     row.appendChild(level);
-//     row.appendChild(placement);
-
-//     tbody.appendChild(row);
-//   });
-
-//   $(document).ready(function () {
-//     $("#myTable").DataTable();
-//   });
-// };
-
-// document.getElementById("exportButton").addEventListener("click", () => {
-//   $("#myTable").DataTable({
-//     dom: "Bfrtip",
-//     buttons: ["excel", "pdf"],
-//   });
-// });
-
+// Build the DataTable with the given data
 let table;
 const buildTable = (attendance) => {
     table = $('#myTable').DataTable({
@@ -95,6 +39,7 @@ const buildTable = (attendance) => {
     });
 };
 
+// Show the edit modal when a row is clicked
 $('#myTable').on('click', 'tbody tr', function () {
     const rowData = table.row(this).data();
     showModal(rowData);
@@ -102,6 +47,7 @@ $('#myTable').on('click', 'tbody tr', function () {
 
 const modal = $('#editUserModal');
 
+// Populate the edit modal with the data and submit the form when it's submitted
 function showModal(rowData) {
     modal.find('#id').val(rowData.id);
     modal.find('#fullname').val(rowData.fullname);
@@ -114,6 +60,8 @@ function showModal(rowData) {
     modal.find('form').submit(function (event) {
         event.preventDefault();
         const formData = $(this).serialize();
+        console.log('Form data:', formData);
+
         fetch(`${API_URL}/users/${rowData.id}`, {
             method: 'PUT',
             headers: {
@@ -128,37 +76,13 @@ function showModal(rowData) {
                     alert(data.message);
                 } else {
                     alert(data.message);
-                    window.location.reload();
+                    // window.location.reload();
                 }
             })
             .catch((error) => {
                 console.log(error);
             });
     });
+
     modal.modal('show');
 }
-
-fetch(`${API_URL}/users/`, {
-    method: 'GET',
-    headers: {
-        Authorization: `token ${token}`,
-    },
-})
-    .then((response) => response.json())
-    .then((userData) => {
-        buildPage(...userData);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-
-const buildPage = (data) => {
-    const username = document.getElementById('sidebar-name');
-    username.innerText = data.fullname;
-
-    const sbLevel = document.getElementById('sidebar-level');
-    sbLevel.innerText = data.level || 'No level set';
-
-    const greetName = document.getElementById('greetName');
-    greetName.innerText = data.fullname;
-};
