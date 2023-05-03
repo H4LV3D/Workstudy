@@ -109,7 +109,6 @@ function showModal(rowData) {
                     if (data.error) {
                         alert(data.error);
                     } else {
-                        alert(data.message);
                         window.location.reload();
                     }
                 })
