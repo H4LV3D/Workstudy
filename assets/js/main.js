@@ -1,5 +1,5 @@
-const API_URL = 'https://cu-workstudy-backend.cyclic.app';
-// const API_URL = "http://127.0.0.1:3000";
+const API_URL = 'https://cu-workstudy-backend.cyclic.app/api/v1';
+// const API_URL = 'http://127.0.0.1:3000/api/v1';
 
 const preloader = document.getElementById('preloader');
 
@@ -18,7 +18,7 @@ const login = async (e) => {
 
     preloader.style.display = 'flex';
     try {
-        const response = await fetch(`${API_URL}/users/login`, {
+        const response = await fetch(`${API_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ const preloader = document.getElementById('preloader');
 
 preloader.style.display = 'flex';
 window.onload = () => {
-    fetch(`${API_URL}/users`, {
+    fetch(`${API_URL}/user`, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ window.onload = () => {
 const signIn = (e) => {
     e.preventDefault();
     preloader.style.display = 'flex';
-    fetch(`${API_URL}/attendances`, {
+    fetch(`${API_URL}/attendance`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const signIn = (e) => {
 const signOut = (e) => {
     e.preventDefault();
     preloader.style.display = 'flex';
-    fetch(`${API_URL}/attendances`, {
+    fetch(`${API_URL}/attendance`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

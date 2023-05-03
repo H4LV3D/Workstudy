@@ -1,9 +1,9 @@
-const API_URL = 'https://cu-workstudy-backend.cyclic.app';
-// const API_URL = "http://127.0.0.1:3000";
+const API_URL = 'https://cu-workstudy-backend.cyclic.app/api/v1';
+// const API_URL = 'http://127.0.0.1:3000/api/v1';
 
 const token = localStorage.getItem('token');
 
-fetch(`${API_URL}/users/verify`, {
+fetch(`${API_URL}/user/verify`, {
     method: 'GET',
     headers: {
         Authorization: `token ${token}`,

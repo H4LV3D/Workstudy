@@ -91,19 +91,23 @@ function showModal(rowData) {
             alert('No changes made');
             modal.modal('hide');
         } else {
-            fetch(`${API_URL}/users/${rowData.username}`, {
+            preloader.style.display = 'flex';
+
+            fetch(`${API_URL}/user/${rowData.username}`, {
                 method: 'PUT',
 
                 headers: {
                     Authorization: `token ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formDataJson),
+                body: JSON.stringify(formData),
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    preloader.style.display = 'none';
+
                     if (data.error) {
-                        alert(data.message);
+                        alert(data.error);
                     } else {
                         alert(data.message);
                         window.location.reload();

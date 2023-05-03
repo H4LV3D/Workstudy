@@ -2,7 +2,7 @@ const preloader = document.getElementById('preloader');
 
 preloader.style.display = 'flex';
 window.onload = () => {
-    fetch(`${API_URL}/users/`, {
+    fetch(`${API_URL}/user/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const resetPassword = (e) => {
     }
 
     preloader.style.display = 'flex';
-    fetch(`${API_URL}/users/reset-password`, {
+    fetch(`${API_URL}/user/reset-password`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

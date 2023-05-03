@@ -3,7 +3,7 @@ const preloader = document.getElementById('preloader');
 preloader.style.display = 'flex';
 window.onload = () => {
     // Send the user object to the server
-    fetch(`${API_URL}/users/`, {
+    fetch(`${API_URL}/user/`, {
         method: 'GET',
         headers: {
             Authorization: `token ${token}`,

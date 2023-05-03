@@ -30,9 +30,11 @@ let addStudent = (e) => {
     })
         .then((response) => response.json())
         .then((data) => {
-            if (data.message === 'Account Created!') {
+            if (data.message) {
                 alert('Student added successfully!');
                 window.location.href = '/portal/admin-addstudent.html';
+            } else {
+                alert(data.error);
             }
         })
         .catch((error) => {

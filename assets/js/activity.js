@@ -2,7 +2,7 @@ const preloader = document.getElementById('preloader');
 
 preloader.style.display = 'flex';
 window.onload = () => {
-    fetch(`${API_URL}/attendances/`, {
+    fetch(`${API_URL}/attendance/`, {
         method: 'GET',
         headers: {
             Authorization: `token ${token}`,
@@ -12,7 +12,7 @@ window.onload = () => {
         .then((data) => {
             preloader.style.display = 'none';
             buildTable(data);
-            fetch(`${API_URL}/users/`, {
+            fetch(`${API_URL}/user/`, {
                 method: 'GET',
                 headers: {
                     Authorization: `token ${token}`,
